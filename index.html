@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<meta charset="UTF-8">
+<title>Killerbreak</title>
+<!-- "link" ao arquivo styles-->
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!--"container" principal de trabalho. primeiro o título e o subtítulo. "class" são as chamadas no style.css-->
+    <div class="container">
+        <h1>Killerbreak</h1>
+        <p class="subtitle">Suporte rápido para o copiar e colar.</p>
+<!--caixas de texto do container-->
+        <div class="text-area">
+<!--caixa de texto de entrada, botão "colar" e o local do texto-->
+            <div class="input-box">
+                <button id="pasteBtn">📋 Colar</button>
+                <textarea id="inputText" maxlength="300" placeholder="Cole seu texto aqui..."></textarea>
+            </div>
+<!--caixa de texto de saída: botão "copiar" e o local do texto. depois, link de "editar"-->
+            <div class="output-box">
+                <button id="copyBtn">📄 Copiar</button>
+                <textarea id="outputText" readonly></textarea>
+                <a href="#" id="editLink">Editar</a>
+            </div>
+        </div>
+<!--"container" de opções-->
+        <div class="options">
+<!--"caixinhas" de remover quebras e corrigir espaços. IDs são chamadas no script.js-->
+            <label><input type="checkbox" id="removeBreaks" checked> Remover quebras de linha</label>
+            <label><input type="checkbox" id="fixSpaces" checked> Corrigir espaços</label>
+<!--aba de opções de maiúsculas e minúsculas-->
+			<select id="capitalization">
+                <option value="none">Não alterar capitalização</option>
+                <option value="upper">Tudo maiúsculo</option>
+                <option value="lower">Tudo minúsculo</option>
+                <option value="title">Iniciais maiúsculas</option>
+                <option value="sentence">Primeira palavra da frase maiúscula</option>
+            </select>
+        </div>
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>
