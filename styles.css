@@ -1,0 +1,111 @@
+/* Estilos básicos para o container principal */
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Container do texto */
+.container {
+    margin-bottom: 20px;
+}
+
+/* Estilo das caixas de texto */
+.text-area {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.input-box, .output-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+textarea {
+    height: 200px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+    font-family: monospace;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+/* Estilo dos botões */
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin: 5px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Estilo dos checkboxes */
+.boxes, .options, .advancedoptions {
+    margin: 15px 0;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+label {
+    display: block;
+    margin: 8px 0;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+/* Área de palavras personalizadas */
+.custom-words {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+}
+
+.custom-words input[type="text"] {
+    padding: 8px;
+    margin-right: 5px;
+    width: 200px;
+}
+
+#customWordsList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#customWordsList li {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* Títulos e subtítulos */
+h1 {
+    color: #4CAF50;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: #666;
+    margin-bottom: 20px;
+    font-style: italic;
+}

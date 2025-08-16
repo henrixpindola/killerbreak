@@ -1,0 +1,1 @@
+document.getElementById('clearCustomWords').addEventListener('click', wordList.clearWordList);
