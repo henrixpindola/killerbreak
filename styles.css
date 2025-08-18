@@ -12,12 +12,12 @@ body {
 .container {
     margin-bottom: 20px;
 }
-
-/* Estilo das caixas de texto */
+/* MODIFICAÇÃO PRINCIPAL AQUI - Estilo das caixas de texto */
 .text-area {
     display: flex;
     gap: 20px;
     margin-bottom: 20px;
+    height: 300px; /* Novo: altura fixa para o container */
 }
 
 .input-box, .output-box {
@@ -25,21 +25,23 @@ body {
     display: flex;
     flex-direction: column;
 }
-
+/* Agora caixas de texto no mesmo tamanho - Textareas */
 textarea {
-    height: 200px;
+    height: 100%; /* Alterado: agora ocupa 100% do container */
+    min-height: 250px; /* Novo: altura mínima */
+    max-height: 300px; /* Novo: altura máxima */
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    resize: vertical;
+    resize: none; /* Alterado: desabilita redimensionamento */
     font-family: monospace;
+    box-sizing: border-box; /* Novo: inclui padding no tamanho */
 }
 
 textarea:focus {
     outline: none;
     border-color: #4CAF50;
 }
-
 /* Estilo dos botões */
 button {
     background-color: #4CAF50;
