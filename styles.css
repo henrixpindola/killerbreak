@@ -12,6 +12,7 @@ body {
 .container {
     margin-bottom: 20px;
 }
+
 /* MODIFICAÇÃO PRINCIPAL AQUI - Estilo das caixas de texto */
 .text-area {
     display: flex;
@@ -25,6 +26,7 @@ body {
     display: flex;
     flex-direction: column;
 }
+
 /* Agora caixas de texto no mesmo tamanho - Textareas */
 textarea {
     height: 100%; /* Alterado: agora ocupa 100% do container */
@@ -42,6 +44,7 @@ textarea:focus {
     outline: none;
     border-color: #4CAF50;
 }
+
 /* Estilo dos botões */
 button {
     background-color: #4CAF50;
@@ -56,6 +59,60 @@ button {
 
 button:hover {
     background-color: #45a049;
+}
+
+/* ALTERNATIVA: Posicionamento absoluto - CAIXA DE ENTRADA */
+.input-box {
+    position: relative; /* Container de referência */
+}
+
+#apagar {
+    position: absolute;
+    right: 0; /* Alinha à direita do container */
+    top: 0; /* Alinha ao topo */
+    background-color: #f44336;
+    z-index: 10; /* Garante que fique acima de outros elementos */
+}
+
+.input-box .button-row {
+    padding-right: 80px; /* Espaço para o botão absoluto */
+}
+
+/* BOTÕES DA CAIXA DE SAÍDA - POSICIONAMENTO CORRIGIDO */
+.output-box {
+    position: relative; /* Container de referência */
+}
+
+/* Botão Copiar mantém posição normal */
+#copyBtn {
+    /* Mantém estilo padrão dos botões */
+}
+
+/* Botão Editar - posicionado com espaço adequado */
+#editLink {
+    position: absolute;
+    right: 100px; /* 100px da direita (espaço generoso para o Salvar) */
+    top: 0;
+    z-index: 10;
+    margin: 5px 0;
+    min-width: 80px; /* Largura mínima para consistência */
+    text-align: center;
+}
+
+/* Botão Salvar - posicionamento correto */
+#salvar {
+    position: absolute;
+    right: 0; /* Alinha à extrema direita */
+    top: 0;
+    z-index: 10;
+    margin: 5px 0;
+    min-width: 80px; /* Largura mínima igual ao Editar */
+    text-align: center;
+}
+
+/* Espaço adequado para os botões absolutos */
+.output-box .button-row {
+    padding-right: 180px; /* Espaço suficiente: 100px + 80px */
 }
 
 /* Estilo dos checkboxes */
