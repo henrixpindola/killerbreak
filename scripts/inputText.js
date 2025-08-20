@@ -9,7 +9,7 @@ class TextProcessor {
         this.input.maxLength = this.MAX_CHARS;
         this.input.addEventListener('input', () => this.debounceProcess());
         
-        document.addEventListener('wordListUpdated', () => this.process());
+
         document.addEventListener('checkboxGroupUpdated', () => this.process());
     }
 
@@ -68,7 +68,7 @@ class TextProcessor {
     }
 
     static applyCustomWords(text) {
-        const customWords = WordList.getWords();
+        const customWords = window.getCustomWords ? window.getCustomWords() : [];
         if (customWords.length === 0) return text;
 
         customWords.sort((a, b) => b.length - a.length).forEach(word => {
@@ -81,7 +81,7 @@ class TextProcessor {
     }
 
     static applyCapitalization(text) {
-        const customWords = WordList.getWords();
+        const customWords = window.getCustomWords ? window.getCustomWords() : [];
         
         if (document.getElementById('todasMaiusculas').checked) {
             return this.transformExceptCustomWords(text, 'uppercase', customWords);

@@ -210,7 +210,7 @@ button:hover {
     margin: 8px 0 0 0;
 }
 
-/* BOTÃO DE REMOVER PALAVRAS - CORRIGIDO */
+/* BOTÕES DE EDITAR E REMOVER PALAVRAS */
 #customWordsList li {
     padding: 4px 0;
     border-bottom: 1px solid #eee;
@@ -218,16 +218,16 @@ button:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 3px; /* Espaço mínimo entre palavra e botão */
+    gap: 3px;
 }
 
-/* BOTÃO X VERMELHO - VISÍVEL E PRÓXIMO */
-#customWordsList li button {
-    background-color: #f44336 !important;
+/* Botões de editar e remover */
+#customWordsList li .edit-btn {
+    background-color: #2196F3 !important;
     color: white !important;
     padding: 1px 5px !important;
     margin: 0 !important;
-    margin-left: 5px !important;
+    margin-left: 3px !important;
     font-size: 11px !important;
     font-weight: bold !important;
     min-width: 22px !important;
@@ -241,15 +241,50 @@ button:hover {
     flex-shrink: 0 !important;
 }
 
-#customWordsList li button:hover {
+#customWordsList li .remove-btn {
+    background-color: #f44336 !important;
+    color: white !important;
+    padding: 1px 5px !important;
+    margin: 0 !important;
+    margin-left: 3px !important;
+    font-size: 11px !important;
+    font-weight: bold !important;
+    min-width: 22px !important;
+    height: 22px !important;
+    border: none !important;
+    border-radius: 2px !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+}
+
+#customWordsList li .edit-btn:hover {
+    background-color: #1976D2 !important;
+    transform: scale(1.05);
+}
+
+#customWordsList li .remove-btn:hover {
     background-color: #d32f2f !important;
     transform: scale(1.05);
 }
 
 /* Texto da palavra */
-#customWordsList li span {
+#customWordsList li .word-text {
     flex: 1;
     padding-right: 2px;
+}
+
+/* Input de edição inline */
+#customWordsList li .edit-input {
+    flex: 1;
+    padding: 2px 4px;
+    font-size: 12px;
+    border: 1px solid #4CAF50;
+    border-radius: 2px;
+    background-color: white;
+    margin-right: 2px;
 }
 
 /* ===== TÍTULOS E TEXTOS ===== */
