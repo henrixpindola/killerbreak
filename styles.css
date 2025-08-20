@@ -83,11 +83,6 @@ button:hover {
     position: relative; /* Container de referência */
 }
 
-/* Botão Copiar mantém posição normal */
-#copyBtn {
-    /* Mantém estilo padrão dos botões */
-}
-
 /* Botão Editar - posicionado com espaço adequado */
 #editLink {
     position: absolute;
