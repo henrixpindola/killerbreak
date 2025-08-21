@@ -2,7 +2,146 @@
   <html lang="pt-BR">
 <meta charset="UTF-8">
   <title>Killerbreak</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+        /* ===== FOOTER POSICIONAMENTO ===== */
+        .footer-simplificado {
+            background: #000000;
+            color: white;
+            padding: 1.5rem;
+            margin: 2rem -20px -20px -20px;
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            box-sizing: border-box;
+            font-family: 'Helvetica', Arial, sans-serif;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-left {
+            text-align: center;
+            width: 100%;
+        }
+
+        .footer-left > p:first-child {
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #ecf0f1;
+        }
+
+        .developer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .developer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            min-width: 180px;
+        }
+
+        .dev-name-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .dev-name-link:hover {
+            color: #a9db34;
+            text-decoration: none;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: #ecf0f1;
+            font-size: 1.3rem;
+            transition: all 0.3s;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            color: #a9db34;
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        .repo-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            padding: 0.6rem 1.2rem;
+            border: 1px solid #ffffff;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .repo-link:hover {
+            color: white;
+            background-color: #a9db34;
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ecf0f1;
+        }
+
+        @media (max-width: 768px) {
+            .developer-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .developer {
+                width: 100%;
+                max-width: 250px;
+            }
+            
+            .footer-simplificado {
+                padding: 1rem;
+            }
+        }
+        </style>
 </head>
  <body>
   <div class="container">
@@ -80,122 +219,48 @@
   <script src="/scripts/firstLetterUppercase.js"></script>
   <script src="/scripts/customWords.js"></script>
 
-  <footer><!--com links de github e linkedin de cada desenvolvedor, e link do repositório do projeto-->
-        <style>
-*{
-  box-sizing: border-box;
-}
-body {
-  font-size: 17px;
-  font-family: 'Helvetica', Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-#main {
-background-color: lightblue;
-color: #fff;
-overflow: hidden;
-}
-h1 {
-  text-align: center;
-  border: 1px solid  #fff;
-  padding: 3%;
-  width: 300px;
-  margin: 10px auto;
-}
-h1:hover {
-  background-color: #fff;
-  color: lightblue;
-}
-h3 {
-  float: left;
-  padding: 0;
-  margin: 29px 15px;
-}
-#navbar {
-  overflow: hidden;
-  float: right;
-  margin-top: 12px;
-}
-ul {
-  width: 100%;
-  margin: 0;
-}
-li {
-  list-style: none;
-  display: inline-block;
-  padding: 15px;
-}
-li a {
-  text-decoration: none;
-  color: #fff;
-}
-li a:hover {
-  border: 1px solid transparent;
-  background-color: #fff;
-  color: lightblue;
-}
-#image {
-  overflow: hidden;
-  margin: 0;
-  padding:  0;
-}
-#image img {
-  width: 100%;
-}
-footer {
-  background-color: lightblue;
-  margin-top: -10px;
-  overflow:hidden;
-  text-align: center;
-  color: #fff;
-}
-footer a {
-  text-decoration: none;
-}
-        </style>
+<!--com links de github e linkedin de cada desenvolvedor, e link do repositório do projeto-->
+  </div> <!-- Fecha a div.container -->
+  
+  <!-- Footer fora do container -->
+  <footer class="footer-simplificado">
     <div class="footer-content">
-    <div class="footer-section">
-    <p class="footer-description">Killerbreak, solução fácil para o copiar e colar.</p>
-      <a href="https://github.com/henrixpindola/killerbreak" class="repo-link" target="_blank">
-      <i class="fab fa-github"></i>
-      Acessar Repositório do Projeto
-      </a>
+      <div class="footer-left">
+        <a href="https://github.com/henrixpindola/killerbreak" target="_blank" class="repo-link">
+          <i class="fab fa-github"></i> OpenSource Project
+        </a>
+        <div class="footer-bottom"></div>
+        <div class="developer-links">
+          <div class="developer">
+            <a href="https://github.com/suzi19" target="_blank" class="dev-name-link">
+              Suzana Costa
+            </a>
+            <div class="social-links">
+              <a href="https://github.com/suzi19" target="_blank" title="GitHub">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/suzana-costa-5465b4272/" target="_blank" title="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
+          
+          <div class="developer">
+            <a href="https://github.com/henrixpindola" target="_blank" class="dev-name-link">
+              Henrique Espindola
+            </a>
+            <div class="social-links">
+              <a href="https://github.com/henrixpindola" target="_blank" title="GitHub">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/henrique-espindola-500409256" target="_blank" title="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
+        </div>          
+      </div>
     </div>
-    
-    <div class="footer-section">
-      <h3 class="footer-title">Desenvolvido por</h3>
-    
-    <div class="developers">
-    
-    <div class="developer">
-      <span class="developer-name">Suzana Costa</span>
-    <div class="developer-links">
-      <a href="https://github.com/suzi19" target="_blank" title="GitHub">
-      <i class="fab fa-github"></i>
-      </a>
-    <a href="https://www.linkedin.com/in/suzana-costa-5465b4272/" target="_blank" title="LinkedIn">
-      <i class="fab fa-linkedin"></i>
-    </a>
-  </div>
-  </div>
-                  
-  <div class="developer">
-    <span class="developer-name">Henrique Espindola</span>
-  <div class="developer-links">
-    <a href="https://github.com/henrixpindola" target="_blank" title="GitHub">
-    <i class="fab fa-github"></i>
-    </a>
-    <a href="https://www.linkedin.com/in/henrique-espindola-500409256" target="_blank" title="LinkedIn">
-    <i class="fab fa-linkedin"></i>
-    </a>
-   </div>
-  </div>
- </div>
-</div>
-</div>
-</div>
   </footer>
-
  </body>
 </html>

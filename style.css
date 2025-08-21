@@ -1,24 +1,28 @@
 /* ===== ESTILOS GERAIS ===== */
 body {
-    font-family: Arial, sans-serif;
-    max-width: 800px;
+    font-family: 'Helvetica', Arial, sans-serif;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 15px;
-    line-height: 1.5;
+    padding: 20px;
+    line-height: 1.6;
     color: #333;
     background-color: #fafafa;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .container {
-    margin-bottom: 12px;
+    margin-bottom: 20px;
+    flex: 1;
 }
 
 /* ===== CAIXAS DE TEXTO ===== */
 .text-area {
     display: flex;
-    gap: 15px;
-    margin-bottom: 12px;
-    height: 280px;
+    gap: 20px;
+    margin-bottom: 20px;
+    height: 300px;
 }
 
 .input-box, .output-box {
@@ -29,22 +33,22 @@ body {
 
 textarea {
     height: 100%;
-    min-height: 220px;
-    max-height: 280px;
-    padding: 8px;
+    min-height: 240px;
+    max-height: 300px;
+    padding: 12px;
     border: 1px solid #ccc;
-    border-radius: 3px;
+    border-radius: 8px;
     resize: none;
     font-family: 'Courier New', monospace;
-    font-size: 13px;
+    font-size: 14px;
     box-sizing: border-box;
     background-color: white;
 }
 
 textarea:focus {
     outline: none;
-    border-color: #2196F3;
-    box-shadow: 0 0 3px rgba(76, 175, 80, 0.3);
+    border-color: #a9db34;
+    box-shadow: 0 0 5px rgba(169, 219, 52, 0.4);
 }
 
 /* ===== BOTÕES ===== */
@@ -52,77 +56,117 @@ button {
     background-color: #2196F3;
     color: white;
     border: none;
-    padding: 6px 10px;
-    margin: 3px 0;
-    border-radius: 3px;
+    padding: 8px 14px;
+    margin: 4px 0;
+    border-radius: 6px;
     cursor: pointer;
-    font-size: 12px;
-    font-weight: bold;
-    transition: background-color 0.2s ease;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.3s;
 }
 
 button:hover {
-    background-color: #2196F3;
-    transform: translateY(-1px);
+    background-color: #1e88e5;
+    transform: translateY(-2px);
 }
 
-/* ===== POSICIONAMENTO DE BOTÕES ESPECÍFICOS ===== */
+/* ===== BOTÕES DE ENTRADA ===== */
 .input-box {
     position: relative;
+    padding-top: 40px; /* Espaço para a linha de botões */
+}
+
+.button-row-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    gap: 8px;
+    align-items: stretch;
+}
+
+#pasteBtn, #apagar {
+    position: static;
+    margin: 0;
+    z-index: 10;
+    height: auto;
+}
+
+#pasteBtn {
+    padding: 8px 14px;
+    font-size: 12px;
+    min-width: 75px;
 }
 
 #apagar {
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 10;
+    padding: 6px 10px;
     font-size: 11px;
-    padding: 5px 8px;
+    min-width: 40px;
 }
 
-.input-box .button-row {
-    padding-right: 70px;
-}
-
+/* ===== BOTÕES DE SAÍDA ===== */
 .output-box {
     position: relative;
+    padding-top: 40px; /* Espaço para a linha de botões */
+}
+
+.button-row-output {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    gap: 8px;
+    align-items: stretch;
+}
+
+#copyBtn, #editLink, #salvar {
+    position: static;
+    margin: 0;
+    z-index: 10;
+    height: auto;
+}
+
+#copyBtn {
+    padding: 8px 14px;
+    font-size: 12px;
+    min-width: 75px;
 }
 
 #editLink {
-    position: absolute;
-    right: 85px;
-    top: 0;
-    z-index: 10;
-    margin: 3px 0;
-    min-width: 70px;
-    font-size: 11px;
-    padding: 5px 8px;
+    padding: 8px 14px;
+    font-size: 12px;
+    min-width: 75px;
 }
 
 #salvar {
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 10;
-    margin: 3px 0;
-    min-width: 70px;
+    padding: 6px 10px;
     font-size: 11px;
-    padding: 5px 8px;
+    min-width: 40px;
 }
 
+/* Garantir que todos os botões tenham a mesma altura visual */
+.button-row-input button,
+.button-row-output button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Remover estilos de posicionamento absoluto anteriores */
+.input-box .button-row,
 .output-box .button-row {
-    padding-right: 160px;
+    padding-right: 0;
 }
 
 /* ===== CHECKBOXES - CONTAINERS SEM NOME ===== */
 .boxes {
-    margin: 4px 0 !important;
-    padding: 6px 10px !important;
+    margin: 6px 0 !important;
+    padding: 10px 14px !important;
     border: 1px solid #ddd !important;
-    border-radius: 3px !important;
+    border-radius: 8px !important;
     display: flex !important;
     flex-wrap: wrap !important;
-    gap: 10px !important;
+    gap: 12px !important;
     align-items: center !important;
     justify-content: center !important;
     width: 100% !important;
@@ -136,59 +180,61 @@ button:hover {
     margin: 0 !important;
     cursor: pointer !important;
     white-space: nowrap !important;
-    font-size: 11px !important;
-    padding: 2px 4px !important;
+    font-size: 13px !important;
+    padding: 4px 6px !important;
+    font-weight: 500;
 }
 
 .boxes input[type="checkbox"] {
-    margin-right: 4px !important;
-    transform: scale(0.8) !important;
+    margin-right: 6px !important;
+    transform: scale(0.9) !important;
     accent-color: #2196F3;
 }
 
 /* ===== CHECKBOXES - CONTAINERS NOMINADOS ===== */
 .options, .advancedoptions {
-    margin: 6px 0;
-    padding: 8px;
+    margin: 10px 0;
+    padding: 12px;
     border: 1px solid #ddd;
-    border-radius: 3px;
+    border-radius: 8px;
     background-color: #f8f9fa;
 }
 
 .options label, .advancedoptions label {
     display: block;
-    margin: 4px 0;
+    margin: 6px 0;
     cursor: pointer;
-    font-size: 12px;
-    padding: 4px 2px;
+    font-size: 13px;
+    padding: 5px 3px;
+    font-weight: 500;
 }
 
 .options input[type="checkbox"], 
 .advancedoptions input[type="checkbox"] {
-    margin-right: 6px;
-    transform: scale(0.9);
+    margin-right: 8px;
+    transform: scale(0.95);
     accent-color: #2196F3;
 }
 
 .options > p:first-child,
 .advancedoptions > p:first-child {
     font-weight: bold;
-    margin: 0 0 8px 0;
+    margin: 0 0 10px 0;
     color: #2196F3;
-    font-size: 13px;
+    font-size: 15px;
     border-bottom: 1px solid #eee;
-    padding-bottom: 4px;
+    padding-bottom: 6px;
 }
 
 /* ===== ÁREA DE PALAVRAS PERSONALIZADAS - ALINHAMENTO HORIZONTAL ===== */
 .custom-words {
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin-top: 12px;
-    padding: 10px;
+    gap: 10px;
+    margin-top: 15px;
+    padding: 12px;
     background-color: #f8f9fa;
-    border-radius: 3px;
+    border-radius: 8px;
     border: 1px solid #ddd;
     flex-wrap: wrap;
 }
@@ -200,19 +246,19 @@ button:hover {
 
 /* Campo de input */
 .custom-words input[type="text"] {
-    padding: 6px;
-    width: 180px;
-    font-size: 12px;
+    padding: 8px;
+    width: 200px;
+    font-size: 13px;
     border: 1px solid #ccc;
-    border-radius: 2px;
+    border-radius: 6px;
     flex: 1;
-    min-width: 120px;
+    min-width: 140px;
 }
 
 /* Botão Adicionar */
 #addCustomWord {
-    padding: 6px 12px;
-    font-size: 11px;
+    padding: 8px 14px;
+    font-size: 12px;
     white-space: nowrap;
 }
 
@@ -224,8 +270,8 @@ button:hover {
 /* Botão Limpar lista - VERMELHO */
 #clearCustomWords {
     background-color: #f44336 !important;
-    padding: 6px 12px;
-    font-size: 11px;
+    padding: 8px 14px;
+    font-size: 12px;
     white-space: nowrap;
 }
 
@@ -234,57 +280,57 @@ button:hover {
 }
 /* ===== LISTA DE PALAVRAS PERSONALIZADAS ===== */
 .wordlist {
-    margin-top: 12px;
-    padding: 10px;
+    margin-top: 15px;
+    padding: 12px;
     background-color: #f8f9fa;
-    border-radius: 3px;
+    border-radius: 8px;
     border: 1px solid #ddd;
 }
 
 .wordlist input[type="text"] {
-    padding: 6px;
-    margin-right: 4px;
-    width: 180px;
-    font-size: 12px;
+    padding: 8px;
+    margin-right: 6px;
+    width: 200px;
+    font-size: 13px;
     border: 1px solid #ccc;
-    border-radius: 2px;
+    border-radius: 6px;
 }
 
 .wordlist button {
-    padding: 6px 8px;
-    font-size: 11px;
+    padding: 8px 10px;
+    font-size: 12px;
 }
 
 #wordlistList {
     list-style-type: none;
     padding: 0;
-    margin: 8px 0 0 0;
+    margin: 10px 0 0 0;
 }
 
 /* BOTÕES DE EDITAR E REMOVER PALAVRAS */
 #customWordsList li {
-    padding: 4px 0;
+    padding: 6px 0;
     border-bottom: 1px solid #eee;
-    font-size: 12px;
+    font-size: 13px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 3px;
+    gap: 5px;
 }
 
 /* Botões de editar e remover */
 #customWordsList li .edit-btn {
     background-color: #b9e0ff !important;
     color: white !important;
-    padding: 1px 5px !important;
+    padding: 2px 6px !important;
     margin: 0 !important;
-    margin-left: 3px !important;
-    font-size: 11px !important;
+    margin-left: 4px !important;
+    font-size: 12px !important;
     font-weight: bold !important;
-    min-width: 22px !important;
-    height: 22px !important;
+    min-width: 24px !important;
+    height: 24px !important;
     border: none !important;
-    border-radius: 2px !important;
+    border-radius: 4px !important;
     cursor: pointer !important;
     display: flex !important;
     align-items: center !important;
@@ -295,15 +341,15 @@ button:hover {
 #customWordsList li .remove-btn {
     background-color: #ffc9c9 !important;
     color: white !important;
-    padding: 1px 5px !important;
+    padding: 2px 6px !important;
     margin: 0 !important;
-    margin-left: 3px !important;
-    font-size: 11px !important;
+    margin-left: 4px !important;
+    font-size: 12px !important;
     font-weight: bold !important;
-    min-width: 22px !important;
-    height: 22px !important;
+    min-width: 24px !important;
+    height: 24px !important;
     border: none !important;
-    border-radius: 2px !important;
+    border-radius: 4px !important;
     cursor: pointer !important;
     display: flex !important;
     align-items: center !important;
@@ -324,65 +370,72 @@ button:hover {
 /* Texto da palavra */
 #customWordsList li .word-text {
     flex: 1;
-    padding-right: 2px;
+    padding-right: 4px;
+    font-weight: 500;
 }
 
 /* Input de edição inline */
 #customWordsList li .edit-input {
     flex: 1;
-    padding: 2px 4px;
-    font-size: 12px;
+    padding: 4px 6px;
+    font-size: 13px;
     border: 1px solid #2196F3;
-    border-radius: 2px;
+    border-radius: 4px;
     background-color: white;
-    margin-right: 2px;
+    margin-right: 4px;
 }
 
 /* ===== TÍTULOS E TEXTOS ===== */
 h1 {
     color: #2196F3;
-    margin-bottom: 4px;
-    font-size: 22px;
+    margin-bottom: 6px;
+    font-size: 26px;
     text-align: center;
+    font-weight: 700;
 }
 
 .subtitle {
     color: #666;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     font-style: italic;
     text-align: center;
-    font-size: 13px;
+    font-size: 15px;
 }
 
 /* ===== RESPONSIVIDADE ===== */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    
     .text-area {
         flex-direction: column;
         height: auto;
-        gap: 10px;
+        gap: 15px;
     }
     
     .boxes {
         flex-direction: column;
-        gap: 6px;
+        gap: 8px;
     }
     
-    .input-box .button-row,
-    .output-box .button-row {
-        padding-right: 0;
+    .button-row-input,
+    .button-row-output {
+        position: relative;
+        margin-bottom: 10px;
     }
     
     #apagar,
     #editLink,
     #salvar {
         position: static;
-        margin: 2px;
+        margin: 3px;
     }
     
     #customWordsList li {
         flex-direction: column;
         align-items: flex-start;
-        gap: 3px;
+        gap: 5px;
     }
     
     #customWordsList li button {
@@ -391,7 +444,7 @@ h1 {
     .custom-words {
         flex-direction: column;
         align-items: stretch;
-        gap: 6px;
+        gap: 8px;
     }
     
     .clearCurtomWords-button {
@@ -417,6 +470,17 @@ ul, ol {
 button:focus,
 input:focus,
 textarea:focus {
-    outline: 2px solid #2196F3;
-    outline-offset: 1px;
+    outline: 2px solid #a9db34;
+    outline-offset: 2px;
+}
+
+/* ===== FOOTER POSICIONAMENTO ===== */
+.footer-simplificado {
+    background: #000000;
+    color: white;
+    padding: 1.5rem;
+    margin: 2rem -20px -20px -20px;
+    width: calc(100% + 40px);
+    box-sizing: border-box;
+    font-family: 'Helvetica', Arial, sans-serif;
 }
