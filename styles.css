@@ -43,13 +43,13 @@ textarea {
 
 textarea:focus {
     outline: none;
-    border-color: #4CAF50;
+    border-color: #2196F3;
     box-shadow: 0 0 3px rgba(76, 175, 80, 0.3);
 }
 
 /* ===== BOTÕES ===== */
 button {
-    background-color: #4CAF50;
+    background-color: #2196F3;
     color: white;
     border: none;
     padding: 6px 10px;
@@ -62,7 +62,7 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #2196F3;
     transform: translateY(-1px);
 }
 
@@ -75,7 +75,6 @@ button:hover {
     position: absolute;
     right: 0;
     top: 0;
-    background-color: #f44336;
     z-index: 10;
     font-size: 11px;
     padding: 5px 8px;
@@ -144,7 +143,7 @@ button:hover {
 .boxes input[type="checkbox"] {
     margin-right: 4px !important;
     transform: scale(0.8) !important;
-    accent-color: #4CAF50;
+    accent-color: #2196F3;
 }
 
 /* ===== CHECKBOXES - CONTAINERS NOMINADOS ===== */
@@ -168,21 +167,73 @@ button:hover {
 .advancedoptions input[type="checkbox"] {
     margin-right: 6px;
     transform: scale(0.9);
-    accent-color: #4CAF50;
+    accent-color: #2196F3;
 }
 
 .options > p:first-child,
 .advancedoptions > p:first-child {
     font-weight: bold;
     margin: 0 0 8px 0;
-    color: #4CAF50;
+    color: #2196F3;
     font-size: 13px;
     border-bottom: 1px solid #eee;
     padding-bottom: 4px;
 }
 
-/* ===== ÁREA DE PALAVRAS PERSONALIZADAS ===== */
+/* ===== ÁREA DE PALAVRAS PERSONALIZADAS - ALINHAMENTO HORIZONTAL ===== */
 .custom-words {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 3px;
+    border: 1px solid #ddd;
+    flex-wrap: wrap;
+}
+
+/* Remove o label "Adicionar palavra:" */
+.custom-words label[for="customWords"] {
+    display: none;
+}
+
+/* Campo de input */
+.custom-words input[type="text"] {
+    padding: 6px;
+    width: 180px;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    flex: 1;
+    min-width: 120px;
+}
+
+/* Botão Adicionar */
+#addCustomWord {
+    padding: 6px 12px;
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+/* Container do botão Limpar */
+.clearCurtomWords-button {
+    margin-left: auto;
+}
+
+/* Botão Limpar lista - VERMELHO */
+#clearCustomWords {
+    background-color: #f44336 !important;
+    padding: 6px 12px;
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+#clearCustomWords:hover {
+    background-color: #d32f2f !important;
+}
+/* ===== LISTA DE PALAVRAS PERSONALIZADAS ===== */
+.wordlist {
     margin-top: 12px;
     padding: 10px;
     background-color: #f8f9fa;
@@ -190,7 +241,7 @@ button:hover {
     border: 1px solid #ddd;
 }
 
-.custom-words input[type="text"] {
+.wordlist input[type="text"] {
     padding: 6px;
     margin-right: 4px;
     width: 180px;
@@ -199,12 +250,12 @@ button:hover {
     border-radius: 2px;
 }
 
-.custom-words button {
+.wordlist button {
     padding: 6px 8px;
     font-size: 11px;
 }
 
-#customWordsList {
+#wordlistList {
     list-style-type: none;
     padding: 0;
     margin: 8px 0 0 0;
@@ -223,7 +274,7 @@ button:hover {
 
 /* Botões de editar e remover */
 #customWordsList li .edit-btn {
-    background-color: #2196F3 !important;
+    background-color: #b9e0ff !important;
     color: white !important;
     padding: 1px 5px !important;
     margin: 0 !important;
@@ -242,7 +293,7 @@ button:hover {
 }
 
 #customWordsList li .remove-btn {
-    background-color: #f44336 !important;
+    background-color: #ffc9c9 !important;
     color: white !important;
     padding: 1px 5px !important;
     margin: 0 !important;
@@ -261,7 +312,7 @@ button:hover {
 }
 
 #customWordsList li .edit-btn:hover {
-    background-color: #1976D2 !important;
+    background-color: #2196F3 !important;
     transform: scale(1.05);
 }
 
@@ -281,7 +332,7 @@ button:hover {
     flex: 1;
     padding: 2px 4px;
     font-size: 12px;
-    border: 1px solid #4CAF50;
+    border: 1px solid #2196F3;
     border-radius: 2px;
     background-color: white;
     margin-right: 2px;
@@ -289,7 +340,7 @@ button:hover {
 
 /* ===== TÍTULOS E TEXTOS ===== */
 h1 {
-    color: #4CAF50;
+    color: #2196F3;
     margin-bottom: 4px;
     font-size: 22px;
     text-align: center;
@@ -337,6 +388,20 @@ h1 {
     #customWordsList li button {
         align-self: flex-end;
     }
+    .custom-words {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+    }
+    
+    .clearCurtomWords-button {
+        margin-left: 0;
+        align-self: flex-end;
+    }
+    
+    #customWords {
+        width: 100%;
+    }
 }
 
 /* ===== UTILITÁRIOS ===== */
@@ -352,6 +417,6 @@ ul, ol {
 button:focus,
 input:focus,
 textarea:focus {
-    outline: 2px solid #4CAF50;
+    outline: 2px solid #2196F3;
     outline-offset: 1px;
 }
