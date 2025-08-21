@@ -1,150 +1,148 @@
 <!DOCTYPE html>
-  <html lang="pt-BR">
+<html lang="pt-BR">
 <meta charset="UTF-8">
   <title>Killerbreak</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-        /* ===== FOOTER POSICIONAMENTO ===== */
-        .footer-simplificado {
-            background: #000000;
-            color: white;
-            padding: 1.5rem;
-            margin: 2rem -20px -20px -20px;
-            width: 100vw;
-            position: relative;
-            left: 50%;
-            right: 50%;
-            margin-left: -50vw;
-            margin-right: -50vw;
-            box-sizing: border-box;
-            font-family: 'Helvetica', Arial, sans-serif;
-        }
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .footer-simplificado {/*classe footer-simplificado, o rodapé do site*/
+      background: #000000;
+      color: white;
+      padding: 1.5rem;
+      margin: 2rem -20px -20px -20px;
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      box-sizing: border-box;
+      font-family: 'Helvetica', Arial, sans-serif;
+      }
 
-        .footer-content {
-            display: flex;
-            justify-content: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+    .footer-content {/*classe footer-content, o conteúdo do rodapé*/
+      display: flex;
+      justify-content: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      }
 
-        .footer-left {
-            text-align: center;
-            width: 100%;
-        }
+    .footer-left {/*classe footer-left, a parte esquerda do rodapé*/
+      text-align: center;
+      width: 100%;
+      }
 
-        .footer-left > p:first-child {
-            font-weight: bold;
-            margin-bottom: 1rem;
-            color: #ecf0f1;
-        }
+    .footer-left > p:first-child {/*primeiro parágrafo da parte esquerda do rodapé*/
+      font-weight: bold;
+      margin-bottom: 1rem;
+      color: #ecf0f1;
+      }
 
-        .developer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-        }
+    .developer-links {/*classe developer-links, a lista de desenvolvedores*/
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      }
 
-        .developer {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem;
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-            min-width: 180px;
-        }
+    .developer {/*classe developer, cada desenvolvedor*/
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      min-width: 180px;
+      }
 
-        .dev-name-link {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
+    .dev-name-link {/*classe dev-name-link, o nome do desenvolvedor*/
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+      }
 
-        .dev-name-link:hover {
-            color: #a9db34;
-            text-decoration: none;
-        }
+    .dev-name-link:hover {/*hover na classe dev-name-link, o nome do desenvolvedor*/
+      color: #a9db34;
+      text-decoration: none;
+      }
 
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
+    .social-links {/*classe social-links, os links sociais dos desenvolvedores*/
+      display: flex;
+      gap: 1rem;
+      }
 
-        .social-links a {
-            color: #ecf0f1;
-            font-size: 1.3rem;
-            transition: all 0.3s;
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            text-decoration: none;
-        }
+    .social-links a {/*classe social-links a, cada link social*/
+      color: #ecf0f1;
+      font-size: 1.3rem;
+      transition: all 0.3s;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      text-decoration: none;
+      }
 
-        .social-links a:hover {
-            color: #a9db34;
-            background-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-            text-decoration: none;
-        }
+    .social-links a:hover {/*hover na classe social-links a, cada link social*/
+      color: #a9db34;
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+      text-decoration: none;
+      }
 
-        .repo-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 1rem;
-            padding: 0.6rem 1.2rem;
-            border: 1px solid #ffffff;
-            border-radius: 4px;
-            transition: all 0.3s;
-        }
+    .repo-link {/*classe repo-link, o link do repositório do projeto*/
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      border: 1px solid #ffffff;
+      border-radius: 4px;
+      transition: all 0.3s;
+      }
 
-        .repo-link:hover {
-            color: white;
-            background-color: #a9db34;
-            text-decoration: none;
-        }
+    .repo-link:hover {/*hover na classe repo-link, o link do repositório do projeto*/
+      color: white;
+      background-color: #a9db34;
+      text-decoration: none;
+      }
 
-        .footer-bottom {
-            text-align: center;
-            margin-top: 1.5rem;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #ecf0f1;
-        }
+    .footer-bottom {/*classe footer-bottom, a linha de separação do rodapé*/
+      text-align: center;
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #ecf0f1;
+      }
 
-        @media (max-width: 768px) {
-            .developer-links {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-            }
-            
-            .developer {
-                width: 100%;
-                max-width: 250px;
-            }
-            
-            .footer-simplificado {
-                padding: 1rem;
-            }
-        }
-        </style>
+    @media (max-width: 768px) {/*estilos responsivos para telas menores*/
+     .developer-links {/*classe developer-links, a lista de desenvolvedores*/      flex-direction: column;
+       align-items: center;
+       gap: 1rem;
+      }
+              
+     .developer {/*classe developer, cada desenvolvedor*/
+       width: 100%;
+       max-width: 250px;
+      }
+              
+     .footer-simplificado {/*classe footer-simplificado, o rodapé do site*/
+       padding: 1rem;
+      }
+    }/*fim estilos responsivos para telas menores*/
+  </style>
 </head>
  <body>
-  <div class="container">
+  <div class="container"><!--começo do container principal do site-->
     <h1>Killerbreak</h1>
     <p class="subtitle">Remova quebras de linha e corrija espaços indesejados.</p>
     <div class="text-area"><!--classe "text-area", as caixas de texto e seus botões auxiliares-->
@@ -199,7 +197,7 @@
         </ul><!--fim lista de palavras personalizadas-->
       </div><!--fim classe. wordlist-->
     </div><!--fim classe. advancedoptions "Opções avançadas"-->
-
+  </div><!-- fim container principal do site-->
   <!-- Scripts carregados no final do body para melhor performance e com ordem otimizada-->
   <script src="/scripts/outputText.js"></script> <!-- Inicialização básica -->
   <script src="/scripts/checkboxGroup.js"></script> <!-- Controle de checkboxes -->
@@ -218,11 +216,7 @@
   <script src="/scripts/iniciaisPalavras.js"></script>
   <script src="/scripts/firstLetterUppercase.js"></script>
   <script src="/scripts/customWords.js"></script>
-
-<!--com links de github e linkedin de cada desenvolvedor, e link do repositório do projeto-->
-  </div> <!-- Fecha a div.container -->
-  
-  <!-- Footer fora do container -->
+    <!-- Footer fora do container -->
   <footer class="footer-simplificado">
     <div class="footer-content">
       <div class="footer-left">
