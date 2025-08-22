@@ -1,180 +1,262 @@
-class TextProcessor {
-    static MAX_CHARS = 320;
-    static debounceTimer;
+const TextProcessor = (() => {
+  const MAX_CHARS = 320;
+  let debounceTimer;
+  let inputElement, outputElement;
+  let lastProcessedState = {}; // Adicionar cache de estado
 
-    static init() {
-        this.input = document.getElementById('inputText');
-        this.output = document.getElementById('outputText');
-        
-        this.input.maxLength = this.MAX_CHARS;
-        this.input.addEventListener('input', () => this.debounceProcess());
-        
+  // Função de inicialização
+  function init() {
+      inputElement = document.getElementById('inputText');
+      outputElement = document.getElementById('outputText');
+      
+      inputElement.maxLength = MAX_CHARS;
+      inputElement.addEventListener('input', debounceProcess);
+      
+      document.addEventListener('wordListUpdated', process);
+      document.addEventListener('checkboxGroupUpdated', process);
+  }
 
-        document.addEventListener('checkboxGroupUpdated', () => this.process());
-    }
+  // Debounce otimizado
+  function debounceProcess() {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(process, 200);
+  }
 
-    static debounceProcess() {
-        clearTimeout(this.debounceTimer);
-        this.debounceTimer = setTimeout(() => this.process(), 200);
-    }
+  // Processamento principal - MODIFICADO
+  function process() {
+      const text = inputElement.value.slice(0, MAX_CHARS);
+      
+      // Verificar se o estado mudou
+      const currentState = getCurrentState();
+      if (shouldReprocess(currentState)) {
+          outputElement.value = applyAllRules(text);
+          lastProcessedState = currentState; // Atualizar estado
+      }
+  }
 
-    static process() {
-        const text = this.input.value.slice(0, this.MAX_CHARS);
-        this.output.value = this.applyAllRules(text);
-    }
+  // Obter estado atual dos checkboxes - NOVO
+  function getCurrentState() {
+      return {
+          fixSpaces: isChecked('fixSpaces'),
+          removeBreaks: isChecked('removeBreaks'),
+          keepBlankLines: isChecked('keepBlankLines'),
+          todasMaiusculas: isChecked('todasMaiusculas'),
+          todasMinusculas: isChecked('todasMinusculas'),
+          iniciaisPalavras: isChecked('iniciaisPalavras'),
+          firstLetterUppercase: isChecked('firstLetterUppercase'),
+          firstLetterSentence: isChecked('firstLetterSentence'),
+          textHash: inputElement.value.slice(0, 50) // Pequeno hash do texto
+      };
+  }
 
-    static applyAllRules(text) {
-        if (!text.trim()) return '';
+  // Verificar se precisa reprocessar - NOVO
+  function shouldReprocess(currentState) {
+      // Sempre processa se for a primeira vez
+      if (!lastProcessedState.textHash) return true;
+      
+      // Se o texto mudou, sempre reprocessa
+      if (currentState.textHash !== lastProcessedState.textHash) return true;
+      
+      // Se qualquer checkbox relevante mudou, reprocessa
+      const relevantCheckboxes = [
+          'fixSpaces', 'removeBreaks', 'keepBlankLines',
+          'todasMaiusculas', 'todasMinusculas', 'iniciaisPalavras',
+          'firstLetterUppercase', 'firstLetterSentence'
+      ];
+      
+      return relevantCheckboxes.some(key => 
+          currentState[key] !== lastProcessedState[key]
+      );
+  }
 
-        text = this.applyCustomWords(text);
-        text = this.processLineBreaks(text);
-        
-        if (document.getElementById('fixSpaces').checked) {
-            text = text.replace(/[^\S\n]+/g, ' ').trim();
-        }
-        
-        text = this.applyCapitalization(text);
-        return text;
-    }
+  // Aplicar todas as regras
+  function applyAllRules(text) {
+      if (!text.trim()) return '';
 
-    static processLineBreaks(text) {
-        const removeBreaks = document.getElementById('removeBreaks').checked;
-        const keepBlankLines = document.getElementById('keepBlankLines').checked;
-
-        if (!removeBreaks) {
-            return text; // Mantém todas as quebras originais
-        }
-
-        if (keepBlankLines) {
-            // Padrão para identificar blocos de texto entre linhas vazias
-            const paragraphs = text.split(/(\n{2,})/);
-            let result = '';
-            
-            for (let i = 0; i < paragraphs.length; i++) {
-                if (paragraphs[i].startsWith('\n')) {
-                    // Mantém as linhas vazias exatamente como estão
-                    result += paragraphs[i];
-                } else {
-                    // Remove quebras de linha simples dentro do parágrafo
-                    result += paragraphs[i].replace(/\n/g, ' ');
-                }
-            }
-            
-            return result;
-        } else {
-            // Remove TODAS as quebras
-            return text.replace(/\n+/g, ' ');
-        }
-    }
-
-    static applyCustomWords(text) {
-        const customWords = window.getCustomWords ? window.getCustomWords() : [];
-        if (customWords.length === 0) return text;
-
-        customWords.sort((a, b) => b.length - a.length).forEach(word => {
-            const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-            const regex = new RegExp(`\\b${escaped}\\b`, 'gi');
-            text = text.replace(regex, word);
-        });
-        
-        return text;
-    }
-
-    static applyCapitalization(text) {
-        const customWords = window.getCustomWords ? window.getCustomWords() : [];
-        
-        if (document.getElementById('todasMaiusculas').checked) {
-            return this.transformExceptCustomWords(text, 'uppercase', customWords);
-        }
-        
-        if (document.getElementById('todasMinusculas').checked) {
-            return this.transformExceptCustomWords(text, 'lowercase', customWords);
-        }
-        
-        if (document.getElementById('iniciaisPalavras').checked) {
-            return this.transformExceptCustomWords(text, 'titleCase', customWords);
-        }
-        
-        if (document.getElementById('firstLetterUppercase').checked) {
-            return this.capitalizeFirstLetter(text, customWords);
-        }
-        
-        if (document.getElementById('firstLetterSentence').checked) {
-            return this.capitalizeSentences(text, customWords);
-        }
-
-        return text;
-    }
-
-    static transformExceptCustomWords(text, mode, customWords) {
-        if (customWords.length === 0) {
-            return this.applyTransform(text, mode);
-        }
-
-        const parts = [];
-        let lastIndex = 0;
-        const regex = new RegExp(`\\b(${customWords.join('|')})\\b`, 'gi');
-
-        let match;
-        while ((match = regex.exec(text)) !== null) {
-            if (match.index > lastIndex) {
-                parts.push({
-                    text: text.slice(lastIndex, match.index),
-                    transform: true
-                });
-            }
-            
-            parts.push({
-                text: match[0],
-                transform: false
-            });
-            lastIndex = regex.lastIndex;
-        }
-
-        if (lastIndex < text.length) {
-            parts.push({
-                text: text.slice(lastIndex),
-                transform: true
-            });
-        }
-
-        return parts.map(part => {
-            return part.transform 
-                ? this.applyTransform(part.text, mode) 
-                : part.text;
-        }).join('');
-    }
-
-    static applyTransform(text, mode) {
-        switch (mode) {
-            case 'uppercase': return text.toUpperCase();
-            case 'lowercase': return text.toLowerCase();
-            case 'titleCase': 
-                return text.replace(/\b\w/g, char => char.toUpperCase());
-            default: return text;
+      const protection = protectCustomWords(text);
+      let processedText = protection.text;
+      
+      processedText = processLineBreaks(processedText);
+      
+      if (window.FixSpaces && typeof FixSpaces.apply === 'function') {
+        processedText = FixSpaces.apply(processedText);
+    } else {
+        // Fallback para versão antiga
+        if (isChecked('fixSpaces')) {
+            processedText = processedText.replace(/[^\S\n]+/g, ' ').trim();
         }
     }
+      
+      processedText = applyCapitalization(processedText);
+      processedText = restoreCustomWords(processedText, protection.placeholders);
+      
+      return processedText;
+  }
 
-    static capitalizeFirstLetter(text, customWords) {
-        if (text.length === 0) return text;
-        
-        const firstWord = text.split(/\s+/)[0];
-        if (customWords.some(word => 
-            word.toLowerCase() === firstWord.toLowerCase())) {
-            return text;
-        }
-        
-        return text.charAt(0).toUpperCase() + text.slice(1);
-    }
+  // Verificar se checkbox está marcado
+  function isChecked(id) {
+      const element = document.getElementById(id);
+      return element ? element.checked : false;
+  }
 
-    static capitalizeSentences(text, customWords) {
-        return text.replace(/(^|[.!?]\s+)(\w)/g, (match, prefix, firstLetter) => {
-            const isCustom = customWords.some(word => 
-                word.toLowerCase() === (prefix + firstLetter).toLowerCase());
-            
-            return isCustom ? match : prefix + firstLetter.toUpperCase();
-        });
-    }
-}
+  // Processar quebras de linha
+  function processLineBreaks(text) {
+      const removeBreaks = isChecked('removeBreaks');
+      const keepBlankLines = isChecked('keepBlankLines');
 
-document.addEventListener('DOMContentLoaded', () => TextProcessor.init());
+      if (!removeBreaks) return text;
+
+      if (keepBlankLines) {
+          return text.split(/(\n{2,})/).reduce((result, paragraph, i) => {
+              return paragraph.startsWith('\n') 
+                  ? result + paragraph 
+                  : result + paragraph.replace(/\n/g, ' ');
+          }, '');
+      } else {
+          return text.replace(/\n+/g, ' ');
+      }
+  }
+
+  // Aplicar capitalização
+  function applyCapitalization(text) {
+      const customWords = window.getCustomWords ? window.getCustomWords() : [];
+      
+      if (isChecked('todasMaiusculas')) {
+          return transformExceptCustomWords(text, 'uppercase', customWords);
+      }
+      
+      if (isChecked('todasMinusculas')) {
+          return transformExceptCustomWords(text, 'lowercase', customWords);
+      }
+      
+      if (isChecked('iniciaisPalavras')) {
+          return transformExceptCustomWords(text, 'titleCase', customWords);
+      }
+      
+      if (isChecked('firstLetterUppercase')) {
+          return capitalizeFirstLetter(text, customWords);
+      }
+      
+      if (isChecked('firstLetterSentence')) {
+          return capitalizeSentences(text, customWords);
+      }
+
+      return text;
+  }
+
+  // Transformar exceto palavras personalizadas
+  function transformExceptCustomWords(text, mode, customWords) {
+      if (customWords.length === 0) return applyTransform(text, mode);
+
+      const parts = [];
+      let lastIndex = 0;
+      const regex = new RegExp(`\\b(${customWords.join('|')})\\b`, 'gi');
+      let match;
+
+      while ((match = regex.exec(text)) !== null) {
+          if (match.index > lastIndex) {
+              parts.push({ 
+                  text: text.slice(lastIndex, match.index), 
+                  transform: true 
+              });
+          }
+          parts.push({ 
+              text: match[0], 
+              transform: false 
+          });
+          lastIndex = regex.lastIndex;
+      }
+
+      if (lastIndex < text.length) {
+          parts.push({ 
+              text: text.slice(lastIndex), 
+              transform: true 
+          });
+      }
+
+      return parts.map(part => 
+          part.transform ? applyTransform(part.text, mode) : part.text
+      ).join('');
+  }
+
+  // Aplicar transformação específica
+  function applyTransform(text, mode) {
+      const transformations = {
+          uppercase: () => text.toUpperCase(),
+          lowercase: () => text.toLowerCase(),
+          titleCase: () => text.replace(/\b\w/g, char => char.toUpperCase())
+      };
+      return transformations[mode]?.() || text;
+  }
+
+  // Capitalizar primeira letra
+  function capitalizeFirstLetter(text, customWords) {
+      if (!text) return text;
+      
+      const firstWord = text.split(/\s+/)[0];
+      const isCustom = customWords.some(word => 
+          word.toLowerCase() === firstWord.toLowerCase());
+      
+      return isCustom ? text : text.charAt(0).toUpperCase() + text.slice(1);
+  }
+
+  // Capitalizar frases
+  function capitalizeSentences(text, customWords) {
+      return text.replace(/(^|[.!?]\s+)(\w)/g, (match, prefix, firstLetter) => {
+          const potentialWord = prefix + firstLetter;
+          const isCustom = customWords.some(word => 
+              word.toLowerCase().startsWith(potentialWord.toLowerCase()));
+          
+          return isCustom ? match : prefix + firstLetter.toUpperCase();
+      });
+  }
+
+  // Proteger palavras personalizadas
+  function protectCustomWords(text) {
+      const customWords = window.getCustomWords ? window.getCustomWords() : [];
+      const placeholders = new Map();
+      
+      if (customWords.length === 0) return { text, placeholders };
+
+      let index = 0;
+      const sorted = [...customWords].sort((a, b) => b.length - a.length);
+      
+      sorted.forEach(word => {
+          const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          const regex = new RegExp(`\\b${escaped}\\b`, 'gi');
+          
+          text = text.replace(regex, match => {
+              const placeholder = `\u200BKB_CUSTOM_${index++}\u200B`;
+              placeholders.set(placeholder, word);
+              return placeholder;
+          });
+      });
+      
+      return { text, placeholders };
+  }
+
+  // Restaurar palavras personalizadas
+  function restoreCustomWords(text, placeholders) {
+      placeholders.forEach((word, placeholder) => {
+          const regex = new RegExp(placeholder, 'g');
+          text = text.replace(regex, word);
+      });
+      return text;
+  }
+
+  // Forçar processamento (para uso externo)
+  function forceProcess() {
+      process();
+  }
+
+  // Retornar API pública
+  return {
+      init,
+      process,
+      forceProcess,
+      protectCustomWords
+  };
+})();
+
+// Inicialização
+document.addEventListener('DOMContentLoaded', TextProcessor.init);
