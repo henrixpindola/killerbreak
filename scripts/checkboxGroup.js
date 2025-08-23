@@ -1,171 +1,132 @@
-class CheckboxGroup {
-    constructor() {
-        this.capitalizationIds = [
-            'todasMaiusculas', 
-            'todasMinusculas',
-            'iniciaisPalavras',
-            'firstLetterUppercase',
-            'firstLetterSentence'
-        ];
-
-        this.init();
-    }
-
-    init() {
+function createCheckboxGroup() {
+    const capitalizationIds = [
+        'todasMaiusculas', 
+        'todasMinusculas',
+        'iniciaisPalavras',
+        'firstLetterUppercase',
+        'firstLetterSentence'
+    ];
+    
+    let processingTimeout = null;
+    
+    function init() {
         this.setupLineBreakDependencies();
         this.setupCapitalizationGroup();
-        this.setupCapitalizationListeners();
+        this.setupGlobalListeners();
+        console.log('CheckboxGroup inicializado');
     }
-
-    setupLineBreakDependencies() {
+    
+    function setupLineBreakDependencies() {
         const removeBreaks = document.getElementById('removeBreaks');
         const keepBlankLines = document.getElementById('keepBlankLines');
-
+        
         if (!removeBreaks || !keepBlankLines) return;
-
+        
         // Estado inicial
         keepBlankLines.disabled = !removeBreaks.checked;
-
-        // Event listeners
+        
+        // Event listeners com processamento automático
         removeBreaks.addEventListener('change', () => {
             keepBlankLines.disabled = !removeBreaks.checked;
             if (!removeBreaks.checked) {
                 keepBlankLines.checked = false;
             }
-            this.dispatchUpdateEvent();
+            this.triggerTextProcessing();
         });
-
+        
         keepBlankLines.addEventListener('change', () => {
             if (keepBlankLines.checked && !removeBreaks.checked) {
                 keepBlankLines.checked = false;
+                return;
             }
-            this.dispatchUpdateEvent();
+            this.triggerTextProcessing();
         });
     }
-
-    setupCapitalizationGroup() {
-        this.capitalizationIds.forEach(id => {
+    
+    function setupCapitalizationGroup() {
+        capitalizationIds.forEach(id => {
             const checkbox = document.getElementById(id);
             if (checkbox) {
-                checkbox.addEventListener('change', (e) => {
+                // Remove listener anterior para evitar duplicação
+                checkbox.replaceWith(checkbox.cloneNode(true));
+                const freshCheckbox = document.getElementById(id);
+                
+                freshCheckbox.addEventListener('change', (e) => {
                     if (e.target.checked) {
                         this.uncheckOtherCapitalization(id);
-                    }
-                    this.dispatchUpdateEvent();
-                });
-            }
-        });
-    }
-
-    setupCapitalizationListeners() {
-        this.capitalizationIds.forEach(id => {
-            const checkbox = document.getElementById(id);
-            if (checkbox) {
-                checkbox.addEventListener('change', (e) => {
-                    if (e.target.checked) {
-                        this.handleCapitalizationChange(id);
                     }
                     this.triggerTextProcessing();
                 });
             }
         });
     }
-
-    uncheckOtherCapitalization(activeId) {
-        this.capitalizationIds.filter(id => id !== activeId).forEach(id => {
+    
+    function setupGlobalListeners() {
+        // Monitora mudanças em outros componentes
+        document.addEventListener('wordListUpdated', () => {
+            this.triggerTextProcessing();
+        });
+        
+        // Input em tempo real
+        const inputText = document.getElementById('inputText');
+        if (inputText) {
+            inputText.addEventListener('input', () => {
+                this.triggerTextProcessing();
+            });
+        }
+    }
+    
+    function uncheckOtherCapitalization(activeId) {
+        capitalizationIds.filter(id => id !== activeId).forEach(id => {
             const checkbox = document.getElementById(id);
             if (checkbox) checkbox.checked = false;
         });
     }
-
-    handleCapitalizationChange(activeId) {
-        console.log(`Modo de capitalização ativado: ${activeId}`);
-        
-        // Lógica específica para cada tipo
-        const handlers = {
-            'todasMaiusculas': () => this.onTodasMaiusculas(),
-            'todasMinusculas': () => this.onTodasMinusculas(),
-            'iniciaisPalavras': () => this.onIniciaisPalavras(),
-            'firstLetterUppercase': () => this.onFirstLetterUppercase(),
-            'firstLetterSentence': () => this.onFirstLetterSentence()
-        };
-
-        handlers[activeId]?.();
-    }
-
-    onTodasMaiusculas() {
-        // Lógica específica para TODAS MAIÚSCULAS
-        console.log('Ativando modo TODAS MAIÚSCULAS');
-    }
-
-    onTodasMinusculas() {
-        // Lógica específica para todas minúsculas
-        console.log('Ativando modo todas minúsculas');
-    }
-
-    onIniciaisPalavras() {
-        // Lógica específica para Iniciais Maiúsculas
-        console.log('Ativando modo Iniciais Maiúsculas');
-    }
-
-    onFirstLetterUppercase() {
-        // Lógica específica para Primeira Letra Maiúscula
-        console.log('Ativando modo Primeira Letra Maiúscula');
-    }
-
-    onFirstLetterSentence() {
-        // Lógica específica para Primeira Letra de Frase
-        console.log('Ativando modo Primeira Letra de Frase');
-    }
-
-    getActiveCapitalization() {
-        return this.capitalizationIds.find(id => {
+    
+    function getActiveCapitalization() {
+        return capitalizationIds.find(id => {
             const checkbox = document.getElementById(id);
             return checkbox?.checked;
         });
     }
-
-    isAnyCapitalizationActive() {
+    
+    function isAnyCapitalizationActive() {
         return this.getActiveCapitalization() !== undefined;
     }
-
-    clearAllCapitalization() {
-        this.capitalizationIds.forEach(id => {
+    
+    function clearAllCapitalization() {
+        capitalizationIds.forEach(id => {
             const checkbox = document.getElementById(id);
             if (checkbox) checkbox.checked = false;
         });
     }
-
-    triggerTextProcessing() {
-        if (window.TextProcessor && typeof TextProcessor.debounceProcess === 'function') {
-            TextProcessor.debounceProcess();
-        }
-    }
-
-    dispatchUpdateEvent() {
-        document.dispatchEvent(new CustomEvent('checkboxGroupUpdated'));
-    }
-
-    // Método para adicionar novos grupos dinamicamente
-    addExclusiveGroup(groupName, checkboxIds) {
-        checkboxIds.forEach(id => {
-            const checkbox = document.getElementById(id);
-            if (checkbox) {
-                checkbox.addEventListener('change', (e) => {
-                    if (e.target.checked) {
-                        checkboxIds.filter(otherId => otherId !== id).forEach(otherId => {
-                            const otherCheckbox = document.getElementById(otherId);
-                            if (otherCheckbox) otherCheckbox.checked = false;
-                        });
-                    }
-                    this.dispatchUpdateEvent();
-                });
+    
+    function triggerTextProcessing() {
+        clearTimeout(processingTimeout);
+        processingTimeout = setTimeout(() => {
+            // Dispara evento global
+            document.dispatchEvent(new CustomEvent('checkboxGroupUpdated'));
+            
+            // Chama processamento diretamente se disponível
+            if (typeof spaceFixer?.processText === 'function') {
+                spaceFixer.processText();
+            } else if (typeof processText === 'function') {
+                processText();
             }
-        });
+        }, 100);
     }
+    
+    // API pública
+    return {
+        init: init.bind(this),
+        getActiveCapitalization: getActiveCapitalization.bind(this),
+        isAnyCapitalizationActive: isAnyCapitalizationActive.bind(this),
+        clearAllCapitalization: clearAllCapitalization.bind(this),
+        triggerTextProcessing: triggerTextProcessing.bind(this),
+        uncheckOtherCapitalization: uncheckOtherCapitalization.bind(this)
+    };
 }
 
-// Instância global única
-document.addEventListener('DOMContentLoaded', () => {
-    window.checkboxGroup = new CheckboxGroup();
-});
+// Instância global
+const checkboxGroup = createCheckboxGroup();
+document.addEventListener('DOMContentLoaded', () => checkboxGroup.init());
