@@ -48,11 +48,12 @@ function createCheckboxGroup() {
             const checkbox = document.getElementById(id);
             if (checkbox) {
                 // Remove listener anterior para evitar duplicação
-                checkbox.replaceWith(checkbox.cloneNode(true));
-                const freshCheckbox = document.getElementById(id);
+                const freshCheckbox = checkbox.cloneNode(true);
+                checkbox.parentNode.replaceChild(freshCheckbox, checkbox);
                 
                 freshCheckbox.addEventListener('change', (e) => {
                     if (e.target.checked) {
+                        // Desmarca todas as outras checkboxes de capitalização
                         this.uncheckOtherCapitalization(id);
                     }
                     this.triggerTextProcessing();
@@ -79,7 +80,11 @@ function createCheckboxGroup() {
     function uncheckOtherCapitalization(activeId) {
         capitalizationIds.filter(id => id !== activeId).forEach(id => {
             const checkbox = document.getElementById(id);
-            if (checkbox) checkbox.checked = false;
+            if (checkbox) {
+                checkbox.checked = false;
+                // Dispara evento change manualmente para garantir
+                checkbox.dispatchEvent(new Event('change'));
+            }
         });
     }
     
@@ -97,7 +102,11 @@ function createCheckboxGroup() {
     function clearAllCapitalization() {
         capitalizationIds.forEach(id => {
             const checkbox = document.getElementById(id);
-            if (checkbox) checkbox.checked = false;
+            if (checkbox) {
+                checkbox.checked = false;
+                // Dispara evento change manualmente
+                checkbox.dispatchEvent(new Event('change'));
+            }
         });
     }
     
@@ -107,11 +116,13 @@ function createCheckboxGroup() {
             // Dispara evento global
             document.dispatchEvent(new CustomEvent('checkboxGroupUpdated'));
             
-            // Chama processamento diretamente se disponível
-            if (typeof spaceFixer?.processText === 'function') {
-                spaceFixer.processText();
-            } else if (typeof processText === 'function') {
-                processText();
+            // Chama processamento do TextProcessor se disponível
+            if (typeof TextProcessor !== 'undefined' && typeof TextProcessor.process === 'function') {
+                TextProcessor.process();
+            }
+            // Ou chama OutputManager se disponível
+            else if (typeof outputManager !== 'undefined' && typeof outputManager.update === 'function') {
+                outputManager.update();
             }
         }, 100);
     }

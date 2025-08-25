@@ -149,7 +149,7 @@
       <div class="input-box"><!--classe. texto de entrada, botões Colar/X e caixa de texto-->
         <div class="button-row-input"><!--classe. botões do texto de entrada-->
           <button id="pasteBtn">📋 Colar</button><!--botão "colar"-->
-          <button id="delBtn">❌</button><!--botão "X" (apagar)-->
+          <button id="apagar">❌</button><!--botão "X" (apagar)-->
         </div><!--fim classe. botões do texto de entrada-->
         <textarea id="inputText" maxlength="300" placeholder="Cole seu texto aqui..."></textarea><!--caixa de texto de entrada. o maxlength limita a 300 caracteres, mas pode ser alterado se necessário.-->
       </div><!--fim classe. texto de entrada-->
@@ -158,7 +158,7 @@
         <div class="button-row-output"><!--classe. botões do texto de saída-->
           <button id="copyBtn">📄 Copiar</button><!--botão "copiar"-->
           <button id="editLink">✏️ Editar</button><!--botão "editar"-->
-          <button id="saveBtn">💾</button><!--"botão disquete" para salvar-->
+          <button id="salvar">💾</button><!--"botão disquete" para salvar-->
         </div><!--fim classe. botões do texto de saída-->
         <textarea id="outputText" readonly></textarea><!--caixa de texto de saída. o readonly impede edição direta-->
       </div><!--fim classe. texto de saída-->
@@ -203,13 +203,17 @@
   <script src="/scripts/inputText.js"></script>  <!-- Processador principal -->
   <!-- Scripts de funcionalidades básicas -->
   <script src="/scripts/pasteBtn.js"></script>
-  <script src="/scripts/delBtn.js"></script>
+  <script src="/scripts/apagar.js"></script>
   <script src="/scripts/copyBtn.js"></script>
   <script src="/scripts/editLink.js"></script>
-  <script src="/scripts/saveBtn.js"></script>
+  <script src="/scripts/salvar.js"></script>
   <!-- Scripts de funcionalidades específicas-->
   <script src="/scripts/removeBreaks.js"></script>
   <script src="/scripts/fixSpaces.js"></script>
+  <script src="/scripts/todasMaiusculas.js"></script>
+  <script src="/scripts/todasMinusculas.js"></script>
+  <script src="/scripts/iniciaisPalavras.js"></script>
+  <script src="/scripts/firstLetterUppercase.js"></script>
   <script src="/scripts/customWords.js"></script>
     <!-- Footer fora do container -->
   <footer class="footer-simplificado">
