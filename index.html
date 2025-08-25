@@ -197,24 +197,22 @@
       </div><!--fim classe. wordlist-->
     </div><!--fim classe. advancedoptions "Opções avançadas"-->
   </div><!-- fim container principal do site-->
-  <!-- Scripts carregados no final do body para melhor performance e com ordem otimizada-->
-  <script src="/scripts/outputText.js"></script> <!-- Inicialização básica -->
-  <script src="/scripts/checkboxGroup.js"></script> <!-- Controle de checkboxes -->
-  <script src="/scripts/inputText.js"></script>  <!-- Processador principal -->
-  <!-- Scripts de funcionalidades básicas -->
-  <script src="/scripts/pasteBtn.js"></script>
-  <script src="/scripts/apagar.js"></script>
-  <script src="/scripts/copyBtn.js"></script>
-  <script src="/scripts/editLink.js"></script>
-  <script src="/scripts/salvar.js"></script>
-  <!-- Scripts de funcionalidades específicas-->
-  <script src="/scripts/removeBreaks.js"></script>
-  <script src="/scripts/fixSpaces.js"></script>
-  <script src="/scripts/todasMaiusculas.js"></script>
-  <script src="/scripts/todasMinusculas.js"></script>
-  <script src="/scripts/iniciaisPalavras.js"></script>
-  <script src="/scripts/firstLetterUppercase.js"></script>
-  <script src="/scripts/customWords.js"></script>
+
+<!-- Scripts ESSENCIAIS em ORDEM CORRETA -->
+<script src="/scripts/outputText.js"></script>       <!-- 1. Básico -->
+<script src="/scripts/inputText.js"></script>         <!-- 3. Processamento -->
+<script src="/scripts/checkboxGroup.js"></script>    <!-- 2. Controle checkboxes --> 
+
+<!-- Scripts de funcionalidades básicas -->
+<script src="/scripts/pasteBtn.js"></script>
+<script src="/scripts/apagar.js"></script>
+<script src="/scripts/copyBtn.js"></script>
+<script src="/scripts/editLink.js"></script>
+<script src="/scripts/salvar.js"></script>
+
+<!-- Scripts de funcionalidades específicas -->
+<script src="/scripts/removeBreaks.js"></script>
+<script src="/scripts/customWords.js"></script>
     <!-- Footer fora do container -->
   <footer class="footer-simplificado">
     <div class="footer-content">

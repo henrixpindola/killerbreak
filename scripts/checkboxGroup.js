@@ -8,136 +8,175 @@ function createCheckboxGroup() {
     ];
     
     let processingTimeout = null;
-    
+
     function init() {
-        this.setupLineBreakDependencies();
-        this.setupCapitalizationGroup();
-        this.setupGlobalListeners();
-        console.log('CheckboxGroup inicializado');
+        this.cleanupConflictingListeners();
+        this.setupEventListeners();
+        console.log('CheckboxGroup inicializado - Modo Exclusivo');
     }
-    
-    function setupLineBreakDependencies() {
-        const removeBreaks = document.getElementById('removeBreaks');
-        const keepBlankLines = document.getElementById('keepBlankLines');
-        
-        if (!removeBreaks || !keepBlankLines) return;
-        
-        // Estado inicial
-        keepBlankLines.disabled = !removeBreaks.checked;
-        
-        // Event listeners com processamento automático
-        removeBreaks.addEventListener('change', () => {
-            keepBlankLines.disabled = !removeBreaks.checked;
-            if (!removeBreaks.checked) {
-                keepBlankLines.checked = false;
-            }
-            this.triggerTextProcessing();
-        });
-        
-        keepBlankLines.addEventListener('change', () => {
-            if (keepBlankLines.checked && !removeBreaks.checked) {
-                keepBlankLines.checked = false;
-                return;
-            }
-            this.triggerTextProcessing();
-        });
-    }
-    
-    function setupCapitalizationGroup() {
+
+    function cleanupConflictingListeners() {
         capitalizationIds.forEach(id => {
             const checkbox = document.getElementById(id);
             if (checkbox) {
-                // Remove listener anterior para evitar duplicação
-                const freshCheckbox = checkbox.cloneNode(true);
-                checkbox.parentNode.replaceChild(freshCheckbox, checkbox);
-                
-                freshCheckbox.addEventListener('change', (e) => {
-                    if (e.target.checked) {
-                        // Desmarca todas as outras checkboxes de capitalização
-                        this.uncheckOtherCapitalization(id);
-                    }
-                    this.triggerTextProcessing();
+                const clone = checkbox.cloneNode(true);
+                checkbox.parentNode.replaceChild(clone, checkbox);
+            }
+        });
+    }
+
+    function setupEventListeners() {
+        capitalizationIds.forEach(id => {
+            const checkbox = document.getElementById(id);
+            if (checkbox) {
+                checkbox.addEventListener('change', (e) => {
+                    this.handleCapitalizationChange(e.target, id);
                 });
             }
         });
-    }
-    
-    function setupGlobalListeners() {
-        // Monitora mudanças em outros componentes
-        document.addEventListener('wordListUpdated', () => {
-            this.triggerTextProcessing();
-        });
         
-        // Input em tempo real
         const inputText = document.getElementById('inputText');
         if (inputText) {
-            inputText.addEventListener('input', () => {
-                this.triggerTextProcessing();
-            });
+            inputText.addEventListener('input', () => this.triggerTextProcessing());
         }
+        
+        document.addEventListener('wordListUpdated', () => this.triggerTextProcessing());
     }
-    
-    function uncheckOtherCapitalization(activeId) {
-        capitalizationIds.filter(id => id !== activeId).forEach(id => {
-            const checkbox = document.getElementById(id);
-            if (checkbox) {
-                checkbox.checked = false;
-                // Dispara evento change manualmente para garantir
-                checkbox.dispatchEvent(new Event('change'));
+
+    function handleCapitalizationChange(checkbox, changedId) {
+        if (checkbox.checked) {
+            // Se está marcando, desmarca TODAS as outras
+            this.uncheckAllExcept(changedId);
+        } else {
+            // Se está desmarcando, verifica se é a única marcada
+            // Se for a única, permite desmarcar (estado "nenhum")
+            // Se não for a única, impede desmarque
+            const currentlyChecked = this.getCurrentlyCheckedIds();
+            if (currentlyChecked.length > 1 && currentlyChecked.includes(changedId)) {
+                // Há outras marcadas E esta está entre elas → impede desmarque
+                checkbox.checked = true;
+                return;
+            }
+            // Se é a única marcada, permite desmarcar (checkbox.checked já é false)
+        }
+        this.triggerTextProcessing();
+    }
+
+    function uncheckAllExcept(activeId) {
+        capitalizationIds.forEach(id => {
+            if (id !== activeId) {
+                const checkbox = document.getElementById(id);
+                if (checkbox) {
+                    checkbox.checked = false;
+                }
             }
         });
     }
-    
-    function getActiveCapitalization() {
-        return capitalizationIds.find(id => {
+
+    // NOVO: Retorna array com IDs das checkboxes marcadas
+    function getCurrentlyCheckedIds() {
+        return capitalizationIds.filter(id => {
             const checkbox = document.getElementById(id);
             return checkbox?.checked;
         });
     }
-    
-    function isAnyCapitalizationActive() {
-        return this.getActiveCapitalization() !== undefined;
+
+    function countCheckedBoxes() {
+        return this.getCurrentlyCheckedIds().length;
     }
-    
-    function clearAllCapitalization() {
-        capitalizationIds.forEach(id => {
-            const checkbox = document.getElementById(id);
-            if (checkbox) {
-                checkbox.checked = false;
-                // Dispara evento change manualmente
-                checkbox.dispatchEvent(new Event('change'));
-            }
-        });
+
+    function getActiveCapitalization() {
+        const checked = this.getCurrentlyCheckedIds();
+        return checked.length > 0 ? checked[0] : null;
     }
-    
+
     function triggerTextProcessing() {
         clearTimeout(processingTimeout);
         processingTimeout = setTimeout(() => {
-            // Dispara evento global
             document.dispatchEvent(new CustomEvent('checkboxGroupUpdated'));
-            
-            // Chama processamento do TextProcessor se disponível
-            if (typeof TextProcessor !== 'undefined' && typeof TextProcessor.process === 'function') {
+            if (typeof TextProcessor?.process === 'function') {
                 TextProcessor.process();
-            }
-            // Ou chama OutputManager se disponível
-            else if (typeof outputManager !== 'undefined' && typeof outputManager.update === 'function') {
-                outputManager.update();
             }
         }, 100);
     }
-    
-    // API pública
+
     return {
-        init: init.bind(this),
-        getActiveCapitalization: getActiveCapitalization.bind(this),
-        isAnyCapitalizationActive: isAnyCapitalizationActive.bind(this),
-        clearAllCapitalization: clearAllCapitalization.bind(this),
-        triggerTextProcessing: triggerTextProcessing.bind(this),
-        uncheckOtherCapitalization: uncheckOtherCapitalization.bind(this)
+        init,
+        getActiveCapitalization,
+        triggerTextProcessing
     };
 }
 
 // Instância global
 const checkboxGroup = createCheckboxGroup();
-document.addEventListener('DOMContentLoaded', () => checkboxGroup.init());
+
+function initializeCheckboxGroup() {
+    setTimeout(() => {
+        checkboxGroup.init();
+    }, 50);
+}
+
+// ⚠️ CÓDIGO DE EMERGÊNCIA - força o comportamento "um ou nenhum"
+function enforceExclusiveCheckboxes() {
+    const ids = [
+        'todasMaiusculas', 
+        'todasMinusculas', 
+        'iniciaisPalavras',
+        'firstLetterUppercase', 
+        'firstLetterSentence'
+    ];
+    
+    // Função que desmarca todas exceto a especificada
+    function uncheckOthers(activeId) {
+        ids.forEach(id => {
+            if (id !== activeId) {
+                const checkbox = document.getElementById(id);
+                if (checkbox) checkbox.checked = false;
+            }
+        });
+    }
+    
+    // Adiciona listeners para cada checkbox
+    ids.forEach(id => {
+        const checkbox = document.getElementById(id);
+        if (checkbox) {
+            // Remove qualquer listener existente
+            const newCheckbox = checkbox.cloneNode(true);
+            checkbox.parentNode.replaceChild(newCheckbox, checkbox);
+            
+            // Adiciona novo listener
+            newCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    uncheckOthers(id);
+                } else {
+                    // Se está desmarcando, verifica se é a única
+                    const checkedCount = ids.filter(otherId => {
+                        const otherCheckbox = document.getElementById(otherId);
+                        return otherCheckbox?.checked;
+                    }).length;
+                    
+                    // Se não é a única, impede desmarque
+                    if (checkedCount > 1) {
+                        this.checked = true;
+                    }
+                }
+                
+                // Dispara processamento de texto
+                if (typeof checkboxGroup?.triggerTextProcessing === 'function') {
+                    checkboxGroup.triggerTextProcessing();
+                } else if (typeof TextProcessor?.process === 'function') {
+                    TextProcessor.process();
+                }
+            });
+        }
+    });
+    
+    console.log('Modo emergência ativado - Comportamento exclusivo forçado');
+}
+
+// Executa o modo emergência após um delay
+setTimeout(() => {
+    enforceExclusiveCheckboxes();
+}, 1000);
+
+document.addEventListener('DOMContentLoaded', initializeCheckboxGroup);
