@@ -1,4 +1,4 @@
-document.getElementById('salvar')?.addEventListener('click', function() {
+document.getElementById('saveBtn')?.addEventListener('click', function() {
     const outputText = document.getElementById('outputText')?.value;
     
     if (!outputText?.trim()) {

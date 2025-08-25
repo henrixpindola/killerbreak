@@ -85,7 +85,7 @@ button:hover {
     align-items: stretch;
 }
 
-#pasteBtn, #apagar {
+#pasteBtn, #delBtn {
     position: static;
     margin: 0;
     z-index: 10;
@@ -98,7 +98,7 @@ button:hover {
     min-width: 75px;
 }
 
-#apagar {
+#delBtn {
     padding: 6px 10px;
     font-size: 11px;
     min-width: 40px;
@@ -119,7 +119,7 @@ button:hover {
     align-items: stretch;
 }
 
-#copyBtn, #editLink, #salvar {
+#copyBtn, #editLink, #saveBtn {
     position: static;
     margin: 0;
     z-index: 10;
@@ -138,7 +138,7 @@ button:hover {
     min-width: 75px;
 }
 
-#salvar {
+#saveBtn {
     padding: 6px 10px;
     font-size: 11px;
     min-width: 40px;
@@ -425,9 +425,9 @@ h1 {
         margin-bottom: 10px;
     }
     
-    #apagar,
+    #delBtn,
     #editLink,
-    #salvar {
+    #saveBtn {
         position: static;
         margin: 3px;
     }

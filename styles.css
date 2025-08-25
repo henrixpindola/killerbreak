@@ -100,12 +100,12 @@ button:hover {
 }
 
 /* Estilos específicos para botões de apagar */
-#apagar, #clearCustomWords {
+#delBtn, #clearCustomWords {
     background-color: var(--delete-red);
     color: white;
 }
 
-#apagar:hover, #clearCustomWords:hover {
+#delBtn:hover, #clearCustomWords:hover {
     background-color: var(--delete-hover);
     transform: translateY(-2px);
 }
