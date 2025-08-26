@@ -1,4 +1,4 @@
-# 📋 Killerbreak - README
+# 📋 Killerbreak
 
 ![Killerbreak](https://img.shields.io/badge/Version-1.0.0-green.svg)
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
@@ -8,19 +8,20 @@
 
 ## ✨ Visão Geral
 
-O **Killerbreak** é uma ferramenta web moderna para processamento e formatação de texto. Permite remover quebras de linha, corrigir espaçamento, aplicar diferentes estilos de capitalização e gerenciar palavras personalizadas.
+**Killerbreak** é uma ferramenta web que facilita o trabalho com textos copiados, especialmente de **PDFs e e-books**.
+Ela ajuda a limpar e formatar o conteúdo de forma rápida, removendo quebras de linha indesejadas, corrigindo espaçamentos, ajustando letras maiúsculas/minúsculas e permitindo gerenciar palavras personalizadas.
 
 ## 🚀 Funcionalidades
 
 ### 🔧 Processamento de Texto
-- **Remoção de Quebras de Linha** - Elimina enters desnecessários
+- **Remoção de Quebras de Linha** - Elimina "enters" desnecessários
 - **Correção de Espaços** - Padroniza espaçamento e remove espaços múltiplos
-- **Múltiplos Formatos de Capitalização**:
-  - `TODAS MAIÚSCULAS` - Texto em caixa alta
-  - `todas minúsculas` - Texto em caixa baixa  
-  - `Apenas Iniciais Maiúsculas` - Title Case
-  - `Primeira letra maiúscula` - Sentence case
-  - `Primeira letra de frase maiúscula` - Proper sentence case
+- **Maíusculas e Minúsculas**:
+  - `TODAS MAIÚSCULAS`
+  - `todas minúsculas`
+  - `Apenas Iniciais Maiúsculas`
+  - `Primeira letra maiúscula`
+  - `Primeira letra de frase maiúscula`
 
 ### 💾 Gerenciamento de Texto
 - **Colar** - Cola texto da área de transferência
@@ -30,9 +31,9 @@ O **Killerbreak** é uma ferramenta web moderna para processamento e formataçã
 - **Limpar** - Apaga todo o conteúdo
 
 ### ⚡ Palavras Personalizadas
-- Adicione palavras para preservar formatação específica
-- Lista visual das palavras personalizadas
-- Botão para limpar toda a lista
+- Adicione termos para manter a formatação correta (ex: JavaScript, iPhone, McDonald's)
+- Visualize a lista de palavras personalizadas
+- Limpe toda a lista com um clique
 
 ## 🎨 Interface
 
@@ -42,10 +43,8 @@ O **Killerbreak** é uma ferramenta web moderna para processamento e formataçã
 - **Animações Suaves** e feedback visual
 - **Ícones Intuitivos** e tipografia monospace
 
-### Modal de Ajuda
-- Acessível pelo ícone ⚠️ de atenção
-- Explicações detalhadas das funcionalidades
-- Fecha com X, clique fora ou tecla Escape
+### Modal de Atenção
+- Aprensenta informações acerca das limitações da ferramenta.
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -111,6 +110,14 @@ O design é totalmente responsivo e se adapta a:
 - **Desktop** (1200px+)
 - **Tablet** (768px - 1199px)  
 - **Mobile** (< 768px)
+
+## ⚠️ Limitações e Recomendações
+
+Esta ferramenta utiliza algoritmos heurísticos para realizar a formatação automática.
+Por isso:
+- Sempre revise o resultado final, especialmente em textos técnicos, acadêmicos ou jurídicos.
+- Algumas palavras ou expressões podem exigir ajustes manuais.
+- Palavras compostas, nomes próprios e termos técnicos podem não ser interpretados corretamente em todos os casos.
 
 ## 🔧 Personalização
 
