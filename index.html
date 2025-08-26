@@ -7,11 +7,44 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
  <body>
-  <div class="container"><!--começo do container principal do site-->
-    <div class="title-container">
-      <img src="/assets/img/attention.png" alt="Atenção" class="attention-icon">
-      <h1>Killerbreak</h1>
-    </div>
+            <div class="container"><!--começo do container principal do site-->
+              <div class="title-container">
+                <img src="/assets/img/attention.png" alt="Atenção" class="attention-icon">
+                <h1>Killerbreak</h1>
+              </div>
+              
+              <!-- Modal -->
+              <div id="readerModal" class="reader-modal">
+                <div class="reader-modal-content">
+                    <span class="reader-modal-close">&times;</span>
+                    <div class="reader-modal-header">
+                        <h2 class="reader-modal-title">📋 Como usar o Killerbreak</h2>
+                    </div>
+                    <div class="reader-modal-body">
+                        <div class="reader-modal-sections">
+                            <div class="reader-modal-section">
+                                <h3>✨ Funcionalidades Principais</h3>
+                                <ul>
+                                    <li><strong>Remover quebras de linha</strong> - Elimina enters desnecessários</li>
+                                    <li><strong>Corrigir espaços</strong> - Padroniza espaçamento do texto</li>
+                                    <li><strong>Capitalização</strong> - Diferentes formatos de letras maiúsculas</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="reader-modal-section">
+                                <h3>🎯 Dicas Rápidas</h3>
+                                <ul>
+                                    <li>Cole o texto na caixa da esquerda</li>
+                                    <li>Ajuste as opções conforme necessidade</li>
+                                    <li>O resultado aparecerá automaticamente à direita</li>
+                                    <li>Use os botões para copiar ou salvar o texto formatado</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- Fim .reader-modal-content -->
+              </div><!-- Fim Modal -->
+    
     <p class="subtitle">Remova quebras de linha e corrija espaços indesejados.</p>
     <div class="text-area"><!--classe "text-area", as caixas de texto e seus botões auxiliares-->
       <div class="input-box"><!--classe. texto de entrada, botões Colar/X e caixa de texto-->
@@ -79,8 +112,9 @@
 <script src="/assets/js/saveBtn.js"></script>
 
 <!-- Scripts de funcionalidades específicas -->
-<script src="/scripts/removeBreaks.js"></script>
-<script src="/scripts/customWords.js"></script>
+<script src="/assets/js/removeBreaks.js"></script>
+<script src="/assets/js/customWords.js"></script>
+<script src="/assets/js/reader.js"></script>
 
   <!-- Footer fora do container -->
   <footer class="footer-simplificado">

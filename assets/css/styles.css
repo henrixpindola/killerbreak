@@ -361,3 +361,297 @@ p {
         font-size: 2rem;
     }
 }
+
+/* ================================================== */
+/* READER MODAL STYLES */
+/* ================================================== */
+
+/* ==================== READER MODAL STYLES ==================== */
+
+/* Modal Overlay */
+.reader-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    animation: readerModalFadeIn 0.4s ease-out;
+    overflow: hidden;
+}
+
+/* Modal Content */
+.reader-modal-content {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    margin: 40px auto;
+    padding: 0;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 700px;
+    max-height: 85vh;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    border: 3px solid #a9db34;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Modal Header */
+.reader-modal-header {
+    background: linear-gradient(135deg, #a9db34 0%, #87bd20 100%);
+    padding: 1.5rem 2rem;
+    border-bottom: 3px solid #2c3e50;
+}
+
+.reader-modal-title {
+    color: #2c3e50;
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 800;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal Body */
+.reader-modal-body {
+    padding: 2rem;
+    overflow-y: auto;
+    flex: 1;
+}
+
+/* Modal Sections */
+.reader-modal-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+}
+
+.reader-modal-section {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 5px solid #a9db34;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reader-modal-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(169, 219, 52, 0.15);
+}
+
+.reader-modal-section h3 {
+    color: #a9db34;
+    margin: 0 0 1rem 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.reader-modal-section h3::before {
+    content: "•";
+    color: #a9db34;
+    font-size: 2rem;
+}
+
+.reader-modal-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.reader-modal-section li {
+    color: #ecf0f1;
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+    font-size: 1.05rem;
+}
+
+.reader-modal-section li:before {
+    content: "→";
+    color: #a9db34;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+}
+
+.reader-modal-section strong {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+/* Close Button */
+.reader-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    color: #2c3e50;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    background: #a9db34;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    border: 2px solid #2c3e50;
+    z-index: 10001;
+    text-decoration: none;
+}
+
+.reader-modal-close:hover {
+    background: #ff6b6b;
+    color: white;
+    transform: rotate(90deg) scale(1.1);
+    border-color: #ff6b6b;
+    text-decoration: none;
+}
+
+/* Attention Icon */
+.attention-icon {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 36px;
+    height: 36px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.attention-icon:hover {
+    transform: scale(1.15) rotate(5deg);
+    filter: drop-shadow(0 4px 8px rgba(169, 219, 52, 0.4));
+}
+
+/* Animations */
+@keyframes readerModalFadeIn {
+    from {
+        opacity: 0;
+        backdrop-filter: blur(0px);
+    }
+    to {
+        opacity: 1;
+        backdrop-filter: blur(10px);
+    }
+}
+
+@keyframes readerSlideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reader-modal-content {
+    animation: readerSlideInUp 0.5s ease-out;
+}
+
+/* Backdrop Effect */
+.reader-modal::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(169, 219, 52, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* Scrollbar Styling for Modal */
+.reader-modal-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.reader-modal-body::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.reader-modal-body::-webkit-scrollbar-thumb {
+    background: #a9db34;
+    border-radius: 4px;
+}
+
+.reader-modal-body::-webkit-scrollbar-thumb:hover {
+    background: #87bd20;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .reader-modal-content {
+        margin: 20px auto;
+        width: 95%;
+        max-width: 95%;
+        border-radius: 12px;
+    }
+    
+    .reader-modal-header {
+        padding: 1.2rem 1.5rem;
+    }
+    
+    .reader-modal-title {
+        font-size: 1.6rem;
+    }
+    
+    .reader-modal-body {
+        padding: 1.5rem;
+    }
+    
+    .reader-modal-section {
+        padding: 1.2rem;
+    }
+    
+    .reader-modal-section h3 {
+        font-size: 1.2rem;
+    }
+    
+    .reader-modal-section li {
+        font-size: 1rem;
+        padding-left: 1.2rem;
+    }
+    
+    .reader-modal-close {
+        top: 0.8rem;
+        right: 1rem;
+        width: 35px;
+        height: 35px;
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .reader-modal-title {
+        font-size: 1.4rem;
+    }
+    
+    .reader-modal-body {
+        padding: 1rem;
+    }
+    
+    .reader-modal-section {
+        padding: 1rem;
+    }
+    
+    .reader-modal-section h3 {
+        font-size: 1.1rem;
+    }
+    
+    .reader-modal-section li {
+        font-size: 0.95rem;
+        padding-left: 1rem;
+    }
+}
