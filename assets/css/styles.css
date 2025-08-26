@@ -1,4 +1,3 @@
-/* Variáveis de cores e estilos */
 :root {/*seletor de raiz para variáveis globais (quase a mesma coisa que usar asterisco)*/
     --coder-dark: #ffffff;
     --coder-blue: #ff8e8e;
