@@ -8,42 +8,40 @@
 </head>
  <body>
             <div class="container"><!--começo do container principal do site-->
-              <div class="title-container">
-                <img src="/assets/img/attention.png" alt="Atenção" class="attention-icon">
-                <h1>Killerbreak</h1>
-              </div>
+              <div class="title-container"><!--container do título e ícone de atenção-->
+                <img src="/assets/img/attention.png" alt="Atenção" class="attention-icon"><!--ícone de atenção-->
+                <h1>Killerbreak</h1><!--título principal-->
+              </div><!--fim container do título e ícone de atenção-->
               
-              <!-- Modal -->
-              <div id="readerModal" class="reader-modal">
-                <div class="reader-modal-content">
-                    <span class="reader-modal-close">&times;</span>
-                    <div class="reader-modal-header">
-                        <h2 class="reader-modal-title">📋 Como usar o Killerbreak</h2>
-                    </div>
-                    <div class="reader-modal-body">
-                        <div class="reader-modal-sections">
-                            <div class="reader-modal-section">
-                                <h3>✨ Funcionalidades Principais</h3>
-                                <ul>
-                                    <li><strong>Remover quebras de linha</strong> - Elimina enters desnecessários</li>
-                                    <li><strong>Corrigir espaços</strong> - Padroniza espaçamento do texto</li>
-                                    <li><strong>Capitalização</strong> - Diferentes formatos de letras maiúsculas</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="reader-modal-section">
-                                <h3>🎯 Dicas Rápidas</h3>
-                                <ul>
-                                    <li>Cole o texto na caixa da esquerda</li>
-                                    <li>Ajuste as opções conforme necessidade</li>
-                                    <li>O resultado aparecerá automaticamente à direita</li>
-                                    <li>Use os botões para copiar ou salvar o texto formatado</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- Fim .reader-modal-content -->
-              </div><!-- Fim Modal -->
+              <div id="readerModal" class="reader-modal"><!-- Modal -->
+                <div class="reader-modal-content"><!--conteúdo do modal-->
+                  <span class="reader-modal-close">&times;</span><!--botão fechar modal-->
+                  <div class="reader-modal-header"><!--cabeçalho do modal-->
+                    <h2 class="reader-modal-title">📋 Como usar o Killerbreak</h2><!--título do modal-->
+                  </div><!-- fim .reader-modal-header -->
+                  <div class="reader-modal-body"><!--corpo do modal-->
+                  <div class="reader-modal-sections"><!--seções do modal-->
+                  <div class="reader-modal-section"><!--seção do modal-->
+                    <h3>✨ Funcionalidades Principais</h3><!--subtítulo da seção-->
+                    <ul><!--lista de funcionalidades-->
+                      <li><strong>Remover quebras de linha</strong> - Elimina enters desnecessários</li><!--item da lista-->
+                      <li><strong>Corrigir espaços</strong> - Padroniza espaçamento do texto</li><!--item da lista-->
+                      <li><strong>Capitalização</strong> - Diferentes formatos de letras maiúsculas</li><!--item da lista-->
+                    </ul><!--fim da lista-->
+                </div><!-- fim .reader-modal-section -->
+                <div class="reader-modal-section"><!--seção do modal-->
+                  <h3>🎯 Dicas Rápidas</h3><!--subtítulo-->
+                  <ul><!--lista de dicas-->
+                    <li>Cole o texto na caixa da esquerda</li><!--item da lista-->
+                    <li>Ajuste as opções conforme necessidade</li><!--item da lista-->
+                    <li>O resultado aparecerá automaticamente à direita</li><!--item da lista-->
+                    <li>Use os botões para copiar ou salvar o texto formatado</li><!--item da lista-->
+                   </ul><!--fim da lista-->
+                </div><!-- fim .reader-modal-section -->
+              </div><!-- fim .reader-modal-sections -->
+            </div><!-- fim .reader-modal-body -->
+          </div><!-- Fim .reader-modal-content -->
+        </div><!-- Fim Modal -->
     
     <p class="subtitle">Remova quebras de linha e corrija espaços indesejados.</p>
     <div class="text-area"><!--classe "text-area", as caixas de texto e seus botões auxiliares-->
@@ -99,62 +97,60 @@
     </div><!--fim classe. advancedoptions "Opções avançadas"-->
   </div><!-- fim container principal do site-->
 
-<!-- Scripts ESSENCIAIS em ORDEM CORRETA -->
-<script src="/assets/js/outputText.js"></script>       <!-- 1. Básico -->
-<script src="/assets/js/inputText.js"></script>         <!-- 3. Processamento -->
-<script src="/assets/js/checkboxGroup.js"></script>    <!-- 2. Controle checkboxes --> 
-
-<!-- Scripts de funcionalidades básicas -->
+<!-- Principais -->
+<script src="/assets/js/outputText.js"></script>
+<script src="/assets/js/inputText.js"></script>
+<script src="/assets/js/checkboxGroup.js"></script>
+<!-- Secundários -->
 <script src="/assets/js/pasteBtn.js"></script>
 <script src="/assets/js/delBtn.js"></script>
 <script src="/assets/js/copyBtn.js"></script>
 <script src="/assets/js/editLink.js"></script>
 <script src="/assets/js/saveBtn.js"></script>
-
-<!-- Scripts de funcionalidades específicas -->
+<!-- Específicos -->
 <script src="/assets/js/removeBreaks.js"></script>
 <script src="/assets/js/customWords.js"></script>
 <script src="/assets/js/reader.js"></script>
 
-  <!-- Footer fora do container -->
-  <footer class="footer-simplificado">
-    <div class="footer-content">
-      <div class="footer-left">
-        <a href="https://github.com/henrixpindola/killerbreak" target="_blank" class="repo-link">
-          <i class="fab fa-github"></i> OpenSource Project
-        </a>
-        <div class="footer-bottom"></div>
-        <div class="developer-links">
-          <div class="developer">
-            <a href="https://github.com/suzi19" target="_blank" class="dev-name-link">
+
+<footer class="footer-simplificado"><!-- Footer fora do container -->
+  <div class="footer-content">
+     <div class="footer-left">
+      <a href="https://github.com/henrixpindola/killerbreak" target="_blank" class="repo-link">
+         <i class="fab fa-github"></i> OpenSource Project
+      </a>
+     <div class="footer-bottom"></div>
+ <div class="developer-links">
+  <div class="developer">
+    <a href="https://github.com/suzi19" target="_blank" class="dev-name-link">
               Suzana Costa
-            </a>
-            <div class="social-links">
-              <a href="https://github.com/suzi19" target="_blank" title="GitHub">
-                <i class="fab fa-github"></i>
-              </a>
-              <a href="https://www.linkedin.com/in/suzana-costa-5465b4272/" target="_blank" title="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-              </a>
-            </div>
-          </div>
-          
-          <div class="developer">
-            <a href="https://github.com/henrixpindola" target="_blank" class="dev-name-link">
-              Henrique Espindola
-            </a>
-            <div class="social-links">
-              <a href="https://github.com/henrixpindola" target="_blank" title="GitHub">
-                <i class="fab fa-github"></i>
-              </a>
-              <a href="https://www.linkedin.com/in/henrique-espindola-500409256" target="_blank" title="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-              </a>
-            </div>
-          </div>
-        </div>          
-      </div>
+    </a>
+  <div class="social-links">
+    <a href="https://github.com/suzi19" target="_blank" title="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/suzana-costa-5465b4272/" target="_blank" title="LinkedIn">
+      <i class="fab fa-linkedin"></i>
+    </a>
     </div>
-  </footer>
- </body>
+  </div>
+          
+  <div class="developer">
+    <a href="https://github.com/henrixpindola" target="_blank" class="dev-name-link">
+              Henrique Espindola
+    </a>
+  <div class="social-links">
+    <a href="https://github.com/henrixpindola" target="_blank" title="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/henrique-espindola-500409256" target="_blank" title="LinkedIn">
+     <i class="fab fa-linkedin"></i>
+    </a>
+  </div>
+</div>
+</div>          
+</div>
+</div>
+</footer>
+  </body>
 </html>
