@@ -43,6 +43,20 @@ body {
     flex: 1;
 }
 
+/* Título com ícone de atenção */
+.title-container {
+    position: relative; /* permite usar absolute no ícone */
+  }
+  
+  .attention-icon {
+    position: absolute;
+    left: 0;         /* cola na esquerda */
+    top: 50%;        /* centraliza verticalmente */
+    transform: translateY(-50%); /* corrige o alinhamento */
+    width: 100px;     /* ajuste */
+    height: auto;
+  }
+
 /* Header e título */
 h1 {
     font-size: 2.5rem;
