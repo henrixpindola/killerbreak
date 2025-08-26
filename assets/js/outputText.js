@@ -60,9 +60,9 @@ function createOutputManager() {
         if (!activeMode) return text;
         
         const strategies = {
-            'todasMaiusculas': () => text.toUpperCase(),
-            'todasMinusculas': () => text.toLowerCase(),
-            'iniciaisPalavras': () => text.replace(/\b\w/g, char => char.toUpperCase()),
+            'AllUppercase': () => text.toUpperCase(),
+            'AllLowercase': () => text.toLowerCase(),
+            'CapitalLetters': () => text.replace(/\b\w/g, char => char.toUpperCase()),
             'firstLetterUppercase': () => text.charAt(0).toUpperCase() + text.slice(1),
             'firstLetterSentence': () => text.replace(/(?:^|[.!?]\s+)(\w)/g, match => match.toUpperCase())
         };

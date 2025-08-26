@@ -7,9 +7,9 @@ const TextProcessor = (() => {
       'removeBreaks', 
       'fixSpaces', 
       'keepBlankLines',
-      'todasMaiusculas', 
-      'todasMinusculas',
-      'iniciaisPalavras',
+      'AllUppercase', 
+      'AllLowercase',
+      'CapitalLetters',
       'firstLetterUppercase',
       'firstLetterSentence'
   ];
@@ -107,15 +107,15 @@ const TextProcessor = (() => {
   function applyCapitalization(text) {
       const customWords = window.getCustomWords ? window.getCustomWords() : [];
       
-      if (isChecked('todasMaiusculas')) {
+      if (isChecked('AllUppercase')) {
           return text.toUpperCase();
       }
       
-      if (isChecked('todasMinusculas')) {
+      if (isChecked('AllLowercase')) {
           return text.toLowerCase();
       }
       
-      if (isChecked('iniciaisPalavras')) {
+      if (isChecked('CapitalLetters')) {
           return text.replace(/\b\w/g, char => char.toUpperCase());
       }
       

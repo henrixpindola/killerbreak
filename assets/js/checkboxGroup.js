@@ -1,8 +1,8 @@
 function createCheckboxGroup() {
     const capitalizationIds = [
-        'todasMaiusculas', 
-        'todasMinusculas',
-        'iniciaisPalavras',
+        'AllUppercase', 
+        'AllLowercase',
+        'CapitalLetters',
         'firstLetterUppercase',
         'firstLetterSentence'
     ];
@@ -119,9 +119,9 @@ function initializeCheckboxGroup() {
 // ⚠️ CÓDIGO DE EMERGÊNCIA - força o comportamento "um ou nenhum"
 function enforceExclusiveCheckboxes() {
     const ids = [
-        'todasMaiusculas', 
-        'todasMinusculas', 
-        'iniciaisPalavras',
+        'AllUppercase', 
+        'AllLowercase', 
+        'CapitalLetters',
         'firstLetterUppercase', 
         'firstLetterSentence'
     ];
