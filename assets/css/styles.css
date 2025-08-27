@@ -1,5 +1,4 @@
-/* Variáveis de cores e estilos */
-:root {
+:root {/*seletor de raiz para variáveis globais (quase a mesma coisa que usar asterisco)*/
     --coder-dark: #ffffff;
     --coder-blue: #ff8e8e;
     --code-green: #000000;
@@ -15,15 +14,14 @@
     --delete-hover: #8b0000;      /* Nova variável para grená no hover */
 }
 
-/* Estilos gerais */
-* {
+* {/*seletor de todos os elementos*/
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Courier New', monospace;
 }
 
-body {
+body {/*seletor de tag body*/
     background-color: var(--coder-dark);
     color: var(--text-light);
     line-height: 1.6;
@@ -32,7 +30,7 @@ body {
     flex-direction: column;
 }
 
-.container {
+.container {/*seletor de classe container*/
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
@@ -40,12 +38,11 @@ body {
     flex: 1;
 }
 
-/* Título com ícone de atenção */
-.title-container {
+.title-container {/*de classe contêiner para o título e o ícone de atenção */
     position: relative; /* permite usar absolute no ícone */
   }
   
-  .attention-icon {
+.attention-icon {/*de classe ícone de atenção */
     position: absolute;
     left: 0;         /* cola na esquerda */
     top: 50%;        /* centraliza verticalmente */
@@ -54,8 +51,7 @@ body {
     height: auto;
   }
 
-/* Header e título */
-h1 {
+h1 {/*seletor de tag h1 */
     font-size: 4rem;
     color: var(--code-green);
     text-align: center;
@@ -63,22 +59,21 @@ h1 {
     text-shadow: 0 0 5px #a9db34;
 }
 
-.subtitle {
+.subtitle {/*seletor de classe subtitle*/
     text-align: center;
     margin-bottom: 30px;
     color: var(--text-light);
     opacity: 0.8;
 }
 
-/* Área de texto */
-.text-area {
+.text-area {/*seletor de classe text-area*/
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     margin-bottom: 20px;
 }
 
-.input-box, .output-box {
+.input-box, .output-box {/*seletor de classes input-box e output-box*/
     flex: 1;
     min-width: 300px;
     background-color: rgba(0, 0, 0, 0.806);
@@ -88,13 +83,13 @@ h1 {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.button-row-input, .button-row-output {
+.button-row-input, .button-row-output {/*seletor de classes button-row-input e button-row-output*/
     display: flex;
     gap: 10px;
     margin-bottom: 10px;
 }
 
-button {
+button {/*seletor de tag button*/
     padding: 8px 15px;
     background-color: var(--code-purple);
     color: var(--text-light);
@@ -105,23 +100,23 @@ button {
     transition: all 0.3s;
 }
 
-button:hover {
+button:hover {/*efeito hover para botões. os dois-pontos geram uma pseudo-classe*/
     background-color: #a9db34;
     transform: translateY(-2px);
 }
 
-/* Estilos específicos para botões de apagar */
-#delBtn, #clearCustomWords {
+
+#delBtn, #clearCustomWords {/*seletor de IDs delBtn e clearCustomWords*/
     background-color: var(--delete-red);
     color: white;
 }
 
-#delBtn:hover, #clearCustomWords:hover {
+#delBtn:hover, #clearCustomWords:hover {/*efeito hover para os botões de deletar*/
     background-color: var(--delete-hover);
     transform: translateY(-2px);
 }
 
-textarea {
+textarea {/*seletor de tag textarea*/
     width: 100%;
     height: 150px;
     padding: 15px;
@@ -133,65 +128,62 @@ textarea {
     font-family: 'Courier New', monospace;
 }
 
-#outputText {
+#outputText {/*seletor de ID outputText*/
     background-color: #ffffff;
 }
 
-/* Checkboxes e opções */
-
-.boxes {
+.boxes {/*seletor de classe boxes*/
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
 }
 
-.options, .advancedoptions {
+.options, .advancedoptions {/*seletor de classes options e advancedoptions*/
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.boxes label, .options label {
+.boxes label, .options label {/*seletor de classes boxes label e options label*/
     display: flex;
     align-items: center;
     gap: 10px;
     cursor: pointer;
 }
 
-input[type="checkbox"] {
+input[type="checkbox"] {/*seletor de input do tipo checkbox. os colchetes indicam atributo, ou seja, as propriedade são aplicadas apenas para imput com atributos checkbox*/
     accent-color: var(--code-green);
     width: 18px;
     height: 18px;
 }
 
-p {
+p {/*seletor de tag p*/
     font-weight: bold;
     color: var(--code-green);
     margin-bottom: 10px;
 }
 
-/* Opções avançadas */
-.custom-words {
+.custom-words {/*seletor de classe custom-words*/
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 15px;
 }
 
-#customWords {
+#customWords {/*seletor de ID customWords*/
     flex: 1;
     min-width: 200px;
     height: 40px;
     margin: 0;
 }
 
-.clearCurtomWords-button {
+.clearCurtomWords-button {/*seletor de classe clearCurtomWords-button*/
     width: 100%;
     display: flex;
     justify-content: flex-end;
 }
 
-.wordlist {
+.wordlist {/*seletor de classe wordlist*/
     background-color: #2a2a4000;
     border-radius: 5px;
     padding: 15px;
@@ -199,22 +191,21 @@ p {
     overflow-y: auto;
 }
 
-#customWordsList {
+#customWordsList {/*seletor de ID customWordsList*/
     list-style-type: none;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
 }
 
-#customWordsList li {
+#customWordsList li {/*seletor de ID customWordsList li*/
     background-color: #0000007a;
     padding: 5px 10px;
     border-radius: 20px;
     font-size: 0.9rem;
 }
 
-/* Footer (mantendo o estilo original do HTML) */
-.footer-simplificado {
+.footer-simplificado {/*seletor de classe footer-simplificado*/
     background: #000000;
     color: white;
     padding: 1.5rem;
@@ -229,25 +220,25 @@ p {
     font-family: 'Helvetica', Arial, sans-serif;
 }
 
-.footer-content {
+.footer-content {/*seletor de classe footer-content*/
     display: flex;
     justify-content: center;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.footer-left {
+.footer-left {/*seletor de classe footer-left*/
     text-align: center;
     width: 100%;
 }
 
-.footer-left > p:first-child {
+.footer-left > p:first-child {/* o simbolo ">" indica que o seletor se aplica apenas ao primeiro filho da classe*/
     font-weight: bold;
     margin-bottom: 1rem;
     color: #ecf0f1;
 }
 
-.developer-links {
+.developer-links {/*seletor de classe developer-links*/
     display: flex;
     justify-content: center;
     gap: 2rem;
@@ -255,7 +246,7 @@ p {
     flex-wrap: wrap;
 }
 
-.developer {
+.developer {/*seletor de classe developer*/
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -266,24 +257,24 @@ p {
     min-width: 180px;
 }
 
-.dev-name-link {
+.dev-name-link {/*seletor de classe dev-name-link*/
     color: white;
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s;
 }
 
-.dev-name-link:hover {
+.dev-name-link:hover {/*efeito hover para o link do nome do desenvolvedor*/
     color: #a9db34;
     text-decoration: none;
 }
 
-.social-links {
+.social-links {/*seletor de classe social-links*/
     display: flex;
     gap: 1rem;
 }
 
-.social-links a {
+.social-links a {/*seletor de links dentro da classe social-links*/
     color: #ecf0f1;
     font-size: 1.3rem;
     transition: all 0.3s;
@@ -297,14 +288,14 @@ p {
     text-decoration: none;
 }
 
-.social-links a:hover {
+.social-links a:hover {/*efeito hover para os links sociais*/
     color: #a9db34;
     background-color: rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
     text-decoration: none;
 }
 
-.repo-link {
+.repo-link {/*seletor de classe repo-link*/
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
@@ -318,13 +309,13 @@ p {
     transition: all 0.3s;
 }
 
-.repo-link:hover {
+.repo-link:hover {/*efeito hover para o link do repositório*/
     color: white;
     background-color: #a9db34;
     text-decoration: none;
 }
 
-.footer-bottom {
+.footer-bottom {/*seletor de classe footer-bottom*/
     text-align: center;
     margin-top: 1.5rem;
     padding-top: 1rem;
@@ -332,44 +323,36 @@ p {
     color: #ecf0f1;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .developer-links {
+@media (max-width: 768px) {/*aplica estilos para telas com largura máxima de 768px*/
+    .developer-links {/*seletor de classe developer-links*/
         flex-direction: column;
         align-items: center;
         gap: 1rem;
     }
     
-    .developer {
+    .developer {/*seletor de classe developer*/
         width: 100%;
         max-width: 250px;
     }
     
-    .footer-simplificado {
+    .footer-simplificado {/*seletor de classe footer-simplificado*/
         padding: 1rem;
     }
     
-    .text-area {
+    .text-area {/*seletor de classe text-area*/
         flex-direction: column;
     }
     
-    .boxes {
+    .boxes {/*seletor de classe boxes*/
         flex-direction: column;
     }
     
-    h1 {
+    h1 {/*seletor de tag h1*/
         font-size: 2rem;
     }
 }
 
-/* ================================================== */
-/* READER MODAL STYLES */
-/* ================================================== */
-
-/* ==================== READER MODAL STYLES ==================== */
-
-/* Modal Overlay */
-.reader-modal {
+.reader-modal {/*seletor de classe reader-modal*/
     display: none;
     position: fixed;
     z-index: 10000;
@@ -382,8 +365,7 @@ p {
     overflow: hidden;
 }
 
-/* Modal Content */
-.reader-modal-content {
+.reader-modal-content {/*seletor de classe reader-modal-content*/
     background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
     margin: 40px auto;
     padding: 0;
@@ -399,14 +381,13 @@ p {
     flex-direction: column;
 }
 
-/* Modal Header */
-.reader-modal-header {
+.reader-modal-header {/*seletor de classe reader-modal-header*/
     background: linear-gradient(135deg, #a9db34 0%, #87bd20 100%);
     padding: 1.5rem 2rem;
     border-bottom: 3px solid #2c3e50;
 }
 
-.reader-modal-title {
+.reader-modal-title {/*seletor de classe reader-modal-title*/
     color: #2c3e50;
     margin: 0;
     font-size: 2rem;
@@ -415,21 +396,19 @@ p {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Modal Body */
-.reader-modal-body {
+.reader-modal-body {/*seletor de classe reader-modal-body*/
     padding: 2rem;
     overflow-y: auto;
     flex: 1;
 }
 
-/* Modal Sections */
-.reader-modal-sections {
+.reader-modal-sections {/*seletor de classe reader-modal-sections*/
     display: flex;
     flex-direction: column;
     gap: 1.8rem;
 }
 
-.reader-modal-section {
+.reader-modal-section {/*seletor de classe reader-modal-section*/
     background: rgba(255, 255, 255, 0.08);
     padding: 1.5rem;
     border-radius: 12px;
@@ -438,12 +417,12 @@ p {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.reader-modal-section:hover {
+.reader-modal-section:hover {/*efeito hover para a seção do modal*/
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(169, 219, 52, 0.15);
 }
 
-.reader-modal-section h3 {
+.reader-modal-section h3 {/*seletor de tag h3 dentro da classe reader-modal-section*/
     color: #a9db34;
     margin: 0 0 1rem 0;
     font-size: 1.4rem;
@@ -453,19 +432,19 @@ p {
     gap: 0.5rem;
 }
 
-.reader-modal-section h3::before {
+.reader-modal-section h3::before {/*adiciona um ícone antes do título da seção. o :: indica um pseudo-elemento*/
     content: "•";
     color: #a9db34;
     font-size: 2rem;
 }
 
-.reader-modal-section ul {
+.reader-modal-section ul {/*seletor de tag ul dentro da classe reader-modal-section*/
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.reader-modal-section li {
+.reader-modal-section li {/*seletor de tag li dentro da classe reader-modal-section*/
     color: #ecf0f1;
     margin-bottom: 0.8rem;
     padding-left: 1.5rem;
@@ -474,7 +453,7 @@ p {
     font-size: 1.05rem;
 }
 
-.reader-modal-section li:before {
+.reader-modal-section li:before {/*adiciona uma seta antes de cada item da lista. o : indica uma pseudo-classe*/
     content: "→";
     color: #a9db34;
     font-weight: bold;
@@ -483,13 +462,12 @@ p {
     font-size: 1.2rem;
 }
 
-.reader-modal-section strong {
+.reader-modal-section strong {/*seletor de tag strong dentro da classe reader-modal-section*/
     color: #ffffff;
     font-weight: 700;
 }
 
-/* Close Button */
-.reader-modal-close {
+.reader-modal-close {/*seletor de classe reader-modal-close*/
     position: absolute;
     top: 1rem;
     right: 1.5rem;
@@ -510,7 +488,7 @@ p {
     text-decoration: none;
 }
 
-.reader-modal-close:hover {
+.reader-modal-close:hover {/*efeito hover para o botão de fechar o modal*/
     background: #ff6b6b;
     color: white;
     transform: rotate(90deg) scale(1.1);
@@ -518,8 +496,7 @@ p {
     text-decoration: none;
 }
 
-/* Attention Icon */
-.attention-icon {
+.attention-icon {/*seletor de classe attention-icon*/
     cursor: pointer;
     transition: all 0.3s ease;
     width: 36px;
@@ -527,40 +504,38 @@ p {
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
-.attention-icon:hover {
+.attention-icon:hover {/*efeito hover para o ícone de atenção*/
     transform: scale(1.15) rotate(5deg);
     filter: drop-shadow(0 4px 8px rgba(169, 219, 52, 0.4));
 }
 
-/* Animations */
-@keyframes readerModalFadeIn {
-    from {
+@keyframes readerModalFadeIn {/*animação de fade-in para o modal*/
+    from {/*estado inicial*/
         opacity: 0;
         backdrop-filter: blur(0px);
     }
-    to {
+    to {/*estado final*/
         opacity: 1;
         backdrop-filter: blur(10px);
     }
 }
 
-@keyframes readerSlideInUp {
-    from {
+@keyframes readerSlideInUp {/*animação de slide-in para o conteúdo do modal*/
+    from {/*estado inicial*/
         opacity: 0;
         transform: translateY(50px);
     }
-    to {
+    to {/*estado final*/
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-.reader-modal-content {
+.reader-modal-content {/*aplica a animação de slide-in ao conteúdo do modal*/
     animation: readerSlideInUp 0.5s ease-out;
 }
 
-/* Backdrop Effect */
-.reader-modal::before {
+.reader-modal::before {/*adiciona um efeito de brilho sutil ao fundo do modal*/
     content: "";
     position: absolute;
     top: 0;
@@ -571,60 +546,58 @@ p {
     pointer-events: none;
 }
 
-/* Scrollbar Styling for Modal */
-.reader-modal-body::-webkit-scrollbar {
+.reader-modal-body::-webkit-scrollbar {/*estiliza a barra de rolagem do modal. o - indica um prefixo específico para webkit (Chrome, Safari)*/
     width: 8px;
 }
 
-.reader-modal-body::-webkit-scrollbar-track {
+.reader-modal-body::-webkit-scrollbar-track {/*estiliza a trilha da barra de rolagem do modal*/
     background: rgba(255, 255, 255, 0.1);
     border-radius: 4px;
 }
 
-.reader-modal-body::-webkit-scrollbar-thumb {
+.reader-modal-body::-webkit-scrollbar-thumb {/*estiliza o polegar da barra de rolagem do modal*/
     background: #a9db34;
     border-radius: 4px;
 }
 
-.reader-modal-body::-webkit-scrollbar-thumb:hover {
+.reader-modal-body::-webkit-scrollbar-thumb:hover {/*efeito hover para o polegar da barra de rolagem do modal*/
     background: #87bd20;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .reader-modal-content {
+@media (max-width: 768px) {/*aplica estilos para telas com largura máxima de 768px*/
+    .reader-modal-content {/*seletor de classe reader-modal-content*/
         margin: 20px auto;
         width: 95%;
         max-width: 95%;
         border-radius: 12px;
     }
     
-    .reader-modal-header {
+    .reader-modal-header {/*seletor de classe reader-modal-header*/
         padding: 1.2rem 1.5rem;
     }
     
-    .reader-modal-title {
+    .reader-modal-title {/*seletor de classe reader-modal-title*/
         font-size: 1.6rem;
     }
     
-    .reader-modal-body {
+    .reader-modal-body {/*seletor de classe reader-modal-body*/
         padding: 1.5rem;
     }
     
-    .reader-modal-section {
+    .reader-modal-section {/*seletor de classe reader-modal-section*/
         padding: 1.2rem;
     }
     
-    .reader-modal-section h3 {
+    .reader-modal-section h3 {/*seletor de tag h3 dentro da classe reader-modal-section*/
         font-size: 1.2rem;
     }
     
-    .reader-modal-section li {
+    .reader-modal-section li {/*seletor de tag li dentro da classe reader-modal-section*/
         font-size: 1rem;
         padding-left: 1.2rem;
     }
     
-    .reader-modal-close {
+    .reader-modal-close {/*seletor de classe reader-modal-close*/
         top: 0.8rem;
         right: 1rem;
         width: 35px;
@@ -633,24 +606,24 @@ p {
     }
 }
 
-@media (max-width: 480px) {
-    .reader-modal-title {
+@media (max-width: 480px) {/*aplica estilos para telas com largura máxima de 480px*/
+    .reader-modal-title {/*seletor de classe reader-modal-title*/
         font-size: 1.4rem;
     }
     
-    .reader-modal-body {
+    .reader-modal-body {/*seletor de classe reader-modal-body*/
         padding: 1rem;
     }
     
-    .reader-modal-section {
+    .reader-modal-section {/*seletor de classe reader-modal-section*/
         padding: 1rem;
     }
     
-    .reader-modal-section h3 {
+    .reader-modal-section h3 {/*seletor de tag h3 dentro da classe reader-modal-section*/
         font-size: 1.1rem;
     }
     
-    .reader-modal-section li {
+    .reader-modal-section li {/*seletor de tag li dentro da classe reader-modal-section*/
         font-size: 0.95rem;
         padding-left: 1rem;
     }
