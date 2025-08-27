@@ -72,7 +72,7 @@ assets/
 
 ## 🎯 Como Usar
 
-1. **Cole seu texto** na caixa da esquerda
+1. **Cole ou escreva seu texto** na caixa da esquerda
 2. **Ajuste as opções** conforme necessidade:
    - Marque/desmarque "Remover quebras de linha"
    - Marque/desmarque "Corrigir espaços"  
