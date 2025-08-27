@@ -80,13 +80,6 @@ function createSpaceFixer() {
         }, 150);
     }
     
-    // API pública
-    return {
-        init,
-        processText,
-        fixSpaces,
-        debounceProcess
-    };
 }
 
 // Inicialização

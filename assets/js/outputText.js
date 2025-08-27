@@ -110,17 +110,6 @@ function createOutputManager() {
   // Inicialização
   setupAutoUpdate()
 
-  // API pública
-  return {
-    clear: () => {
-      output.value = ""
-    },
-    setText: (text) => {
-      output.value = text
-    },
-    update: updateOutput,
-    getValue: () => output.value,
-  }
 }
 
 // Inicialização
