@@ -62,7 +62,7 @@ assets/
 │   ├── pasteBtn.js         # Funcionalidade colar
 │   ├── delBtn.js           # Funcionalidade limpar
 │   ├── copyBtn.js          # Funcionalidade copiar
-│   ├── editLink.js         # Funcionalidade editar
+│   ├── editBtn.js          # Funcionalidade editar
 │   ├── saveBtn.js          # Funcionalidade salvar
 │   ├── removeBreaks.js     # Controle de quebras
 │   ├── reader.js           # Modal de ajuda
