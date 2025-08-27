@@ -38,7 +38,7 @@ body {/*seletor de tag body*/
     flex: 1;
 }
 
-.title-container {/*de classe contêiner para o título e o ícone de atenção */
+.title-container {/*de classe container para o título e o ícone de atenção */
     position: relative; /* permite usar absolute no ícone */
   }
   
@@ -73,7 +73,7 @@ h1 {/*seletor de tag h1 */
     margin-bottom: 20px;
 }
 
-.input-box, .output-box {/*seletor de classes input-box e output-box*/
+.input-box {/*classe input-box*/
     flex: 1;
     min-width: 300px;
     background-color: rgba(0, 0, 0, 0.806);
@@ -83,11 +83,28 @@ h1 {/*seletor de tag h1 */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.button-row-input, .button-row-output {/*seletor de classes button-row-input e button-row-output*/
+.output-box {/*classe output-box*/
+    flex: 1;
+    min-width: 300px;
+    background-color: rgba(0, 0, 0, 0.806);
+    border: 1px solid var(--code-green);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.button-row-input {/*seletor de classes button-row-input e button-row-output*/
     display: flex;
     gap: 10px;
     margin-bottom: 10px;
 }
+
+.button-row-output {/*seletor de classes button-row-input e button-row-output*/
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
 
 button {/*seletor de tag button*/
     padding: 8px 15px;
@@ -106,12 +123,22 @@ button:hover {/*efeito hover para botões. os dois-pontos geram uma pseudo-class
 }
 
 
-#delBtn, #clearCustomWords {/*seletor de IDs delBtn e clearCustomWords*/
+#delBtn {/*seletor de ID delBtn*/
     background-color: var(--delete-red);
     color: white;
 }
 
-#delBtn:hover, #clearCustomWords:hover {/*efeito hover para os botões de deletar*/
+#clearCustomWords {/*seletor de ID clearCustomWords*/
+    background-color: var(--delete-red);
+    color: white;
+}
+
+#delBtn:hover {/*efeito hover para o botão de apagar caixa de entrada*/
+    background-color: var(--delete-hover);
+    transform: translateY(-2px);
+}
+
+#clearCustomWords:hover {/*efeito hover para o botão de apagar palavras personalizadas*/
     background-color: var(--delete-hover);
     transform: translateY(-2px);
 }
@@ -138,20 +165,33 @@ textarea {/*seletor de tag textarea*/
     gap: 20px;
 }
 
-.options, .advancedoptions {/*seletor de classes options e advancedoptions*/
+.options {/*seletor de classe options*/
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.boxes label, .options label {/*seletor de classes boxes label e options label*/
+.advancedoptions {/*seletor de classe advancedoptions*/
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.boxes label {/*seletor de classe boxes especificamente das tag label dentro dela*/
     display: flex;
     align-items: center;
     gap: 10px;
     cursor: pointer;
 }
 
-input[type="checkbox"] {/*seletor de input do tipo checkbox. os colchetes indicam atributo, ou seja, as propriedade são aplicadas apenas para imput com atributos checkbox*/
+.options label {/*seletor de classe options especificamente das tag label dentro dela*/
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {/*se aplica à <input type="checkbox">, apenas*/
     accent-color: var(--code-green);
     width: 18px;
     height: 18px;
@@ -197,8 +237,7 @@ p {/*seletor de tag p*/
     flex-wrap: wrap;
     gap: 10px;
 }
-
-#customWordsList li {/*seletor de ID customWordsList li*/
+#customWordsList li {/*seletor de classe customWordsList especificamente das tag li dentro dela*/
     background-color: #0000007a;
     padding: 5px 10px;
     border-radius: 20px;
@@ -232,7 +271,7 @@ p {/*seletor de tag p*/
     width: 100%;
 }
 
-.footer-left > p:first-child {/* o simbolo ">" indica que o seletor se aplica apenas ao primeiro filho da classe*/
+.footer-left > p:first-child {/* o ">" indica que se aplica apenas ao primeiro <p> da classe footer-left*/
     font-weight: bold;
     margin-bottom: 1rem;
     color: #ecf0f1;
@@ -274,7 +313,7 @@ p {/*seletor de tag p*/
     gap: 1rem;
 }
 
-.social-links a {/*seletor de links dentro da classe social-links*/
+.social-links a {/*seletor de de classe social-links especificamente os <a> dentro dela*/
     color: #ecf0f1;
     font-size: 1.3rem;
     transition: all 0.3s;
@@ -288,7 +327,7 @@ p {/*seletor de tag p*/
     text-decoration: none;
 }
 
-.social-links a:hover {/*efeito hover para os links sociais*/
+.social-links a:hover {/*efeito hover para <a> dentro da classe social-links*/
     color: #a9db34;
     background-color: rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
@@ -433,18 +472,18 @@ p {/*seletor de tag p*/
 }
 
 .reader-modal-section h3::before {/*adiciona um ícone antes do título da seção. o :: indica um pseudo-elemento*/
-    content: "•";
+    content: "•";/*cá está o pseudo-elemento*/
     color: #a9db34;
     font-size: 2rem;
 }
 
-.reader-modal-section ul {/*seletor de tag ul dentro da classe reader-modal-section*/
+.reader-modal-section ul {/*seletor de classe social-links especificamente os <ul> dentro dela*/
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.reader-modal-section li {/*seletor de tag li dentro da classe reader-modal-section*/
+.reader-modal-section li {/*seletor de classe social-links especificamente os <li> dentro dela*/
     color: #ecf0f1;
     margin-bottom: 0.8rem;
     padding-left: 1.5rem;
@@ -454,7 +493,7 @@ p {/*seletor de tag p*/
 }
 
 .reader-modal-section li:before {/*adiciona uma seta antes de cada item da lista. o : indica uma pseudo-classe*/
-    content: "→";
+    content: "→";/*cá está a pseudo-classe*/
     color: #a9db34;
     font-weight: bold;
     position: absolute;
@@ -462,7 +501,7 @@ p {/*seletor de tag p*/
     font-size: 1.2rem;
 }
 
-.reader-modal-section strong {/*seletor de tag strong dentro da classe reader-modal-section*/
+.reader-modal-section strong {/*seletor da classe reader-modal-section especificamente a tag strong dentro dela*/
     color: #ffffff;
     font-weight: 700;
 }
@@ -564,7 +603,7 @@ p {/*seletor de tag p*/
     background: #87bd20;
 }
 
-@media (max-width: 768px) {/*aplica estilos para telas com largura máxima de 768px*/
+@media (max-width: 768px) {/*aplica estilos para telas com largura máxima de 768px!*/
     .reader-modal-content {/*seletor de classe reader-modal-content*/
         margin: 20px auto;
         width: 95%;
