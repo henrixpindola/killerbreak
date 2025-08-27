@@ -1,4 +1,4 @@
-# 📋 Killerbreak
+# 📋 Killerbreak - Suporte ao Copiar e Colar
 
 ![Killerbreak](https://img.shields.io/badge/Version-1.0.0-green.svg)
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
@@ -9,7 +9,7 @@
 ## ✨ Visão Geral
 
 **Killerbreak** é uma ferramenta web que facilita o trabalho com textos copiados, especialmente de **PDFs e e-books**.
-Ela ajuda a limpar e formatar o conteúdo de forma rápida, removendo quebras de linha indesejadas, corrigindo espaçamentos, ajustando letras maiúsculas/minúsculas.
+Ela ajuda a limpar e formatar o conteúdo de forma rápida, removendo quebras de linha indesejadas, corrigindo espaçamentos e ajustando letras maiúsculas/minúsculas.
 
 ## 🚀 Funcionalidades
 
@@ -39,7 +39,7 @@ Ela ajuda a limpar e formatar o conteúdo de forma rápida, removendo quebras de
 - **Ícones Intuitivos** e tipografia monospace
 
 ### Modal de Atenção
-- Aprensenta informações acerca das limitações da ferramenta.
+- Apresenta informações acerca das limitações e recomendações de uso do sofware.
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -76,12 +76,9 @@ assets/
 2. **Ajuste as opções** conforme necessidade:
    - Marque/desmarque "Remover quebras de linha"
    - Marque/desmarque "Corrigir espaços"  
-   - Selecione o estilo de capitalização desejado
+   - Selecione o estilo de maiúsculas/minúsculas desejado
 3. **O resultado aparecerá automaticamente** na caixa da direita
 4. **Use os botões** para copiar, editar ou salvar o texto formatado
-
-### ⌨️ Atalhos
-- **Escape** - Desmarca todas as opções de maiúsculas e minúsculas
 
 ## 🌈 Cores do Tema
 
