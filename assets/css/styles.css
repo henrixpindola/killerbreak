@@ -125,17 +125,7 @@ button:hover {/*efeito hover para botões. os dois-pontos geram uma pseudo-class
     color: white;
 }
 
-#clearCustomWords {/*seletor de ID clearCustomWords*/
-    background-color: var(--delete-red);
-    color: white;
-}
-
 #delBtn:hover {/*efeito hover para o botão del*/
-    background-color: var(--delete-hover);
-    transform: translateY(-2px);
-}
-
-#clearCustomWords:hover {/*efeito hover para o botão clearCustomWords*/
     background-color: var(--delete-hover);
     transform: translateY(-2px);
 }
@@ -204,46 +194,11 @@ p {/*seletor de tag p*/
     margin-bottom: 10px;
 }
 
-.custom-words {/*seletor de classe custom-words*/
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 15px;
-}
-
 #customWords {/*seletor de ID customWords*/
     flex: 1;
     min-width: 200px;
     height: 40px;
     margin: 0;
-}
-
-.clearCurtomWords-button {/*seletor de classe clearCurtomWords-button*/
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.wordlist {/*seletor de classe wordlist*/
-    background-color: #2a2a4000;
-    border-radius: 5px;
-    padding: 15px;
-    max-height: 200px;
-    overflow-y: auto;
-}
-
-#customWordsList {/*seletor de ID customWordsList*/
-    list-style-type: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-/*DESTAQUE*/
-#customWordsList li {/*seletor ID customWordsList (apenas das tag li nela). Palavra personalizada após adicioná-la*/
-    background-color: #0000007a;
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 0.9rem;
 }
 
 .footer-simplificado {/*seletor de classe footer-simplificado*/
@@ -635,42 +590,4 @@ p {/*seletor de tag p*/
         font-size: 0.95rem;
         padding-left: 1rem;
     }
-}
-
-/*DESTAQUE*/
-/* BOTÕES DA LISTA DE PALAVRAS PERSONALIZADAS (customWords)*/
-.edit-btn {
-    background-color: #1abc9c;  /* cor do fundo do botão */
-    border: none;               /* remove borda padrão */
-    border-radius: 5px;         /* cantos arredondados */
-    padding: 5px 10px;          /* tamanho interno do botão */
-    cursor: pointer;            /* muda o cursor ao passar o mouse */
-    font-size: 1rem;            /* tamanho do texto/emoji */
-    transition: transform 0.2s; /* efeito suave para hover */
-}
-
-.edit-btn:hover {
-    transform: scale(1.1);      /* aumenta levemente ao passar o mouse */
-    background-color: #16a085;  /* muda a cor do fundo */
-}
-
-.remove-btn {
-    background-color: #e74c3c;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: transform 0.2s;
-}
-
-.remove-btn:hover {
-    transform: scale(1.1);
-    background-color: #c0392b;
-}
-.word-text {
-    color: #2c3e50;        /* cor do texto */
-    font-weight: bold;      /* negrito */
-    font-size: 1rem;        /* tamanho da fonte */
-    margin-right: 10px;     /* espaço à direita do span */
 }

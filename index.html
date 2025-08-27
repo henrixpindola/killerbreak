@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
  <body>
-            <div class="container"><!--começo do container principal do site-->
+  <div class="container"><!--começo do container principal do site-->
               <div class="title-container"><!--container do título e ícone de atenção-->
                 <img src="/assets/img/attention.png" alt="Atenção" class="attention-icon"><!--ícone de atenção-->
                 <h1>Killerbreak</h1><!--título principal-->
@@ -77,77 +77,63 @@
       <label class="optionslabel"><input type="checkbox" id="firstLetterSentence">Primeira letra de frase maiúscula</label><!--checkbox primeira letra de frase maiúscula, desmarcada por padrão-->
     </div><!--fim container options "Mais opções"-->
 
-    <div class="advancedoptions"> <!--container advancedoptions "Opções avançadas"-->
-      <p>Palavras personalizadas</p>
-      <div class="custom-words"><!--classe custom-words "Palavras personalizadas"-->
-        <input type="text" id="customWords" placeholder= "Adicione uma palavra ao DIGITAR ou COLAR aqui   (Ex: JavaScript, iPhone...)" ><!--campo de texto para inserir palavras personalizadas-->
-        <button id="addCustomWord">Adicionar</button><!--botão para adicionar palavra personalizada. ao clicar, a palavra é adicionada à lista abaixo e o campo de texto é limpo-->
-        <div class="clearCurtomWords-button"><!--classe clearCustomWords-button "Limpar lista"-->
-          <button id="clearCustomWords">Limpar lista</button><!--botão para limpar a lista de palavras personalizadas. ao clicar, a lista é esvaziada e o campo de texto é limpo-->
-        </div> <!--fim classe. clearCustomWords-button-->
-      </div> <!-- fim classe. custom-words-->
-
-      <div class="wordlist"><!--classe. wordlist "Lista de palavras personalizadas"-->
-        <ul id="customWordsList"><!--lista de palavras personalizadas. as palavras adicionadas pelo usuário aparecem aqui, cada uma como um item de lista-->
-        </ul><!--fim lista de palavras personalizadas-->
-      </div><!--fim classe. wordlist-->
-    </div><!--fim classe. advancedoptions "Opções avançadas"-->
+    <!--div class="advancedoptions"> container advancedoptions "Opções avançadas"
+    </div>fim classe. advancedoptions "Opções avançadas"-->
   </div><!-- fim container principal do site-->
 
-<!-- Principais -->
-<script src="/assets/js/outputText.js"></script>
-<script src="/assets/js/inputText.js"></script>
-<script src="/assets/js/checkboxGroup.js"></script>
-<!-- Secundários -->
-<script src="/assets/js/pasteBtn.js"></script>
-<script src="/assets/js/delBtn.js"></script>
-<script src="/assets/js/copyBtn.js"></script>
-<script src="/assets/js/editLink.js"></script>
-<script src="/assets/js/saveBtn.js"></script>
-<!-- Específicos -->
-<script src="/assets/js/removeBreaks.js"></script>
-<script src="/assets/js/customWords.js"></script>
-<script src="/assets/js/reader.js"></script>
+  <!-- Principais -->
+  <script src="/assets/js/outputText.js"></script>
+  <script src="/assets/js/inputText.js"></script>
+  <script src="/assets/js/checkboxGroup.js"></script>
+  <!-- Secundários -->
+  <script src="/assets/js/pasteBtn.js"></script>
+  <script src="/assets/js/delBtn.js"></script>
+  <script src="/assets/js/copyBtn.js"></script>
+  <script src="/assets/js/editLink.js"></script>
+  <script src="/assets/js/saveBtn.js"></script>
+  <!-- Específicos -->
+  <script src="/assets/js/removeBreaks.js"></script>
+  <script src="/assets/js/customWords.js"></script>
+  <script src="/assets/js/reader.js"></script>
 
-
-<footer class="footer-simplificado"><!-- Footer fora do container -->
-  <div class="footer-content">
-     <div class="footer-left">
-      <a href="https://github.com/henrixpindola/killerbreak" target="_blank" class="repo-link">
-         <i class="fab fa-github"></i> OpenSource Project
+  <footer class="footer-simplificado"><!-- Footer fora do container -->
+    <div class="footer-content">
+      <div class="footer-left">
+        <a href="https://github.com/henrixpindola/killerbreak" target="_blank" class="repo-link">
+          <i class="fab fa-github"></i> OpenSource Project
+        </a>
+      <div class="footer-bottom"></div>
+  <div class="developer-links">
+    <div class="developer">
+      <a href="https://github.com/suzi19" target="_blank" class="dev-name-link">
+                Suzana Costa
       </a>
-     <div class="footer-bottom"></div>
- <div class="developer-links">
-  <div class="developer">
-    <a href="https://github.com/suzi19" target="_blank" class="dev-name-link">
-              Suzana Costa
-    </a>
-  <div class="social-links">
-    <a href="https://github.com/suzi19" target="_blank" title="GitHub" class="devprofiles">
-      <i class="fab fa-github"></i>
-    </a>
-    <a href="https://www.linkedin.com/in/suzana-costa-5465b4272/" target="_blank" title="LinkedIn" class="devprofiles">
+    <div class="social-links">
+      <a href="https://github.com/suzi19" target="_blank" title="GitHub" class="devprofiles">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/suzana-costa-5465b4272/" target="_blank" title="LinkedIn" class="devprofiles">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      </div>
+    </div>
+            
+    <div class="developer">
+      <a href="https://github.com/henrixpindola" target="_blank" class="dev-name-link">
+                Henrique Espindola
+      </a>
+    <div class="social-links">
+      <a href="https://github.com/henrixpindola" target="_blank" title="GitHub" class="devprofiles">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/henrique-espindola-500409256" target="_blank" title="LinkedIn" class="devprofiles">
       <i class="fab fa-linkedin"></i>
-    </a>
+      </a>
     </div>
   </div>
-          
-  <div class="developer">
-    <a href="https://github.com/henrixpindola" target="_blank" class="dev-name-link">
-              Henrique Espindola
-    </a>
-  <div class="social-links">
-    <a href="https://github.com/henrixpindola" target="_blank" title="GitHub" class="devprofiles">
-      <i class="fab fa-github"></i>
-    </a>
-    <a href="https://www.linkedin.com/in/henrique-espindola-500409256" target="_blank" title="LinkedIn" class="devprofiles">
-     <i class="fab fa-linkedin"></i>
-    </a>
+  </div>          
   </div>
-</div>
-</div>          
-</div>
-</div>
-</footer>
-  </body>
+  </div>
+  </footer>
+ </body>
 </html>
