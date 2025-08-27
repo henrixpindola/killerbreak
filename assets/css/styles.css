@@ -1,36 +1,48 @@
-:root {/*seletor de raiz para variáveis globais (quase a mesma coisa que usar asterisco)*/
+/* ========== VARIÁVEIS CSS ========== */
+:root {
+    /* Cores do tema claro (padrão) */
     --coder-dark: #ffffff;
-    --coder-blue: #ff8e8e;
-    --code-green: #000000;
-    --code-purple: #ffffff;
-    --book-beige: #cf682d;
-    --parchment: #f0e6d2;
-    --travel-brown: #8b4513;
-    --gamer-red: #ff4655;
-    --text-light: #000000;
+    --code-green: #056b72;
+    --code-purple: #130606;
+    --text-light: #d83232;
     --text-dark: #333333;
-    --footer-green: #a9db34;
-    --delete-red: #ff4655;        /* Nova variável para vermelho de exclusão */
-    --delete-hover: #8b0000;      /* Nova variável para grená no hover */
+    --delete-red: #ff4655;
+    --delete-hover: #8b0000;
+    --bg-primary: #f0f0f0;
+    --bg-secondary: #ffffff;
+    --border-color: #dddddd;
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --input-bg: #ffffff;
+    --input-text: #333333;
 }
 
-* {/*seletor de todos os elementos*/
+/* Tema escuro */
+[data-theme="dark"] {
+    --coder-dark: #1a1a1a;
+    --code-green: #a9db34;
+    --code-purple: #bb86fc;
+    --text-light: #f0f0f0;
+    --text-dark: #cccccc;
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2a2a2a;
+    --border-color: #444444;
+    --card-bg: rgba(42, 42, 42, 0.9);
+    --input-bg: #2a2a2a;
+    --input-text: #f0f0f0;
+}
+/* Estilos gerais */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Courier New', monospace;
 }
 
-body {/*seletor de tag body*/
-    background-color: var(--coder-dark);
+body {
+    background-color: var(--bg-primary);
     color: var(--text-light);
-    line-height: 1.6;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
-
-.container {/*seletor de classe container*/
+.container {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
@@ -38,11 +50,12 @@ body {/*seletor de tag body*/
     flex: 1;
 }
 
-.title-container {/*de classe contêiner para o título e o ícone de atenção */
+/* Título com ícone de atenção */
+.title-container {
     position: relative; /* permite usar absolute no ícone */
   }
   
-.attention-icon {/*de classe ícone de atenção */
+  .attention-icon {
     position: absolute;
     left: 0;         /* cola na esquerda */
     top: 50%;        /* centraliza verticalmente */
@@ -51,7 +64,8 @@ body {/*seletor de tag body*/
     height: auto;
   }
 
-h1 {/*seletor de tag h1 */
+/* Header e título */
+h1 {
     font-size: 4rem;
     color: var(--code-green);
     text-align: center;
@@ -59,37 +73,56 @@ h1 {/*seletor de tag h1 */
     text-shadow: 0 0 5px #a9db34;
 }
 
-.subtitle {/*seletor de classe subtitle*/
+.subtitle {
     text-align: center;
     margin-bottom: 30px;
     color: var(--text-light);
     opacity: 0.8;
 }
-
-.text-area {/*seletor de classe text-area*/
+.textarea-container {
+    flex: 1; /* Faz a textarea preencher o espaço restante */
+    display: flex;
+    min-height: 300px; /* Altura mínima igual à caixa */
+}
+/* Área de texto */
+.text-area {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     margin-bottom: 20px;
 }
+textarea {
+    width: 100%;
+    min-height: 100%; /* Preenche a altura do container */
+    padding: 15px;
+    background-color: var(--input-bg);
+    color: var(--input-text);
+    border: 1px solid var(--code-purple);
+    border-radius: 5px;
+    resize: none;
+    font-family: 'Courier New', monospace;
+    flex: 1; /* Preenche todo o espaço disponível */
+    box-sizing: border-box; /* Inclui padding na altura/largura */
+}
 
-.input-box, .output-box {/*seletor de classes input-box e output-box*/
+.input-box, .output-box {
     flex: 1;
     min-width: 300px;
-    background-color: rgba(0, 0, 0, 0.806);
-    border: 1px solid var(--code-green);
+    background-color: var(--card-bg);
+    border: 10px solid var(--code-green);
     border-radius: 8px;
     padding: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 15px var(--shadow-color);
+    display: flex;
+    flex-direction: column; /* Organiza o conteúdo verticalmente */
 }
-
-.button-row-input, .button-row-output {/*seletor de classes button-row-input e button-row-output*/
+.button-row-input, .button-row-output {
     display: flex;
     gap: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
-button {/*seletor de tag button*/
+button {
     padding: 8px 15px;
     background-color: var(--code-purple);
     color: var(--text-light);
@@ -100,90 +133,88 @@ button {/*seletor de tag button*/
     transition: all 0.3s;
 }
 
-button:hover {/*efeito hover para botões. os dois-pontos geram uma pseudo-classe*/
-    background-color: #a9db34;
+button:hover {
+    background-color: var(--code-green);
     transform: translateY(-2px);
 }
 
-
-#delBtn, #clearCustomWords {/*seletor de IDs delBtn e clearCustomWords*/
+/* Estilos específicos para botões de apagar */
+#delBtn, #clearCustomWords {
     background-color: var(--delete-red);
     color: white;
 }
 
-#delBtn:hover, #clearCustomWords:hover {/*efeito hover para os botões de deletar*/
+#delBtn:hover, #clearCustomWords:hover {
     background-color: var(--delete-hover);
     transform: translateY(-2px);
 }
-
-textarea {/*seletor de tag textarea*/
-    width: 100%;
-    height: 150px;
-    padding: 15px;
-    background-color: #ffffff;
-    color: var(--text-light);
-    border: 1px solid var(--code-purple);
-    border-radius: 5px;
-    resize: vertical;
-    font-family: 'Courier New', monospace;
-}
-
-#outputText {/*seletor de ID outputText*/
-    background-color: #ffffff;
-}
-
-.boxes {/*seletor de classe boxes*/
+.text-area {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    margin-bottom: 20px;
+    align-items: stretch; /* Garante que os itens tenham a mesma altura */
+}
+#outputText {
+    background-color: var(--input-bg);
+}
+/* Checkboxes e opções */
+
+.boxes {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 50px;
+    gap: 20px;
 }
 
-.options, .advancedoptions {/*seletor de classes options e advancedoptions*/
+.options, .advancedoptions {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    padding-top: 50px;
 }
 
-.boxes label, .options label {/*seletor de classes boxes label e options label*/
+.boxes label, .options label {
     display: flex;
     align-items: center;
     gap: 10px;
     cursor: pointer;
 }
 
-input[type="checkbox"] {/*seletor de input do tipo checkbox. os colchetes indicam atributo, ou seja, as propriedade são aplicadas apenas para imput com atributos checkbox*/
+input[type="checkbox"] {
     accent-color: var(--code-green);
     width: 18px;
     height: 18px;
 }
 
-p {/*seletor de tag p*/
+p {
     font-weight: bold;
     color: var(--code-green);
     margin-bottom: 10px;
 }
 
-.custom-words {/*seletor de classe custom-words*/
+/* Opções avançadas */
+.custom-words {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 15px;
 }
 
-#customWords {/*seletor de ID customWords*/
+#customWords {
     flex: 1;
     min-width: 200px;
     height: 40px;
     margin: 0;
 }
 
-.clearCurtomWords-button {/*seletor de classe clearCurtomWords-button*/
+.clearCurtomWords-button {
     width: 100%;
     display: flex;
     justify-content: flex-end;
 }
 
-.wordlist {/*seletor de classe wordlist*/
+.wordlist {
     background-color: #2a2a4000;
     border-radius: 5px;
     padding: 15px;
@@ -191,21 +222,22 @@ p {/*seletor de tag p*/
     overflow-y: auto;
 }
 
-#customWordsList {/*seletor de ID customWordsList*/
+#customWordsList {
     list-style-type: none;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
 }
 
-#customWordsList li {/*seletor de ID customWordsList li*/
+#customWordsList li {
     background-color: #0000007a;
     padding: 5px 10px;
     border-radius: 20px;
     font-size: 0.9rem;
 }
 
-.footer-simplificado {/*seletor de classe footer-simplificado*/
+/* Footer (mantendo o estilo original do HTML) */
+.footer-simplificado {
     background: #000000;
     color: white;
     padding: 1.5rem;
@@ -220,25 +252,25 @@ p {/*seletor de tag p*/
     font-family: 'Helvetica', Arial, sans-serif;
 }
 
-.footer-content {/*seletor de classe footer-content*/
+.footer-content {
     display: flex;
     justify-content: center;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.footer-left {/*seletor de classe footer-left*/
+.footer-left {
     text-align: center;
     width: 100%;
 }
 
-.footer-left > p:first-child {/* o simbolo ">" indica que o seletor se aplica apenas ao primeiro filho da classe*/
+.footer-left > p:first-child {
     font-weight: bold;
     margin-bottom: 1rem;
     color: #ecf0f1;
 }
 
-.developer-links {/*seletor de classe developer-links*/
+.developer-links {
     display: flex;
     justify-content: center;
     gap: 2rem;
@@ -246,7 +278,7 @@ p {/*seletor de tag p*/
     flex-wrap: wrap;
 }
 
-.developer {/*seletor de classe developer*/
+.developer {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -257,24 +289,24 @@ p {/*seletor de tag p*/
     min-width: 180px;
 }
 
-.dev-name-link {/*seletor de classe dev-name-link*/
+.dev-name-link {
     color: white;
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s;
 }
 
-.dev-name-link:hover {/*efeito hover para o link do nome do desenvolvedor*/
+.dev-name-link:hover {
     color: #a9db34;
     text-decoration: none;
 }
 
-.social-links {/*seletor de classe social-links*/
+.social-links {
     display: flex;
     gap: 1rem;
 }
 
-.social-links a {/*seletor de links dentro da classe social-links*/
+.social-links a {
     color: #ecf0f1;
     font-size: 1.3rem;
     transition: all 0.3s;
@@ -288,14 +320,14 @@ p {/*seletor de tag p*/
     text-decoration: none;
 }
 
-.social-links a:hover {/*efeito hover para os links sociais*/
+.social-links a:hover {
     color: #a9db34;
     background-color: rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
     text-decoration: none;
 }
 
-.repo-link {/*seletor de classe repo-link*/
+.repo-link {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
@@ -309,50 +341,58 @@ p {/*seletor de tag p*/
     transition: all 0.3s;
 }
 
-.repo-link:hover {/*efeito hover para o link do repositório*/
-    color: white;
+.repo-link:hover {
+    color: rgb(255, 251, 251);
     background-color: #a9db34;
     text-decoration: none;
 }
 
-.footer-bottom {/*seletor de classe footer-bottom*/
+.footer-bottom {
     text-align: center;
     margin-top: 1.5rem;
     padding-top: 1rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: #ecf0f1;
+    color: #fafafa;
 }
 
-@media (max-width: 768px) {/*aplica estilos para telas com largura máxima de 768px*/
-    .developer-links {/*seletor de classe developer-links*/
+/* Responsividade */
+@media (max-width: 768px) {
+    .developer-links {
         flex-direction: column;
         align-items: center;
         gap: 1rem;
     }
     
-    .developer {/*seletor de classe developer*/
+    .developer {
         width: 100%;
         max-width: 250px;
     }
     
-    .footer-simplificado {/*seletor de classe footer-simplificado*/
+    .footer-simplificado {
         padding: 1rem;
     }
     
-    .text-area {/*seletor de classe text-area*/
+    .text-area {
         flex-direction: column;
     }
     
-    .boxes {/*seletor de classe boxes*/
+    .boxes {
         flex-direction: column;
     }
     
-    h1 {/*seletor de tag h1*/
+    h1 {
         font-size: 2rem;
     }
 }
 
-.reader-modal {/*seletor de classe reader-modal*/
+/* ================================================== */
+/* READER MODAL STYLES */
+/* ================================================== */
+
+/* ==================== READER MODAL STYLES ==================== */
+
+/* Modal Overlay */
+.reader-modal {
     display: none;
     position: fixed;
     z-index: 10000;
@@ -365,7 +405,8 @@ p {/*seletor de tag p*/
     overflow: hidden;
 }
 
-.reader-modal-content {/*seletor de classe reader-modal-content*/
+/* Modal Content */
+.reader-modal-content {
     background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
     margin: 40px auto;
     padding: 0;
@@ -381,13 +422,14 @@ p {/*seletor de tag p*/
     flex-direction: column;
 }
 
-.reader-modal-header {/*seletor de classe reader-modal-header*/
+/* Modal Header */
+.reader-modal-header {
     background: linear-gradient(135deg, #a9db34 0%, #87bd20 100%);
     padding: 1.5rem 2rem;
     border-bottom: 3px solid #2c3e50;
 }
 
-.reader-modal-title {/*seletor de classe reader-modal-title*/
+.reader-modal-title {
     color: #2c3e50;
     margin: 0;
     font-size: 2rem;
@@ -396,19 +438,21 @@ p {/*seletor de tag p*/
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.reader-modal-body {/*seletor de classe reader-modal-body*/
+/* Modal Body */
+.reader-modal-body {
     padding: 2rem;
     overflow-y: auto;
     flex: 1;
 }
 
-.reader-modal-sections {/*seletor de classe reader-modal-sections*/
+/* Modal Sections */
+.reader-modal-sections {
     display: flex;
     flex-direction: column;
     gap: 1.8rem;
 }
 
-.reader-modal-section {/*seletor de classe reader-modal-section*/
+.reader-modal-section {
     background: rgba(255, 255, 255, 0.08);
     padding: 1.5rem;
     border-radius: 12px;
@@ -417,12 +461,12 @@ p {/*seletor de tag p*/
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.reader-modal-section:hover {/*efeito hover para a seção do modal*/
+.reader-modal-section:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(169, 219, 52, 0.15);
 }
 
-.reader-modal-section h3 {/*seletor de tag h3 dentro da classe reader-modal-section*/
+.reader-modal-section h3 {
     color: #a9db34;
     margin: 0 0 1rem 0;
     font-size: 1.4rem;
@@ -432,20 +476,20 @@ p {/*seletor de tag p*/
     gap: 0.5rem;
 }
 
-.reader-modal-section h3::before {/*adiciona um ícone antes do título da seção. o :: indica um pseudo-elemento*/
+.reader-modal-section h3::before {
     content: "•";
     color: #a9db34;
     font-size: 2rem;
 }
 
-.reader-modal-section ul {/*seletor de tag ul dentro da classe reader-modal-section*/
+.reader-modal-section ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.reader-modal-section li {/*seletor de tag li dentro da classe reader-modal-section*/
-    color: #ecf0f1;
+.reader-modal-section li {
+    color: #ece1e1;
     margin-bottom: 0.8rem;
     padding-left: 1.5rem;
     position: relative;
@@ -453,7 +497,7 @@ p {/*seletor de tag p*/
     font-size: 1.05rem;
 }
 
-.reader-modal-section li:before {/*adiciona uma seta antes de cada item da lista. o : indica uma pseudo-classe*/
+.reader-modal-section li:before {
     content: "→";
     color: #a9db34;
     font-weight: bold;
@@ -462,12 +506,13 @@ p {/*seletor de tag p*/
     font-size: 1.2rem;
 }
 
-.reader-modal-section strong {/*seletor de tag strong dentro da classe reader-modal-section*/
+.reader-modal-section strong {
     color: #ffffff;
     font-weight: 700;
 }
 
-.reader-modal-close {/*seletor de classe reader-modal-close*/
+/* Close Button */
+.reader-modal-close {
     position: absolute;
     top: 1rem;
     right: 1.5rem;
@@ -488,7 +533,7 @@ p {/*seletor de tag p*/
     text-decoration: none;
 }
 
-.reader-modal-close:hover {/*efeito hover para o botão de fechar o modal*/
+.reader-modal-close:hover {
     background: #ff6b6b;
     color: white;
     transform: rotate(90deg) scale(1.1);
@@ -496,7 +541,8 @@ p {/*seletor de tag p*/
     text-decoration: none;
 }
 
-.attention-icon {/*seletor de classe attention-icon*/
+/* Attention Icon */
+.attention-icon {
     cursor: pointer;
     transition: all 0.3s ease;
     width: 36px;
@@ -504,38 +550,40 @@ p {/*seletor de tag p*/
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
-.attention-icon:hover {/*efeito hover para o ícone de atenção*/
+.attention-icon:hover {
     transform: scale(1.15) rotate(5deg);
     filter: drop-shadow(0 4px 8px rgba(169, 219, 52, 0.4));
 }
 
-@keyframes readerModalFadeIn {/*animação de fade-in para o modal*/
-    from {/*estado inicial*/
+/* Animations */
+@keyframes readerModalFadeIn {
+    from {
         opacity: 0;
         backdrop-filter: blur(0px);
     }
-    to {/*estado final*/
+    to {
         opacity: 1;
         backdrop-filter: blur(10px);
     }
 }
 
-@keyframes readerSlideInUp {/*animação de slide-in para o conteúdo do modal*/
-    from {/*estado inicial*/
+@keyframes readerSlideInUp {
+    from {
         opacity: 0;
         transform: translateY(50px);
     }
-    to {/*estado final*/
+    to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-.reader-modal-content {/*aplica a animação de slide-in ao conteúdo do modal*/
+.reader-modal-content {
     animation: readerSlideInUp 0.5s ease-out;
 }
 
-.reader-modal::before {/*adiciona um efeito de brilho sutil ao fundo do modal*/
+/* Backdrop Effect */
+.reader-modal::before {
     content: "";
     position: absolute;
     top: 0;
@@ -546,58 +594,60 @@ p {/*seletor de tag p*/
     pointer-events: none;
 }
 
-.reader-modal-body::-webkit-scrollbar {/*estiliza a barra de rolagem do modal. o - indica um prefixo específico para webkit (Chrome, Safari)*/
+/* Scrollbar Styling for Modal */
+.reader-modal-body::-webkit-scrollbar {
     width: 8px;
 }
 
-.reader-modal-body::-webkit-scrollbar-track {/*estiliza a trilha da barra de rolagem do modal*/
+.reader-modal-body::-webkit-scrollbar-track {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 4px;
 }
 
-.reader-modal-body::-webkit-scrollbar-thumb {/*estiliza o polegar da barra de rolagem do modal*/
+.reader-modal-body::-webkit-scrollbar-thumb {
     background: #a9db34;
     border-radius: 4px;
 }
 
-.reader-modal-body::-webkit-scrollbar-thumb:hover {/*efeito hover para o polegar da barra de rolagem do modal*/
+.reader-modal-body::-webkit-scrollbar-thumb:hover {
     background: #87bd20;
 }
 
-@media (max-width: 768px) {/*aplica estilos para telas com largura máxima de 768px*/
-    .reader-modal-content {/*seletor de classe reader-modal-content*/
+/* Responsive Design */
+@media (max-width: 768px) {
+    .reader-modal-content {
         margin: 20px auto;
         width: 95%;
         max-width: 95%;
         border-radius: 12px;
     }
     
-    .reader-modal-header {/*seletor de classe reader-modal-header*/
+    .reader-modal-header {
         padding: 1.2rem 1.5rem;
     }
     
-    .reader-modal-title {/*seletor de classe reader-modal-title*/
+    .reader-modal-title {
         font-size: 1.6rem;
     }
     
-    .reader-modal-body {/*seletor de classe reader-modal-body*/
+    .reader-modal-body {
         padding: 1.5rem;
     }
     
-    .reader-modal-section {/*seletor de classe reader-modal-section*/
+    .reader-modal-section {
         padding: 1.2rem;
     }
     
-    .reader-modal-section h3 {/*seletor de tag h3 dentro da classe reader-modal-section*/
+    .reader-modal-section h3 {
         font-size: 1.2rem;
     }
     
-    .reader-modal-section li {/*seletor de tag li dentro da classe reader-modal-section*/
+    .reader-modal-section li {
         font-size: 1rem;
         padding-left: 1.2rem;
     }
     
-    .reader-modal-close {/*seletor de classe reader-modal-close*/
+    .reader-modal-close {
         top: 0.8rem;
         right: 1rem;
         width: 35px;
@@ -606,25 +656,89 @@ p {/*seletor de tag p*/
     }
 }
 
-@media (max-width: 480px) {/*aplica estilos para telas com largura máxima de 480px*/
-    .reader-modal-title {/*seletor de classe reader-modal-title*/
+@media (max-width: 480px) {
+    .reader-modal-title {
         font-size: 1.4rem;
     }
     
-    .reader-modal-body {/*seletor de classe reader-modal-body*/
+    .reader-modal-body {
         padding: 1rem;
     }
     
-    .reader-modal-section {/*seletor de classe reader-modal-section*/
+    .reader-modal-section {
         padding: 1rem;
     }
     
-    .reader-modal-section h3 {/*seletor de tag h3 dentro da classe reader-modal-section*/
+    .reader-modal-section h3 {
         font-size: 1.1rem;
     }
     
-    .reader-modal-section li {/*seletor de tag li dentro da classe reader-modal-section*/
+    .reader-modal-section li {
         font-size: 0.95rem;
         padding-left: 1rem;
     }
+    /* ========== INTERRUPTOR DE TEMA ========== */
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+#theme-label {
+    color: var(--text-light);
+    font-weight: bold;
+}
 }
