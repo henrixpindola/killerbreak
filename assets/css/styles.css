@@ -151,6 +151,7 @@ textarea {/*seletor de tag textarea*/
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    padding: 15px;
 }
 
 .options {/*seletor de classe options*/
@@ -195,7 +196,7 @@ p {/*seletor de tag p*/
 }
 
 .footer-simplificado {/*seletor de classe footer-simplificado*/
-    background: #000000;
+    background: #03271c;
     color: white;
     padding: 1.5rem;
     margin: 2rem -20px -20px -20px;
@@ -409,8 +410,8 @@ p {/*seletor de tag p*/
 .reader-modal-section h3 {/*seletor de classe reader-modal-section (apenas das tag h3 nela)*/
     color: #a9db34;
     margin: 0 0 1rem 0;
-    font-size: 1.4rem;
-    font-weight: 700;
+    font-size:1rem;
+    font-weight: 200;
     display: flex;
     align-items: center;
     gap: 0.5rem;
