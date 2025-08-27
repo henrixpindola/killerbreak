@@ -3,14 +3,14 @@ document.getElementById('copyBtn').addEventListener('click', async () => {
     
     try {
         await navigator.clipboard.writeText(outputText.value);
-        alert('Texto copiado! ✅');
+        alert('Texto copiado!');
     } catch (err) {
         try {
             outputText.select();
             document.execCommand('copy');
             alert('Texto copiado! 📋');
         } catch (error) {
-            alert('Erro ao copiar texto ❌');
+            alert('Erro ao copiar texto');
         }
     }
 });

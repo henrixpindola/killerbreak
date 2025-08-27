@@ -1,24 +1,22 @@
-:root {/*seletor de raiz para variáveis globais (quase a mesma coisa que usar asterisco)*/
-    --coder-dark: #ffffff;
-    --coder-blue: #ff8e8e;
-    --code-green: #000000;
-    --code-purple: #ffffff;
-    --book-beige: #cf682d;
-    --parchment: #f0e6d2;
-    --travel-brown: #8b4513;
-    --gamer-red: #ff4655;
-    --text-light: #000000;
-    --text-dark: #333333;
-    --footer-green: #a9db34;
-    --delete-red: #ff4655;        /* Nova variável para vermelho de exclusão */
-    --delete-hover: #8b0000;      /* Nova variável para grená no hover */
-}
-
-* {/*seletor de todos os elementos*/
+/*PARA MUDAR ID PARA CLASSE TEM QUE MEXER NO JS!!!!*/
+* {/*seletor de todos os elementos (quase a mesma coisa que usar :root)*/
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Courier New', monospace;
+    --coder-dark: #ffffff;/* Variável para fundo escuro */
+    --coder-blue: #ff8e8e;/* Variável para azul código */
+    --code-green: #000000;/* Variável para verde código */
+    --code-purple: #ffffff;/* Variável para roxo código */
+    --book-beige: #cf682d;/* Variável para bege livro */
+    --parchment: #f0e6d2;/* Variável para pergaminho */
+    --travel-brown: #8b4513;/* Variável para marrom viagem */
+    --gamer-red: #ff4655;/* Variável para vermelho gamer */
+    --text-light: #000000;/* Variável para texto claro */
+    --text-dark: #333333;/* Variável para texto escuro */
+    --footer-green: #a9db34;/* Variável para verde do rodapé */
+    --delete-red: #ff4655;        /* Variável para vermelho de exclusão */
+    --delete-hover: #8b0000;      /* Variável para grená no hover de exclusão*/
 }
 
 body {/*seletor de tag body*/
@@ -38,12 +36,12 @@ body {/*seletor de tag body*/
     flex: 1;
 }
 
-.title-container {/*de classe contêiner para o título e o ícone de atenção */
-    position: relative; /* permite usar absolute no ícone */
+.title-container {/*de classe container para o título */
+    position: relative; /* permite usar absolute no ícone de atenção*/
   }
   
 .attention-icon {/*de classe ícone de atenção */
-    position: absolute;
+    position: absolute;/* permite posicionar o ícone de atenção. absolute é relativo ao position relative (title-container)*/
     left: 0;         /* cola na esquerda */
     top: 50%;        /* centraliza verticalmente */
     transform: translateY(-50%); /* corrige o alinhamento */
@@ -73,7 +71,7 @@ h1 {/*seletor de tag h1 */
     margin-bottom: 20px;
 }
 
-.input-box, .output-box {/*seletor de classes input-box e output-box*/
+.input-box {/*seletor de classe input-box*/
     flex: 1;
     min-width: 300px;
     background-color: rgba(0, 0, 0, 0.806);
@@ -83,7 +81,23 @@ h1 {/*seletor de tag h1 */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.button-row-input, .button-row-output {/*seletor de classes button-row-input e button-row-output*/
+.output-box {/*seletor de classe output-box*/
+    flex: 1;
+    min-width: 300px;
+    background-color: rgba(0, 0, 0, 0.806);
+    border: 1px solid var(--code-green);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.button-row-input {/*seletor de classe button-row-input*/
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.button-row-output {/*seletor de classe button-row-output*/
     display: flex;
     gap: 10px;
     margin-bottom: 10px;
@@ -106,12 +120,22 @@ button:hover {/*efeito hover para botões. os dois-pontos geram uma pseudo-class
 }
 
 
-#delBtn, #clearCustomWords {/*seletor de IDs delBtn e clearCustomWords*/
+#delBtn {/*seletor de ID delBtn*/
     background-color: var(--delete-red);
     color: white;
 }
 
-#delBtn:hover, #clearCustomWords:hover {/*efeito hover para os botões de deletar*/
+#clearCustomWords {/*seletor de ID clearCustomWords*/
+    background-color: var(--delete-red);
+    color: white;
+}
+
+#delBtn:hover {/*efeito hover para o botão del*/
+    background-color: var(--delete-hover);
+    transform: translateY(-2px);
+}
+
+#clearCustomWords:hover {/*efeito hover para o botão clearCustomWords*/
     background-color: var(--delete-hover);
     transform: translateY(-2px);
 }
@@ -128,6 +152,7 @@ textarea {/*seletor de tag textarea*/
     font-family: 'Courier New', monospace;
 }
 
+/*DESTAQUE*/
 #outputText {/*seletor de ID outputText*/
     background-color: #ffffff;
 }
@@ -138,20 +163,36 @@ textarea {/*seletor de tag textarea*/
     gap: 20px;
 }
 
-.options, .advancedoptions {/*seletor de classes options e advancedoptions*/
+.options {/*seletor de classe options*/
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.boxes label, .options label {/*seletor de classes boxes label e options label*/
+.advancedoptions {/*seletor de classe advancedoptions*/
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.boxeslabel {/*seletor de classe boxeslabel*/
     display: flex;
     align-items: center;
     gap: 10px;
     cursor: pointer;
+    color: black
 }
 
-input[type="checkbox"] {/*seletor de input do tipo checkbox. os colchetes indicam atributo, ou seja, as propriedade são aplicadas apenas para imput com atributos checkbox*/
+.optionslabel {/*seletor de classe optionslabel*/
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    color: black
+}
+
+/*DESTAQUE*/
+input[type="checkbox"] {/*é o input type="checkbox". deixe assim*/
     accent-color: var(--code-green);
     width: 18px;
     height: 18px;
@@ -197,8 +238,8 @@ p {/*seletor de tag p*/
     flex-wrap: wrap;
     gap: 10px;
 }
-
-#customWordsList li {/*seletor de ID customWordsList li*/
+/*DESTAQUE*/
+#customWordsList li {/*seletor ID customWordsList (apenas das tag li nela). Palavra personalizada após adicioná-la*/
     background-color: #0000007a;
     padding: 5px 10px;
     border-radius: 20px;
@@ -232,10 +273,24 @@ p {/*seletor de tag p*/
     width: 100%;
 }
 
-.footer-left > p:first-child {/* o simbolo ">" indica que o seletor se aplica apenas ao primeiro filho da classe*/
-    font-weight: bold;
-    margin-bottom: 1rem;
-    color: #ecf0f1;
+.repo-link {/*seletor de classe repo-link*/
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color:  white;
+    text-decoration: none;
+    font-weight: bold;/*ou 600*/
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.repo-link:hover {/*efeito hover para o link do repositório*/
+    color: white;
+    background-color: #a9db34;
+    text-decoration: none;
 }
 
 .developer-links {/*seletor de classe developer-links*/
@@ -274,7 +329,7 @@ p {/*seletor de tag p*/
     gap: 1rem;
 }
 
-.social-links a {/*seletor de links dentro da classe social-links*/
+.devprofiles {/*seletor de classe devprofiles*/
     color: #ecf0f1;
     font-size: 1.3rem;
     transition: all 0.3s;
@@ -288,30 +343,10 @@ p {/*seletor de tag p*/
     text-decoration: none;
 }
 
-.social-links a:hover {/*efeito hover para os links sociais*/
+.devprofiles:hover {/*efeito hover para o link do GitHub do desenvolvedor*/
     color: #a9db34;
     background-color: rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
-    text-decoration: none;
-}
-
-.repo-link {/*seletor de classe repo-link*/
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 600;
-    margin-top: 1rem;
-    padding: 0.6rem 1.2rem;
-    border: 1px solid #ffffff;
-    border-radius: 4px;
-    transition: all 0.3s;
-}
-
-.repo-link:hover {/*efeito hover para o link do repositório*/
-    color: white;
-    background-color: #a9db34;
     text-decoration: none;
 }
 
@@ -323,6 +358,7 @@ p {/*seletor de tag p*/
     color: #ecf0f1;
 }
 
+/*DESTAQUE*/
 @media (max-width: 768px) {/*aplica estilos para telas com largura máxima de 768px*/
     .developer-links {/*seletor de classe developer-links*/
         flex-direction: column;
@@ -422,7 +458,7 @@ p {/*seletor de tag p*/
     box-shadow: 0 8px 25px rgba(169, 219, 52, 0.15);
 }
 
-.reader-modal-section h3 {/*seletor de tag h3 dentro da classe reader-modal-section*/
+.reader-modal-section h3 {/*seletor de classe reader-modal-section (apenas das tag h3 nela)*/
     color: #a9db34;
     margin: 0 0 1rem 0;
     font-size: 1.4rem;
@@ -432,19 +468,13 @@ p {/*seletor de tag p*/
     gap: 0.5rem;
 }
 
-.reader-modal-section h3::before {/*adiciona um ícone antes do título da seção. o :: indica um pseudo-elemento*/
-    content: "•";
-    color: #a9db34;
-    font-size: 2rem;
-}
-
-.reader-modal-section ul {/*seletor de tag ul dentro da classe reader-modal-section*/
+.reader-modal-section ul {/*seletor de classe reader-modal-section (apenas das tag ul nela)*/
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.reader-modal-section li {/*seletor de tag li dentro da classe reader-modal-section*/
+.reader-modal-section li {/*seletor de classe reader-modal-section (apenas das tag li nela)*/
     color: #ecf0f1;
     margin-bottom: 0.8rem;
     padding-left: 1.5rem;
@@ -453,18 +483,8 @@ p {/*seletor de tag p*/
     font-size: 1.05rem;
 }
 
-.reader-modal-section li:before {/*adiciona uma seta antes de cada item da lista. o : indica uma pseudo-classe*/
-    content: "→";
-    color: #a9db34;
-    font-weight: bold;
-    position: absolute;
-    left: 0;
-    font-size: 1.2rem;
-}
-
-.reader-modal-section strong {/*seletor de tag strong dentro da classe reader-modal-section*/
+.readerlistrong {/*seletor de classe readerlistrong*/
     color: #ffffff;
-    font-weight: 700;
 }
 
 .reader-modal-close {/*seletor de classe reader-modal-close*/
@@ -509,6 +529,7 @@ p {/*seletor de tag p*/
     filter: drop-shadow(0 4px 8px rgba(169, 219, 52, 0.4));
 }
 
+/*DESTAQUE*/
 @keyframes readerModalFadeIn {/*animação de fade-in para o modal*/
     from {/*estado inicial*/
         opacity: 0;
@@ -520,6 +541,7 @@ p {/*seletor de tag p*/
     }
 }
 
+/*DESTAQUE*/
 @keyframes readerSlideInUp {/*animação de slide-in para o conteúdo do modal*/
     from {/*estado inicial*/
         opacity: 0;
@@ -535,22 +557,11 @@ p {/*seletor de tag p*/
     animation: readerSlideInUp 0.5s ease-out;
 }
 
-.reader-modal::before {/*adiciona um efeito de brilho sutil ao fundo do modal*/
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, rgba(169, 219, 52, 0.1) 0%, transparent 70%);
-    pointer-events: none;
-}
-
 .reader-modal-body::-webkit-scrollbar {/*estiliza a barra de rolagem do modal. o - indica um prefixo específico para webkit (Chrome, Safari)*/
     width: 8px;
 }
 
-.reader-modal-body::-webkit-scrollbar-track {/*estiliza a trilha da barra de rolagem do modal*/
+.reader-modal-body::-webkit-scrollbar-track {/*estiliza a trilha da barra de rolagem do modal.*/
     background: rgba(255, 255, 255, 0.1);
     border-radius: 4px;
 }
@@ -564,6 +575,7 @@ p {/*seletor de tag p*/
     background: #87bd20;
 }
 
+/*DESTAQUE*/
 @media (max-width: 768px) {/*aplica estilos para telas com largura máxima de 768px*/
     .reader-modal-content {/*seletor de classe reader-modal-content*/
         margin: 20px auto;
@@ -588,15 +600,10 @@ p {/*seletor de tag p*/
         padding: 1.2rem;
     }
     
-    .reader-modal-section h3 {/*seletor de tag h3 dentro da classe reader-modal-section*/
+    .readerh3 {/*seletor de classe reader-h3*/
         font-size: 1.2rem;
     }
-    
-    .reader-modal-section li {/*seletor de tag li dentro da classe reader-modal-section*/
-        font-size: 1rem;
-        padding-left: 1.2rem;
-    }
-    
+        
     .reader-modal-close {/*seletor de classe reader-modal-close*/
         top: 0.8rem;
         right: 1rem;
@@ -606,6 +613,7 @@ p {/*seletor de tag p*/
     }
 }
 
+/*DESTAQUE*/
 @media (max-width: 480px) {/*aplica estilos para telas com largura máxima de 480px*/
     .reader-modal-title {/*seletor de classe reader-modal-title*/
         font-size: 1.4rem;
@@ -619,12 +627,50 @@ p {/*seletor de tag p*/
         padding: 1rem;
     }
     
-    .reader-modal-section h3 {/*seletor de tag h3 dentro da classe reader-modal-section*/
+    .readerh3 {/*seletor classe readerh3*/
         font-size: 1.1rem;
     }
     
-    .reader-modal-section li {/*seletor de tag li dentro da classe reader-modal-section*/
+    .readerlistrong {/*seletor de classe readerlistrong*/
         font-size: 0.95rem;
         padding-left: 1rem;
     }
+}
+
+/*DESTAQUE*/
+/* BOTÕES DA LISTA DE PALAVRAS PERSONALIZADAS (customWords)*/
+.edit-btn {
+    background-color: #1abc9c;  /* cor do fundo do botão */
+    border: none;               /* remove borda padrão */
+    border-radius: 5px;         /* cantos arredondados */
+    padding: 5px 10px;          /* tamanho interno do botão */
+    cursor: pointer;            /* muda o cursor ao passar o mouse */
+    font-size: 1rem;            /* tamanho do texto/emoji */
+    transition: transform 0.2s; /* efeito suave para hover */
+}
+
+.edit-btn:hover {
+    transform: scale(1.1);      /* aumenta levemente ao passar o mouse */
+    background-color: #16a085;  /* muda a cor do fundo */
+}
+
+.remove-btn {
+    background-color: #e74c3c;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform 0.2s;
+}
+
+.remove-btn:hover {
+    transform: scale(1.1);
+    background-color: #c0392b;
+}
+.word-text {
+    color: #2c3e50;        /* cor do texto */
+    font-weight: bold;      /* negrito */
+    font-size: 1rem;        /* tamanho da fonte */
+    margin-right: 10px;     /* espaço à direita do span */
 }
