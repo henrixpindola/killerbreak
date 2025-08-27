@@ -65,7 +65,7 @@ assets/
 │   ├── editBtn.js          # Funcionalidade editar
 │   ├── saveBtn.js          # Funcionalidade salvar
 │   ├── removeBreaks.js     # Controle de quebras
-│   ├── reader.js           # Modal de ajuda
+│   ├── reader.js           # Modal de informações importantes
 ├── img/
 │   └── attention.png       # Ícone de atenção
 ```
