@@ -17,20 +17,18 @@
                 <div class="reader-modal-content"><!--conteúdo do modal-->
                   <span class="reader-modal-close">&times;</span><!--botão fechar modal-->
                   <div class="reader-modal-header"><!--cabeçalho do modal-->
-                    <h2 class="reader-modal-title">⚠️ Limitações e Recomendações ⚠️</h2><!--título do modal-->
+                    <h2 class="reader-modal-title">Limitações e Recomendações</h2><!--título do modal-->
                   </div><!-- fim .reader-modal-header -->
                   <div class="reader-modal-body"><!--corpo do modal-->
                   <div class="reader-modal-sections"><!--seções do modal-->
                   <div class="reader-modal-section"><!--seção do modal-->
-                    <h3>Esta ferramenta utiliza algoritmos heurísticos para realizar a formatação automática. Por isso:</h3><!--subtítulo da seção-->
-                    <ul><!--lista de funcionalidades-->
-                      <li><strong>Sempre revise o resultado final, especialmente em textos técnicos, acadêmicos ou jurídicos.</li><!--item da lista-->
-                      <li><strong>Algumas palavras ou expressões podem exigir ajustes manuais.</li><!--item da lista-->
-                      <li><strong>Palavras compostas, nomes próprios e termos técnicos podem não ser interpretados corretamente em todos os casos.</li><!--item da lista-->
-                    </ul><!--fim da lista-->
-                    <h3>
-                      Para mais informações sobre o uso desta ferramenta, acesse a página do projeto no GitHub.
-                    </h3>
+                    <h3 class="readerh3">Esta ferramenta utiliza algoritmos heurísticos para realizar a formatação automática. Por isso:</h3><!--subtítulo da seção-->
+                      <ul><!--lista de funcionalidades-->
+                        <li><strong class="readerlistrong">Sempre revise o resultado final, especialmente em textos técnicos, acadêmicos ou jurídicos.</li><!--item da lista-->
+                        <li><strong class="readerlistrong">Algumas palavras ou expressões podem exigir ajustes manuais.</li><!--item da lista-->
+                        <li><strong class="readerlistrong">Palavras compostas, nomes próprios e termos técnicos podem não ser interpretados corretamente em todos os casos.</li><!--item da lista-->
+                      </ul><!--fim da lista-->
+                    <h3 class="readerh3">Para mais informações sobre o uso desta ferramenta, acesse a página do projeto no GitHub.</h3>
                 </div><!-- fim .reader-modal-section -->
                 <div class="reader-modal-section"><!--seção do modal-->
                   <h3><a href="https://github.com/henrixpindola/killerbreak" target="_blank" class="repo-link">
@@ -63,20 +61,20 @@
     </div><!-- fim classe "text-area"-->
 
     <div class="boxes"><!--container superior de checkboxes removebreaks/fixspaces-->
-      <label><input type="checkbox" id="removeBreaks" checked>Remover quebras de linha</label><!--checkbox remover quebras de linha, marcado por padrão-->
-      <label><input type="checkbox" id="fixSpaces" checked>Corrigir espaços</label><!--checkbox corrigir espaços, marcado por padrão-->
+      <label class="boxeslabel"><input type="checkbox" id="removeBreaks" checked>Remover quebras de linha</label><!--checkbox remover quebras de linha, marcado por padrão-->
+      <label class="boxeslabel"><input type="checkbox" id="fixSpaces" checked>Corrigir espaços</label><!--checkbox corrigir espaços, marcado por padrão-->
     </div><!--fim container superior de checkboxes removebreaks/fixspaces-->
             
     <div class="boxes"><!--container inferior de checkboxes todasMaiusculas/todasMinusculas/iniciaisPalavras-->
-      <label><input type="checkbox" id="AllUppercase"> TODAS MAIÚSCULAS</label><!--checkbox todas maiúsculas, desmarcada por padrão-->
-      <label><input type="checkbox" id="AllLowercase"> todas minúsculas</label><!--checkbox todas minúsculas, desmarcada por padrão-->
-      <label><input type="checkbox" id="CapitalLetters"> Apenas Iniciais Maiúsculas</label><!--checkbox iniciais palavras, desmarcada por padrão-->
+      <label class="boxeslabel"><input type="checkbox" id="AllUppercase"> TODAS MAIÚSCULAS</label><!--checkbox todas maiúsculas, desmarcada por padrão-->
+      <label class="boxeslabel"><input type="checkbox" id="AllLowercase"> todas minúsculas</label><!--checkbox todas minúsculas, desmarcada por padrão-->
+      <label class="boxeslabel"><input type="checkbox" id="CapitalLetters"> Apenas Iniciais Maiúsculas</label><!--checkbox iniciais palavras, desmarcada por padrão-->
     </div><!--fim container inferior de checkboxes todasMaiusculas/todasMinusculas/iniciaisPalavras-->
 
     <div class="options"><!--container options "Mais opções"-->
       <p>Mais opções</p>
-      <label><input type="checkbox" id="firstLetterUppercase">Primeira letra maiúscula</label><!--checkbox primeira letra maiúscula, desmarcada por padrão-->
-      <label><input type="checkbox" id="firstLetterSentence">Primeira letra de frase maiúscula</label><!--checkbox primeira letra de frase maiúscula, desmarcada por padrão-->
+      <label class="optionslabel"><input type="checkbox" id="firstLetterUppercase">Primeira letra maiúscula</label><!--checkbox primeira letra maiúscula, desmarcada por padrão-->
+      <label class="optionslabel"><input type="checkbox" id="firstLetterSentence">Primeira letra de frase maiúscula</label><!--checkbox primeira letra de frase maiúscula, desmarcada por padrão-->
     </div><!--fim container options "Mais opções"-->
 
     <div class="advancedoptions"> <!--container advancedoptions "Opções avançadas"-->
@@ -125,10 +123,10 @@
               Suzana Costa
     </a>
   <div class="social-links">
-    <a href="https://github.com/suzi19" target="_blank" title="GitHub">
+    <a href="https://github.com/suzi19" target="_blank" title="GitHub" class="devprofiles">
       <i class="fab fa-github"></i>
     </a>
-    <a href="https://www.linkedin.com/in/suzana-costa-5465b4272/" target="_blank" title="LinkedIn">
+    <a href="https://www.linkedin.com/in/suzana-costa-5465b4272/" target="_blank" title="LinkedIn" class="devprofiles">
       <i class="fab fa-linkedin"></i>
     </a>
     </div>
@@ -139,10 +137,10 @@
               Henrique Espindola
     </a>
   <div class="social-links">
-    <a href="https://github.com/henrixpindola" target="_blank" title="GitHub">
+    <a href="https://github.com/henrixpindola" target="_blank" title="GitHub" class="devprofiles">
       <i class="fab fa-github"></i>
     </a>
-    <a href="https://www.linkedin.com/in/henrique-espindola-500409256" target="_blank" title="LinkedIn">
+    <a href="https://www.linkedin.com/in/henrique-espindola-500409256" target="_blank" title="LinkedIn" class="devprofiles">
      <i class="fab fa-linkedin"></i>
     </a>
   </div>
