@@ -19,40 +19,13 @@
     --delete-hover: #8b0000;      /* Variável para grená no hover de exclusão*/
 }
 
-/* Variáveis para tema claro (padrão) */
-:root {
-    --bg-primary: #ffffff;
-    --bg-secondary: rgba(0, 0, 0, 0.806);
-    --text-primary: #000000;
-    --text-secondary: #333333;
-    --border-color: #000000;
-    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    --input-bg: #ffffff;
-    --output-bg: #ffffff;
-    --checkbox-label: #000000;
-}
-
-/* Variáveis para tema escuro */
-[data-theme="dark"] {
-    --bg-primary: #000000;
-    --bg-secondary: rgba(255, 255, 255, 0.1);
-    --text-primary: #a9db34;
-    --text-secondary: #a9db34;
-    --border-color: #a9db34;
-    --box-shadow: 0 5px 15px rgba(255, 255, 255, 0.6);
-    --input-bg: #313131;
-    --output-bg: #313131;
-    --checkbox-label: #a9db34;
-}
-
 body {/*seletor de tag body*/
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
+    background-color: var(--coder-dark);
+    color: var(--text-light);
     line-height: 1.6;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    transition: background-color 0.3s, color 0.3s;
 }
 
 .container {/*seletor de classe container*/
@@ -65,11 +38,7 @@ body {/*seletor de tag body*/
 
 .title-container {/*de classe container para o título */
     position: relative; /* permite usar absolute no ícone de atenção*/
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-}
+  }
   
 .attention-icon {/*de classe ícone de atenção */
     position: absolute;/* permite posicionar o ícone de atenção. absolute é relativo ao position relative (title-container)*/
@@ -78,7 +47,7 @@ body {/*seletor de tag body*/
     transform: translateY(-50%); /* corrige o alinhamento */
     width: 100px;     /* ajuste */
     height: auto;
-}
+  }
 
 h1 {/*seletor de tag h1 */
     font-size: 4rem;
@@ -91,7 +60,7 @@ h1 {/*seletor de tag h1 */
 .subtitle {/*seletor de classe subtitle*/
     text-align: center;
     margin-bottom: 30px;
-    color: var(--text-primary);
+    color: var(--text-light);
     opacity: 0.8;
 }
 
@@ -105,21 +74,21 @@ h1 {/*seletor de tag h1 */
 .input-box {/*seletor de classe input-box*/
     flex: 1;
     min-width: 300px;
-    background-color: var(--bg-secondary);
-    border: 1px solid var(--border-color);
+    background-color: rgba(0, 0, 0, 0.806);
+    border: 1px solid var(--code-green);
     border-radius: 8px;
     padding: 15px;
-    box-shadow: var(--box-shadow);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .output-box {/*seletor de classe output-box*/
     flex: 1;
     min-width: 300px;
-    background-color: var(--bg-secondary);
-    border: 1px solid var(--border-color);
+    background-color: rgba(0, 0, 0, 0.806);
+    border: 1px solid var(--code-green);
     border-radius: 8px;
     padding: 15px;
-    box-shadow: var(--box-shadow);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .button-row-input {/*seletor de classe button-row-input*/
@@ -136,8 +105,8 @@ h1 {/*seletor de tag h1 */
 
 button {/*seletor de tag button*/
     padding: 8px 15px;
-    background-color: black;
-    color: #ffffff;
+    background-color: var(--code-purple);
+    color: var(--text-light);
     border: none;
     border-radius: 4px;
     font-weight: bold;
@@ -165,18 +134,17 @@ textarea {/*seletor de tag textarea*/
     width: 100%;
     height: 150px;
     padding: 15px;
-    background-color: var(--input-bg);
-    color: var(--text-primary);
-    border: 1px solid var(--border-color);
+    background-color: #ffffff;
+    color: var(--text-light);
+    border: 1px solid var(--code-purple);
     border-radius: 5px;
     resize: vertical;
     font-family: 'Courier New', monospace;
-    transition: background-color 0.3s, color 0.3s;
 }
 
 /*DESTAQUE*/
 #outputText {/*seletor de ID outputText*/
-    background-color: var(--output-bg);
+    background-color: #ffffff;
 }
 
 .boxes {/*seletor de classe boxes*/
@@ -202,8 +170,7 @@ textarea {/*seletor de tag textarea*/
     align-items: center;
     gap: 10px;
     cursor: pointer;
-    color: var(--checkbox-label);
-    transition: color 0.3s;
+    color: black
 }
 
 .optionslabel {/*seletor de classe optionslabel*/
@@ -211,8 +178,7 @@ textarea {/*seletor de tag textarea*/
     align-items: center;
     gap: 10px;
     cursor: pointer;
-    color: var(--checkbox-label);
-    transition: color 0.3s;
+    color: black
 }
 
 /*DESTAQUE*/
@@ -368,21 +334,6 @@ p {/*seletor de tag p*/
     h1 {/*seletor de tag h1*/
         font-size: 2rem;
     }
-    
-    .title-container {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .attention-icon {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 100px;
-    height: auto;
-    z-index: 999; /* Um nível abaixo do switch */
-}
 }
 
 .reader-modal {/*seletor de classe reader-modal*/
@@ -632,61 +583,4 @@ p {/*seletor de tag p*/
         font-size: 0.95rem;
         padding-left: 1rem;
     }
-}
-
-/*DESTAQUE*/
-/* Switch de tema */
-/* Switch de tema - SOBRE O BOTÃO DE ATENÇÃO */
-.theme-switch {
-    position: absolute;
-    display: inline-block;
-    width: 50px;
-    height: 24px;
-    top: 10px;
-    left: 10px;
-    z-index: 1000;
-}
-
-.theme-switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    transition: .4s;
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 18px;
-    width: 18px;
-    left: 3px;
-    bottom: 3px;
-    background-color: white;
-    transition: .4s;
-}
-
-input:checked + .slider {
-    background-color: #a9db34;
-}
-
-input:checked + .slider:before {
-    transform: translateX(26px);
-}
-
-.slider.round {
-    border-radius: 24px;
-}
-
-.slider.round:before {
-    border-radius: 50%;
 }
