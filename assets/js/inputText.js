@@ -5,8 +5,7 @@ const TextProcessor = (() => {
 
   const ALL_CHECKBOX_IDS = [
       'removeBreaks', 
-      'fixSpaces', 
-      'keepBlankLines',
+      'fixSpaces', ,
       'AllUppercase', 
       'AllLowercase',
       'CapitalLetters',
@@ -85,15 +84,7 @@ const TextProcessor = (() => {
           return text;
       }
 
-      const shouldKeepBlankLines = isChecked('keepBlankLines');
-
-      if (shouldKeepBlankLines) {
-          // Mantém linhas em branco, remove quebras simples
-          return text
-              .replace(/(\r?\n){2,}/g, '\n\n')     // Normaliza múltiplas quebras
-              .replace(/([^\n])\r?\n([^\n])/g, '$1 $2') // Quebras simples → espaço
-              .trim();
-      } else {
+ else {
           // Remove TODAS as quebras
           return text
               .replace(/\r?\n/g, ' ')               // Quebras → espaços
