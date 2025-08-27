@@ -44,13 +44,8 @@ function createOutputManager() {
     function applyAllTransformations(text) {
         // 1. Capitalização
         text = applyCapitalization(text);
-        
-        // 2. Palavras customizadas (se existir)
-        if (window.wordList?.getWords) {
-            text = applyCustomWords(text, window.wordList.getWords());
-        }
-        
-        // 3. Outras transformações podem ser adicionadas aqui
+               
+        // 2. Outras transformações podem ser adicionadas aqui
         
         return text;
     }
@@ -69,24 +64,11 @@ function createOutputManager() {
         
         return strategies[activeMode]?.() || text;
     }
-    
-    function applyCustomWords(text, customWords) {
-        if (!customWords || customWords.length === 0) return text;
         
-        let processedText = text;
-        customWords.forEach(word => {
-            const regex = new RegExp(`\\b${word}\\b`, 'gi');
-            processedText = processedText.replace(regex, word);
-        });
-        
-        return processedText;
-    }
-    
     // Setup de event listeners para atualização automática
     function setupAutoUpdate() {
         // Listeners para todos os eventos relevantes
         document.addEventListener('checkboxGroupUpdated', updateOutput);
-        document.addEventListener('wordListUpdated', updateOutput);
         
         // Input em tempo real
         const inputText = document.getElementById('inputText');

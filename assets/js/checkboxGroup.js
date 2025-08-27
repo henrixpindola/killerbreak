@@ -25,24 +25,6 @@ function createCheckboxGroup() {
         });
     }
 
-    function setupEventListeners() {
-        capitalizationIds.forEach(id => {
-            const checkbox = document.getElementById(id);
-            if (checkbox) {
-                checkbox.addEventListener('change', (e) => {
-                    this.handleCapitalizationChange(e.target, id);
-                });
-            }
-        });
-        
-        const inputText = document.getElementById('inputText');
-        if (inputText) {
-            inputText.addEventListener('input', () => this.triggerTextProcessing());
-        }
-        
-        document.addEventListener('wordListUpdated', () => this.triggerTextProcessing());
-    }
-
     function handleCapitalizationChange(checkbox, changedId) {
         if (checkbox.checked) {
             // Se está marcando, desmarca TODAS as outras

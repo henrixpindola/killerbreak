@@ -194,13 +194,6 @@ p {/*seletor de tag p*/
     margin-bottom: 10px;
 }
 
-#customWords {/*seletor de ID customWords*/
-    flex: 1;
-    min-width: 200px;
-    height: 40px;
-    margin: 0;
-}
-
 .footer-simplificado {/*seletor de classe footer-simplificado*/
     background: #000000;
     color: white;

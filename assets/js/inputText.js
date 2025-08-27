@@ -25,7 +25,6 @@ const TextProcessor = (() => {
       
       setupCheckboxListeners();
       
-      document.addEventListener('wordListUpdated', process);
       document.addEventListener('checkboxGroupUpdated', process);
       
       setTimeout(process, 100);
@@ -55,15 +54,13 @@ const TextProcessor = (() => {
   function applyAllRules(text) {
       if (!text.trim()) return '';
 
-      const protection = protectCustomWords(text);
+      const protection = protectWords(text);
       let processedText = protection.text;
       
       // PROCESSAMENTO PARALELO - cada função recebe o texto ORIGINAL
       processedText = processLineBreaks(processedText);
       processedText = processSpaces(processedText);
-      processedText = applyCapitalization(processedText);
-      processedText = restoreCustomWords(processedText, protection.placeholders);
-      
+      processedText = applyCapitalization(processedText);    
       return processedText;
   }
 
@@ -105,7 +102,7 @@ const TextProcessor = (() => {
   }
 
   function applyCapitalization(text) {
-      const customWords = window.getCustomWords ? window.getCustomWords() : [];
+      const Words = window.getWords ? window.getWords() : [];
       
       if (isChecked('AllUppercase')) {
           return text.toUpperCase();
@@ -137,15 +134,15 @@ const TextProcessor = (() => {
       return element ? element.checked : false;
   }
 
-  function protectCustomWords(text) {
-      const customWords = window.getCustomWords ? window.getCustomWords() : [];
+  function protectWords(text) {
+      const Words = window.getWords ? window.getWords() : [];
       const placeholders = new Map();
       
-      if (customWords.length === 0) return { text, placeholders };
+      if (Words.length === 0) return { text, placeholders };
 
       let index = 0;
       
-      customWords.forEach(word => {
+      Words.forEach(word => {
           const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
           const regex = new RegExp(`\\b${escaped}\\b`, 'gi');
           
@@ -159,7 +156,7 @@ const TextProcessor = (() => {
       return { text, placeholders };
   }
 
-  function restoreCustomWords(text, placeholders) {
+  function restoreWords(text, placeholders) {
       placeholders.forEach((word, placeholder) => {
           text = text.replace(placeholder, word);
       });

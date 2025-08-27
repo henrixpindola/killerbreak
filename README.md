@@ -9,7 +9,7 @@
 ## ✨ Visão Geral
 
 **Killerbreak** é uma ferramenta web que facilita o trabalho com textos copiados, especialmente de **PDFs e e-books**.
-Ela ajuda a limpar e formatar o conteúdo de forma rápida, removendo quebras de linha indesejadas, corrigindo espaçamentos, ajustando letras maiúsculas/minúsculas e permitindo gerenciar palavras personalizadas.
+Ela ajuda a limpar e formatar o conteúdo de forma rápida, removendo quebras de linha indesejadas, corrigindo espaçamentos, ajustando letras maiúsculas/minúsculas.
 
 ## 🚀 Funcionalidades
 
@@ -29,11 +29,6 @@ Ela ajuda a limpar e formatar o conteúdo de forma rápida, removendo quebras de
 - **Editar** - Move texto formatado para edição
 - **Salvar** - Download do texto como arquivo .txt
 - **Limpar** - Apaga todo o conteúdo
-
-### ⚡ Palavras Personalizadas
-- Adicione termos para manter a formatação correta (ex: JavaScript, iPhone, McDonald's)
-- Visualize a lista de palavras personalizadas
-- Limpe toda a lista com um clique
 
 ## 🎨 Interface
 
@@ -70,8 +65,7 @@ assets/
 │   ├── editLink.js         # Funcionalidade editar
 │   ├── saveBtn.js          # Funcionalidade salvar
 │   ├── removeBreaks.js     # Controle de quebras
-│   ├── customWords.js      # Palavras personalizadas
-│   └── reader.js           # Modal de ajuda
+│   ├── reader.js           # Modal de ajuda
 ├── img/
 │   └── attention.png       # Ícone de atenção
 ```
@@ -87,8 +81,7 @@ assets/
 4. **Use os botões** para copiar, editar ou salvar o texto formatado
 
 ### ⌨️ Atalhos
-- **Escape** - Desmarca todas as opções de capitalização
-- **Enter** no campo de palavras - Adiciona palavra personalizada
+- **Escape** - Desmarca todas as opções de maiúsculas e minúsculas
 
 ## 🌈 Cores do Tema
 

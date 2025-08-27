@@ -9,7 +9,6 @@ function createSpaceFixer() {
     function setupAutoProcessing() {
         // Listeners para eventos que disparam processamento
         document.addEventListener('checkboxGroupUpdated', debounceProcess);
-        document.addEventListener('wordListUpdated', debounceProcess);
         
         // Input em tempo real
         const inputText = document.getElementById('inputText');
@@ -41,7 +40,6 @@ function createSpaceFixer() {
         
         // Aplica outras transformações (se houver)
         text = applyCapitalization(text);
-        text = applyCustomWords(text);
         
         outputText.value = text;
     }
@@ -74,20 +72,7 @@ function createSpaceFixer() {
         
         return strategies[activeMode]?.() || text;
     }
-    
-    function applyCustomWords(text) {
-        const customWords = window.wordList?.getWords?.() || [];
-        if (customWords.length === 0) return text;
         
-        let processedText = text;
-        customWords.forEach(word => {
-            const regex = new RegExp(`\\b${word}\\b`, 'gi');
-            processedText = processedText.replace(regex, word);
-        });
-        
-        return processedText;
-    }
-    
     function debounceProcess() {
         clearTimeout(processingTimeout);
         processingTimeout = setTimeout(() => {
