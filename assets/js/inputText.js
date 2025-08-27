@@ -103,7 +103,9 @@ const TextProcessor = (() => {
     }
 
     if (isChecked("CapitalLetters")) {
-      return text.toLowerCase().replace(/\b\w/g, (char) => char.toUpperCase())
+      return text.toLowerCase().replace(/(^|[^a-zÀ-ÿ])([a-zÀ-ÿ])/g, (match, separator, letter) => {
+        return separator + letter.toUpperCase()
+      })
     }
 
     if (isChecked("firstLetterUppercase")) {
