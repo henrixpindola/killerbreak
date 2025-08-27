@@ -11,6 +11,10 @@
               <div class="title-container"><!--container do título e ícone de atenção-->
                 <img src="/assets/img/attention.png" alt="Atenção" class="attention-icon"><!--ícone de atenção-->
                 <h1>Killerbreak</h1><!--título principal-->
+                <label class="theme-switch" for="theme-toggle">
+                  <input type="checkbox" id="theme-toggle">
+                  <span class="slider round"></span>
+                </label>
               </div><!--fim container do título e ícone de atenção-->
               
               <div id="readerModal" class="reader-modal"><!-- Modal -->
@@ -71,14 +75,11 @@
       <label class="boxeslabel"><input type="checkbox" id="CapitalLetters"> Apenas Iniciais Maiúsculas</label><!--checkbox iniciais palavras, desmarcada por padrão-->
     </div><!--fim container inferior de checkboxes todasMaiusculas/todasMinusculas/iniciaisPalavras-->
 
-    <div class="options"><!--container options "Mais opções"-->
-      <p>Mais opções</p>
+    <div class="boxes"><!--container options "Mais opções"-->
       <label class="optionslabel"><input type="checkbox" id="firstLetterUppercase">Primeira letra maiúscula</label><!--checkbox primeira letra maiúscula, desmarcada por padrão-->
       <label class="optionslabel"><input type="checkbox" id="firstLetterSentence">Primeira letra de frase maiúscula</label><!--checkbox primeira letra de frase maiúscula, desmarcada por padrão-->
     </div><!--fim container options "Mais opções"-->
-
-    <!--div class="advancedoptions"> container advancedoptions "Opções avançadas"
-    </div>fim classe. advancedoptions "Opções avançadas"-->
+    
   </div><!-- fim container principal do site-->
 
   <!-- Principais -->
@@ -94,6 +95,8 @@
   <!-- Específicos -->
   <script src="/assets/js/removeBreaks.js"></script>
   <script src="/assets/js/reader.js"></script>
+  <!-- Tema -->
+  <script src="/assets/js/themeToggle.js"></script>
 
   <footer class="footer-simplificado"><!-- Footer fora do container -->
     <div class="footer-content">
