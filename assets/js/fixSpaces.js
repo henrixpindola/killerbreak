@@ -1,4 +1,4 @@
-function createSpaceFixer() {
+function createSpaceFixer() {//função que cria o objeto SpaceFixer
     let processingTimeout = null;
     
     function init() {
@@ -20,31 +20,29 @@ function createSpaceFixer() {
         debounceProcess();
     }
     
-    function processText() {
-        const inputText = document.getElementById('inputText');
-        const outputText = document.getElementById('outputText');
-        const removeBreaks = document.getElementById('removeBreaks');
-        
-        if (!inputText || !outputText || !removeBreaks) {
-            console.warn('Elementos não encontrados para processamento');
-            return;
-        }
-        
-        let text = inputText.value;
-        const shouldFixSpaces = removeBreaks.checked;
-        
-        // Aplica correção de espaços se o checkbox estiver marcado
-        if (shouldFixSpaces) {
-            text = fixSpaces(text);
-        }
-        
-        // Aplica outras transformações (se houver)
-        text = applyCapitalization(text);
-        
-        outputText.value = text;
+function processText() {//função que processa o texto
+    const inputText = document.getElementById('inputText');
+    const outputText = document.getElementById('outputText');
+    const removeBreaks = document.getElementById('removeBreaks');
+    
+    if (!inputText || !outputText || !removeBreaks) {
+        console.warn('Elementos não encontrados para processamento');
+        return;
     }
     
-    function fixSpaces(text) {
+    let text = inputText.value;
+    const shouldFixSpaces = removeBreaks.checked;
+    
+    if (shouldFixSpaces) {//verifica se o checkbox de remover quebras está marcado
+    text = fixSpaces(text);
+    }
+    
+    text = applyCapitalization(text);//aplica a capitalização selecionada
+    
+    outputText.value = text;
+}
+    
+    function fixSpaces(text) {//função que corrige os espaços no texto
         if (typeof text !== 'string') return '';
         
         return text
@@ -58,7 +56,7 @@ function createSpaceFixer() {
             .trim();
     }
     
-    function applyCapitalization(text) {
+    function applyCapitalization(text) {//função que aplica a capitalização ao texto
         const activeMode = window.checkboxGroup?.getActiveCapitalization?.();
         if (!activeMode) return text;
         
@@ -73,7 +71,7 @@ function createSpaceFixer() {
         return strategies[activeMode]?.() || text;
     }
         
-    function debounceProcess() {
+    function debounceProcess() {//função que debouça o processamento de texto
         clearTimeout(processingTimeout);
         processingTimeout = setTimeout(() => {
             processText();
@@ -82,6 +80,5 @@ function createSpaceFixer() {
     
 }
 
-// Inicialização
-const spaceFixer = createSpaceFixer();
+const spaceFixer = createSpaceFixer();//cria o objeto SpaceFixer
 document.addEventListener('DOMContentLoaded', () => spaceFixer.init());

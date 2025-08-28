@@ -1,33 +1,28 @@
 function createOutputManager() {
-  const output = document.getElementById("outputText")
+  const output = document.getElementById("outputText")// Seleciona o elemento de output
 
   if (!output) {
     console.warn("Elemento outputText não encontrado!")
     return null
   }
 
-  // Configuração inicial
   output.value = ""
   output.readOnly = true
   output.placeholder = "Texto formatado aparecerá aqui..."
 
-  // Função principal que processa e atualiza o output
-  function updateOutput() {
+  function updateOutput() {// Função principal para atualizar o output
     const inputText = document.getElementById("inputText")?.value || ""
     const removeBreaks = document.getElementById("removeBreaks")?.checked || false
 
     let processedText = inputText
 
-    // Aplica correção de espaços SE o checkbox estiver marcado
     if (removeBreaks) {
       processedText = fixSpaces(processedText)
     }
 
-    // Aplica outras transformações (capitalização, palavras customizadas, etc.)
-    processedText = applyAllTransformations(processedText)
+    processedText = applyAllTransformations(processedText)// Aplica todas as transformações
 
-    // Atualiza o output
-    output.value = processedText
+    output.value = processedText// Atualiza o valor do output
   }
 
   function fixSpaces(text) {
@@ -42,15 +37,13 @@ function createOutputManager() {
   }
 
   function applyAllTransformations(text) {
-    // 1. Capitalização
-    text = applyCapitalization(text)
-
-    // 2. Outras transformações podem ser adicionadas aqui
+    
+    text = applyCapitalization(text)// Aplica capitalização
 
     return text
   }
 
-  function applyCapitalization(text) {
+  function applyCapitalization(text) {// Função que aplica a capitalização ao texto
     const activeMode = window.checkboxGroup?.getActiveCapitalization?.()
     if (!activeMode) return text
 
@@ -71,31 +64,25 @@ function createOutputManager() {
     return strategies[activeMode]?.() || text
   }
 
-  // Setup de event listeners para atualização automática
-  function setupAutoUpdate() {
-    // Listeners para todos os eventos relevantes
-    document.addEventListener("checkboxGroupUpdated", updateOutput)
+  function setupAutoUpdate() {// Configura os listeners para atualização automática
+    document.addEventListener("checkboxGroupUpdated", updateOutput)// Ouve eventos de atualização do grupo de checkboxes
 
-    // Input em tempo real
-    const inputText = document.getElementById("inputText")
+    const inputText = document.getElementById("inputText")// Ouve mudanças na área de texto de entrada
     if (inputText) {
       inputText.addEventListener("input", debounce(updateOutput, 200))
     }
 
-    // Checkbox de corrigir espaços (ESPECÍFICO PARA O PROBLEMA)
-    const removeBreaks = document.getElementById("removeBreaks")
+    const removeBreaks = document.getElementById("removeBreaks")// Ouve mudanças no checkbox de remover quebras
     if (removeBreaks) {
       removeBreaks.addEventListener("change", updateOutput)
     }
 
     document.addEventListener("buttonActionTriggered", updateOutput)
 
-    // Processamento inicial
-    updateOutput()
+    updateOutput()// Processamento inicial
   }
 
-  // Função debounce para performance
-  function debounce(func, wait) {
+  function debounce(func, wait) {// Função de debounce para limitar a frequência de chamadas
     let timeout
     return function executedFunction(...args) {
       const later = () => {
@@ -107,28 +94,14 @@ function createOutputManager() {
     }
   }
 
-  // Inicialização
-  setupAutoUpdate()
+  setupAutoUpdate()// Configura a atualização automática
 
-  // API pública
-  return {
-    clear: () => {
-      output.value = ""
-    },
-    setText: (text) => {
-      output.value = text
-    },
-    update: updateOutput,
-    getValue: () => output.value,
-  }
 }
 
-// Inicialização
 document.addEventListener("DOMContentLoaded", () => {
   window.outputManager = createOutputManager()
 
-  // Força uma atualização inicial após tudo carregar
-  setTimeout(() => {
+  setTimeout(() => {// Garante que o output seja atualizado após a inicialização
     if (window.outputManager?.update) {
       window.outputManager.update()
     }
