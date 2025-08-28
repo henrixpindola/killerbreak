@@ -66,6 +66,8 @@ assets/
 │   ├── removeBreaks.js     # Controle de quebras
 │   ├── reader.js           # Modal de informações importantes
 ├── img/
+│   ├── github.png     # Controle de quebras
+│   ├── linkedin.png     # Controle de quebras
 │   └── attention.png       # Ícone de atenção
 ```
 
