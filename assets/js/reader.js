@@ -1,6 +1,4 @@
-// reader.js - Modal de informações do Killerbreak
-function setupReaderModal() {
-    // Elementos do modal
+function setupReaderModal() {// Configuração do modal de leitura
     const modal = document.getElementById('readerModal');
     const attentionIcon = document.querySelector('.attention-icon');
     const closeBtn = document.querySelector('.reader-modal-close');
@@ -10,11 +8,9 @@ function setupReaderModal() {
         return;
     }
     
-    // Conteúdo do modal (já está no HTML, apenas garantir funcionalidade)
-    console.log('Modal reader encontrado, configurando eventos...');
+    console.log('Modal reader encontrado, configurando eventos...');// Log para depuração
     
-    // Abrir modal ao clicar no ícone de atenção
-    attentionIcon.addEventListener('click', (e) => {
+    attentionIcon.addEventListener('click', (e) => {// Abrir modal ao clicar no ícone de atenção
         e.preventDefault();
         e.stopPropagation();
         console.log('Abrindo modal...');
@@ -22,15 +18,13 @@ function setupReaderModal() {
         document.body.style.overflow = 'hidden'; // Impede scroll da página
     });
     
-    // Fechar modal
-    function closeModal() {
+    function closeModal() {// Função para fechar o modal
         console.log('Fechando modal...');
         modal.style.display = 'none';
         document.body.style.overflow = 'auto'; // Restaura scroll
     }
     
-    // Fechar com botão X
-    if (closeBtn) {
+    if (closeBtn) {// Fechar ao clicar no botão de fechar
         closeBtn.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
@@ -38,22 +32,19 @@ function setupReaderModal() {
         });
     }
     
-    // Fechar ao clicar fora do conteúdo do modal
-    modal.addEventListener('click', (e) => {
+    modal.addEventListener('click', (e) => {// Fechar ao clicar fora do conteúdo do modal
         if (e.target === modal) {
             closeModal();
         }
     });
     
-    // Fechar com tecla Escape
-    document.addEventListener('keydown', (e) => {
+    document.addEventListener('keydown', (e) => {// Fechar ao pressionar Esc
         if (e.key === 'Escape' && modal.style.display === 'block') {
             closeModal();
         }
     });
     
-    // Prevenir que eventos subam para elementos pai
-    const modalContent = document.querySelector('.reader-modal-content');
+    const modalContent = document.querySelector('.reader-modal-content');// Evitar fechamento ao clicar dentro do conteúdo
     if (modalContent) {
         modalContent.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -63,16 +54,13 @@ function setupReaderModal() {
     console.log('Modal reader configurado com sucesso');
 }
 
-// Inicializar quando o DOM estiver pronto
 document.addEventListener('DOMContentLoaded', function() {
-    // Pequeno delay para garantir que tudo carregou
-    setTimeout(() => {
+    setTimeout(() => {// Atraso para garantir que o modal esteja no DOM
         setupReaderModal();
     }, 100);
 });
 
-// Função auxiliar para abrir o modal programaticamente
-function openReaderModal() {
+function openReaderModal() {// Função auxiliar para abrir o modal programaticamente
     const modal = document.getElementById('readerModal');
     if (modal) {
         modal.style.display = 'block';
@@ -80,8 +68,7 @@ function openReaderModal() {
     }
 }
 
-// Função auxiliar para fechar o modal programaticamente
-function closeReaderModal() {
+function closeReaderModal() {// Função auxiliar para fechar o modal programaticamente
     const modal = document.getElementById('readerModal');
     if (modal) {
         modal.style.display = 'none';
@@ -89,8 +76,7 @@ function closeReaderModal() {
     }
 }
 
-// Adicionar ao escopo global para acesso externo
-window.readerModal = {
+window.readerModal = {// Expor funções para uso externo
     open: openReaderModal,
     close: closeReaderModal
 };

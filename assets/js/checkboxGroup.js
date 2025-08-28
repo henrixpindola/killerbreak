@@ -1,5 +1,5 @@
-function createCheckboxGroup(TextProcessor) {
-  const capitalizationIds = [
+function createCheckboxGroup(TextProcessor) {/*função que cria o grupo de checkboxes*/
+  const capitalizationIds = [/*declara as ids dos checkboxes de capitalização*/
     "AllUppercase",
     "AllLowercase",
     "CapitalLetters",
@@ -7,12 +7,12 @@ function createCheckboxGroup(TextProcessor) {
     "firstLetterSentence",
   ]
 
-  function init() {
+  function init() {/*função que inicializa o grupo de checkboxes*/
     setupEventListeners()
     console.log("CheckboxGroup inicializado - Modo Exclusivo")
   }
 
-  function setupEventListeners() {
+  function setupEventListeners() {/*função que configura os listeners de eventos para os checkboxes*/
     capitalizationIds.forEach((id) => {
       const checkbox = document.getElementById(id)
       if (checkbox) {
@@ -35,7 +35,7 @@ function createCheckboxGroup(TextProcessor) {
     })
   }
 
-  function triggerTextProcessing() {
+  function triggerTextProcessing() {/*função que dispara o processamento de texto*/
     document.dispatchEvent(new CustomEvent("checkboxGroupUpdated"))
     if (typeof TextProcessor?.process === "function") {
       TextProcessor.process()
@@ -51,9 +51,9 @@ function createCheckboxGroup(TextProcessor) {
   }
 }
 
-const checkboxGroup = createCheckboxGroup(window.TextProcessor)
+const checkboxGroup = createCheckboxGroup(window.TextProcessor)/*cria o grupo de checkboxes, passando o objeto TextProcessor global*/
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {/*espera o carregamento do DOM*/
   setTimeout(() => {
     checkboxGroup.init()
   }, 100)

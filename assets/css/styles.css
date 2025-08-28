@@ -63,7 +63,13 @@ h1 {/*seletor de tag h1 */
     color: var(--text-light);
     opacity: 0.8;
 }
+.github {
+    margin-right: 195px;
+    color: #8b0000;
 
+
+
+}
 .text-area {/*seletor de classe text-area*/
     display: flex;
     flex-wrap: wrap;
@@ -120,12 +126,12 @@ button:hover {/*efeito hover para botões. os dois-pontos geram uma pseudo-class
 }
 
 
-#delBtn {/*seletor de ID delBtn*/
+.delbutton {/*seletor de ID delBtn*/
     background-color: var(--delete-red);
     color: white;
 }
 
-#delBtn:hover {/*efeito hover para o botão del*/
+.delbutton:hover {/*efeito hover para o botão del*/
     background-color: var(--delete-hover);
     transform: translateY(-2px);
 }
@@ -143,7 +149,7 @@ textarea {/*seletor de tag textarea*/
 }
 
 /*DESTAQUE*/
-#outputText {/*seletor de ID outputText*/
+.outputtext1 {/*seletor de ID outputText*/
     background-color: #ffffff;
 }
 

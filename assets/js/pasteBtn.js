@@ -1,4 +1,4 @@
-document.getElementById('pasteBtn')?.addEventListener('click', async function() {
+document.getElementById('pasteBtn')?.addEventListener('click', async function() {//adiciona um listener de clique ao botão de colar
     const inputText = document.getElementById('inputText');
     
     if (!inputText) {
@@ -9,9 +9,8 @@ document.getElementById('pasteBtn')?.addEventListener('click', async function() 
     try {
         const text = await navigator.clipboard.readText();
         inputText.value = text;
-        // Feedback visual opcional
         inputText.focus();
     } catch (err) {
-        alert('Erro ao colar. Permita acesso à área de transferência.');
+
     }
 });

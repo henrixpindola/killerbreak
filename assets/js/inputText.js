@@ -1,9 +1,9 @@
-const TextProcessor = (() => {
+const TextProcessor = (() => {//objeto que processa o texto de entrada com base nas regras definidas pelos checkboxes*/
   const MAX_CHARS = 320
   let debounceTimer
   let inputElement, outputElement
 
-  const ALL_CHECKBOX_IDS = [
+  const ALL_CHECKBOX_IDS = [//ids de todos os checkboxes*/
     "removeBreaks",
     "fixSpaces",
     "AllUppercase",
@@ -13,7 +13,7 @@ const TextProcessor = (() => {
     "firstLetterSentence",
   ]
 
-  function init() {
+  function init() {//função que inicializa o processador de texto*/
     inputElement = document.getElementById("inputText")
     outputElement = document.getElementById("outputText")
 
@@ -29,7 +29,7 @@ const TextProcessor = (() => {
     setTimeout(process, 100)
   }
 
-  function setupCheckboxListeners() {
+  function setupCheckboxListeners() {//função que configura os listeners de eventos para os checkboxes*/
     ALL_CHECKBOX_IDS.forEach((checkboxId) => {
       const checkbox = document.getElementById(checkboxId)
       if (checkbox) {
