@@ -1,4 +1,3 @@
-/*PARA MUDAR ID PARA CLASSE TEM QUE MEXER NO JS!!!!*/
 * {/*seletor de todos os elementos (quase a mesma coisa que usar :root)*/
     margin: 0;
     padding: 0;
@@ -54,7 +53,7 @@ h1 {/*seletor de tag h1 */
     color: var(--code-green);
     text-align: center;
     margin: 20px 0 10px;
-    text-shadow: 0 0 5px #a9db34;
+    text-shadow: 0 0 5px #5400fc;
 }
 
 .subtitle {/*seletor de classe subtitle*/
@@ -63,13 +62,7 @@ h1 {/*seletor de tag h1 */
     color: var(--text-light);
     opacity: 0.8;
 }
-.github {
-    margin-right: 195px;
-    color: #8b0000;
 
-
-
-}
 .text-area {/*seletor de classe text-area*/
     display: flex;
     flex-wrap: wrap;
@@ -126,12 +119,12 @@ button:hover {/*efeito hover para botões. os dois-pontos geram uma pseudo-class
 }
 
 
-.delbutton {/*seletor de ID delBtn*/
+#delBtn {/*seletor de ID delBtn*/
     background-color: var(--delete-red);
     color: white;
 }
 
-.delbutton:hover {/*efeito hover para o botão del*/
+#delBtn:hover {/*efeito hover para o botão del*/
     background-color: var(--delete-hover);
     transform: translateY(-2px);
 }
@@ -149,15 +142,15 @@ textarea {/*seletor de tag textarea*/
 }
 
 /*DESTAQUE*/
-.outputtext1 {/*seletor de ID outputText*/
+#outputText {/*seletor de ID outputText*/
     background-color: #ffffff;
 }
 
 .boxes {/*seletor de classe boxes*/
+    padding: 15px;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    padding: 15px;
 }
 
 .options {/*seletor de classe options*/
@@ -202,9 +195,8 @@ p {/*seletor de tag p*/
 }
 
 .footer-simplificado {/*seletor de classe footer-simplificado*/
-    background: #03271c;
+    background: #5400fc;
     color: white;
-    padding: 1.5rem;
     margin: 2rem -20px -20px -20px;
     width: 100vw;
     position: relative;
@@ -217,6 +209,7 @@ p {/*seletor de tag p*/
 }
 
 .footer-content {/*seletor de classe footer-content*/
+    padding-top: 0.1rem;
     display: flex;
     justify-content: center;
     max-width: 1200px;
@@ -224,10 +217,10 @@ p {/*seletor de tag p*/
 }
 
 .footer-left {/*seletor de classe footer-left*/
+    padding-top: 0.1rem;
     text-align: center;
     width: 100%;
 }
-
 .repo-link {/*seletor de classe repo-link*/
     display: inline-flex;
     align-items: center;
@@ -305,44 +298,6 @@ p {/*seletor de tag p*/
     text-decoration: none;
 }
 
-.footer-bottom {/*seletor de classe footer-bottom*/
-    text-align: center;
-    margin-top: 1.5rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: #ecf0f1;
-}
-
-/*DESTAQUE*/
-@media (max-width: 768px) {/*aplica estilos para telas com largura máxima de 768px*/
-    .developer-links {/*seletor de classe developer-links*/
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-    
-    .developer {/*seletor de classe developer*/
-        width: 100%;
-        max-width: 250px;
-    }
-    
-    .footer-simplificado {/*seletor de classe footer-simplificado*/
-        padding: 1rem;
-    }
-    
-    .text-area {/*seletor de classe text-area*/
-        flex-direction: column;
-    }
-    
-    .boxes {/*seletor de classe boxes*/
-        flex-direction: column;
-    }
-    
-    h1 {/*seletor de tag h1*/
-        font-size: 2rem;
-    }
-}
-
 .reader-modal {/*seletor de classe reader-modal*/
     display: none;
     position: fixed;
@@ -413,11 +368,11 @@ p {/*seletor de tag p*/
     box-shadow: 0 8px 25px rgba(169, 219, 52, 0.15);
 }
 
-.reader-modal-section h3 {/*seletor de classe reader-modal-section (apenas das tag h3 nela)*/
+.readerh3 {/*seletor de classe reader-modal-section (apenas das tag h3 nela)*/
     color: #a9db34;
     margin: 0 0 1rem 0;
-    font-size:1rem;
-    font-weight: 200;
+    font-size: 1.4rem;
+    font-weight: 700;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -531,7 +486,59 @@ p {/*seletor de tag p*/
 }
 
 /*DESTAQUE*/
+@media (max-width: 480px) {/*aplica estilos para telas com largura máxima de 480px*/
+    .reader-modal-title {/*seletor de classe reader-modal-title*/
+        font-size: 1.4rem;
+    }
+    
+    .reader-modal-body {/*seletor de classe reader-modal-body*/
+        padding: 1rem;
+    }
+    
+    .reader-modal-section {/*seletor de classe reader-modal-section*/
+        padding: 1rem;
+    }
+    
+    .readerh3 {/*seletor classe readerh3*/
+        font-size: 1.1rem;
+    }
+    
+    .readerlistrong {/*seletor de classe readerlistrong*/
+        font-size: 0.95rem;
+        padding-left: 1rem;
+    }
+}
+
+/*DESTAQUE*/
 @media (max-width: 768px) {/*aplica estilos para telas com largura máxima de 768px*/
+    .developer-links {/*seletor de classe developer-links*/
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .developer {/*seletor de classe developer*/
+        width: 100%;
+        max-width: 250px;
+    }
+    
+    .footer-simplificado {/*seletor de classe footer-simplificado*/
+        padding: 1rem;
+    }
+    
+    .text-area {/*seletor de classe text-area*/
+        flex-direction: column;
+    }
+    
+    .boxes {/*seletor de classe boxes*/
+        flex-direction: column;
+    }
+    
+    h1 {/*seletor de tag h1*/
+        font-size: 2rem;
+    }
+
+
     .reader-modal-content {/*seletor de classe reader-modal-content*/
         margin: 20px auto;
         width: 95%;
@@ -565,29 +572,5 @@ p {/*seletor de tag p*/
         width: 35px;
         height: 35px;
         font-size: 2rem;
-    }
-}
-
-/*DESTAQUE*/
-@media (max-width: 480px) {/*aplica estilos para telas com largura máxima de 480px*/
-    .reader-modal-title {/*seletor de classe reader-modal-title*/
-        font-size: 1.4rem;
-    }
-    
-    .reader-modal-body {/*seletor de classe reader-modal-body*/
-        padding: 1rem;
-    }
-    
-    .reader-modal-section {/*seletor de classe reader-modal-section*/
-        padding: 1rem;
-    }
-    
-    .readerh3 {/*seletor classe readerh3*/
-        font-size: 1.1rem;
-    }
-    
-    .readerlistrong {/*seletor de classe readerlistrong*/
-        font-size: 0.95rem;
-        padding-left: 1rem;
     }
 }
