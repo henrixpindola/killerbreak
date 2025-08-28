@@ -137,10 +137,6 @@ Edite as variáveis CSS no início do `styles.css`:
   - [GitHub](https://github.com/henrixpindola) 
   - [LinkedIn](https://www.linkedin.com/in/henrique-espindola-500409256)
 
-## 📄 Licença
-
-Este projeto está sob licença MIT. Veja o arquivo [LICENSE](LICENSE) para detalhes.
-
 ## 🐛 Reportar Bugs
 
 Encontrou um problema? [Abra uma issue](https://github.com/henrixpindola/killerbreak/issues) no GitHub.
