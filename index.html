@@ -1,135 +1,169 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<meta charset="UTF-8">
+<head>
+  <meta charset="UTF-8">
   <title>Killerbreak</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="/assets/css/styles.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
- <body>
-  <div class="container"><!--começo do container principal do site-->
-              <div class="title-container"><!--container do título e ícone de atenção-->
-                <img src="/assets/img/attention.png" alt="Atenção" class="attention-icon"><!--ícone de atenção-->
-                <h1>Killerbreak</h1><!--título principal-->
-              </div><!--fim container do título e ícone de atenção-->
-              
-              <div id="readerModal" class="reader-modal"><!-- Modal -->
-                <div class="reader-modal-content"><!--conteúdo do modal-->
-                  <span class="reader-modal-close">&times;</span><!--botão fechar modal-->
-                  <div class="reader-modal-header"><!--cabeçalho do modal-->
-                    <h2 class="reader-modal-title">Limitações e Recomendações</h2><!--título do modal-->
-                  </div><!-- fim .reader-modal-header -->
-                  <div class="reader-modal-body"><!--corpo do modal-->
-                  <div class="reader-modal-sections"><!--seções do modal-->
-                  <div class="reader-modal-section"><!--seção do modal-->
-                    <h3 class="readerh3">Esta ferramenta utiliza algoritmos heurísticos para realizar a formatação automática. Por isso:</h3><!--subtítulo da seção-->
-                      <ul><!--lista de funcionalidades-->
-                        <li><strong class="readerlistrong">Sempre revise o resultado final, especialmente em textos técnicos, acadêmicos ou jurídicos.</li><!--item da lista-->
-                        <li><strong class="readerlistrong">Algumas palavras ou expressões podem exigir ajustes manuais.</li><!--item da lista-->
-                        <li><strong class="readerlistrong">Palavras compostas, nomes próprios e termos técnicos podem não ser interpretados corretamente em todos os casos.</li><!--item da lista-->
-                      </ul><!--fim da lista-->
-                    <h3 class="readerh3">Para mais informações sobre o uso desta ferramenta, acesse a página do projeto no GitHub.</h3>
-                </div><!-- fim .reader-modal-section -->
-                <div class="reader-modal-section"><!--seção do modal-->
-                  <h3><a href="https://github.com/henrixpindola/killerbreak" target="_blank" class="repo-link">
-                    GitHub/Killerbreak
-                  </a></h3><!--subtítulo-->
-                </div><!-- fim .reader-modal-section -->
-              </div><!-- fim .reader-modal-sections -->
-            </div><!-- fim .reader-modal-body -->
-          </div><!-- Fim .reader-modal-content -->
-        </div><!-- Fim Modal -->
-    
+<body>
+  <div class="container"><!-- começo do container principal do site -->
+
+    <!-- título e ícone de atenção -->
+    <div class="title-container">
+      <img src="/assets/img/attention.png" alt="Atenção" class="attention-icon">
+      <h1>Killerbreak</h1>
+    </div>
+
+    <!-- Modal -->
+    <div id="readerModal" class="reader-modal">
+      <div class="reader-modal-content">
+        <span class="reader-modal-close">&times;</span>
+        <div class="reader-modal-header">
+          <h2 class="reader-modal-title">Limitações e Recomendações</h2>
+        </div>
+        <div class="reader-modal-body">
+          <div class="reader-modal-sections">
+
+            <div class="reader-modal-section">
+              <h3 class="readerh3">
+                Esta ferramenta utiliza algoritmos heurísticos para realizar a formatação automática. Por isso:
+              </h3>
+              <ul>
+                <li><strong class="readerlistrong">Sempre revise o resultado final, especialmente em textos técnicos, acadêmicos ou jurídicos.</strong></li>
+                <li><strong class="readerlistrong">Algumas palavras ou expressões podem exigir ajustes manuais.</strong></li>
+                <li><strong class="readerlistrong">Palavras compostas, nomes próprios e termos técnicos podem não ser interpretados corretamente em todos os casos.</strong></li>
+              </ul>
+              <h3 class="readerh3">
+                Para mais informações sobre o uso desta ferramenta, acesse a página do projeto no GitHub.
+              </h3>
+            </div>
+
+            <div class="reader-modal-section">
+              <h3>
+                <a href="github" target="_blank">
+                  GitHub/Killerbreak
+                </a>
+              </h3>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
     <p class="subtitle">Remova quebras de linha e corrija espaços indesejados.</p>
-    <div class="text-area"><!--classe "text-area", as caixas de texto e seus botões auxiliares-->
-      <div class="input-box"><!--classe. texto de entrada, botões Colar/X e caixa de texto-->
-        <div class="button-row-input"><!--classe. botões do texto de entrada-->
-          <button id="pasteBtn">Colar</button><!--botão "colar"-->
-          <button id="delBtn">X</button><!--botão "X" (apagar)-->
-        </div><!--fim classe. botões do texto de entrada-->
-        <textarea id="inputText" maxlength="300" placeholder="Cole ou escreva seu texto aqui..."></textarea><!--caixa de texto de entrada. o maxlength limita a 300 caracteres, mas pode ser alterado se necessário.-->
-      </div><!--fim classe. texto de entrada-->
 
-      <div class="output-box"><!--classe. texto de saída, botões copiar/editar/salvar caixa de texto-->
-        <div class="button-row-output"><!--classe. botões do texto de saída-->
-          <button id="copyBtn">Copiar</button><!--botão "copiar"-->
-          <button id="editBtn">Editar</button><!--botão "editar"-->
-          <button id="saveBtn">💾</button><!--"botão disquete" para salvar-->
-        </div><!--fim classe. botões do texto de saída-->
-        <textarea id="outputText" readonly></textarea><!--caixa de texto de saída. o readonly impede edição direta-->
-      </div><!--fim classe. texto de saída-->
-    </div><!-- fim classe "text-area"-->
+    <!-- caixas de texto -->
+    <div class="text-area">
+      <!-- entrada -->
+      <div class="input-box">
+        <div class="button-row-input">
+          <button id="pasteBtn" class="pastebutton">Colar</button>
+          <button id="delBtn" class="delbutton">X</button>
+        </div>
+        <textarea id="inputText" class="inputtext1" maxlength="300" placeholder="Cole ou escreva seu texto aqui..."></textarea>
+      </div>
 
-    <div class="boxes"><!--container superior de checkboxes removebreaks/fixspaces-->
-      <label class="boxeslabel"><input type="checkbox" id="removeBreaks" checked>Remover quebras de linha</label><!--checkbox remover quebras de linha, marcado por padrão-->
-      <label class="boxeslabel"><input type="checkbox" id="fixSpaces" checked>Corrigir espaços</label><!--checkbox corrigir espaços, marcado por padrão-->
-    </div><!--fim container superior de checkboxes removebreaks/fixspaces-->
-            
-    <div class="boxes"><!--container inferior de checkboxes todasMaiusculas/todasMinusculas/iniciaisPalavras-->
-      <label class="boxeslabel"><input type="checkbox" id="AllUppercase"> TODAS MAIÚSCULAS</label><!--checkbox todas maiúsculas, desmarcada por padrão-->
-      <label class="boxeslabel"><input type="checkbox" id="AllLowercase"> todas minúsculas</label><!--checkbox todas minúsculas, desmarcada por padrão-->
-      <label class="boxeslabel"><input type="checkbox" id="CapitalLetters"> Apenas Iniciais Maiúsculas</label><!--checkbox iniciais palavras, desmarcada por padrão-->
-    </div><!--fim container inferior de checkboxes todasMaiusculas/todasMinusculas/iniciaisPalavras-->
+      <!-- saída -->
+      <div class="output-box">
+        <div class="button-row-output">
+          <button id="copyBtn" class="copybutton">Copiar</button>
+          <button id="editBtn" class="editbutton">Editar</button>
+          <button id="saveBtn" class="savebutton">💾</button>
+        </div>
+        <textarea id="outputText" class="outputtext1" readonly></textarea>
+      </div>
+    </div>
 
-    <div class="boxes"><!--container options "Mais opções"-->
-      <label class="optionslabel"><input type="checkbox" id="firstLetterUppercase">Primeira letra maiúscula</label><!--checkbox primeira letra maiúscula, desmarcada por padrão-->
-      <label class="optionslabel"><input type="checkbox" id="firstLetterSentence">Primeira letra de frase maiúscula</label><!--checkbox primeira letra de frase maiúscula, desmarcada por padrão-->
-    </div><!--fim container options "Mais opções"-->
-    
-  </div><!-- fim container principal do site-->
+    <!-- checkboxes principais -->
+    <div class="boxes">
+      <label class="boxeslabel">
+        <input type="checkbox" id="removeBreaks" checked> Remover quebras de linha
+      </label>
+      <label class="boxeslabel">
+        <input type="checkbox" id="fixSpaces" checked> Corrigir espaços
+      </label>
+    </div>
 
-  <!-- Principais -->
+    <!-- checkboxes de maiúsculas/minúsculas -->
+    <div class="boxes">
+      <label class="boxeslabel">
+        <input type="checkbox" id="AllUppercase"> TODAS MAIÚSCULAS
+      </label>
+      <label class="boxeslabel">
+        <input type="checkbox" id="AllLowercase"> todas minúsculas
+      </label>
+      <label class="boxeslabel">
+        <input type="checkbox" id="CapitalLetters"> Apenas Iniciais Maiúsculas
+      </label>
+    </div>
+
+    <!-- mais opções -->
+    <div class="boxes">
+      <label class="optionslabel">
+        <input type="checkbox" id="firstLetterUppercase"> Primeira letra maiúscula
+      </label>
+      <label class="optionslabel">
+        <input type="checkbox" id="firstLetterSentence"> Primeira letra de frase maiúscula
+      </label>
+    </div>
+
+  </div><!-- fim container principal -->
+
+  <!-- Scripts principais -->
   <script src="/assets/js/outputText.js"></script>
   <script src="/assets/js/inputText.js"></script>
   <script src="/assets/js/checkboxGroup.js"></script>
-  <!-- Secundários -->
+  <!-- Scripts secundários -->
   <script src="/assets/js/pasteBtn.js"></script>
   <script src="/assets/js/delBtn.js"></script>
   <script src="/assets/js/copyBtn.js"></script>
   <script src="/assets/js/editBtn.js"></script>
   <script src="/assets/js/saveBtn.js"></script>
-  <!-- Específicos -->
+  <!-- Scripts específicos -->
   <script src="/assets/js/removeBreaks.js"></script>
   <script src="/assets/js/reader.js"></script>
-  
-  <footer class="footer-simplificado"><!-- Footer fora do container -->
+
+  <!-- Footer -->
+  <footer class="footer-simplificado">
     <div class="footer-content">
       <div class="footer-left">
         <a href="https://github.com/henrixpindola/killerbreak" target="_blank" class="repo-link">
-          <i class="fab fa-github"></i> OpenSource Project
+          <img class="github" src="assets/img/github.png" width="50" alt="GitHub Logo">
+          <p>OpenSource Project</p>
         </a>
-      <div class="footer-bottom"></div>
-  <div class="developer-links">
-    <div class="developer">
-      <a href="https://github.com/suzi19" target="_blank" class="dev-name-link">
-                Suzana Costa
-      </a>
-    <div class="social-links">
-      <a href="https://github.com/suzi19" target="_blank" title="GitHub" class="devprofiles">
-        <i class="fab fa-github"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/suzana-costa-5465b4272/" target="_blank" title="LinkedIn" class="devprofiles">
-        <i class="fab fa-linkedin"></i>
-      </a>
+        <div class="footer-bottom"></div>
+
+        <div class="developer-links">
+          <div class="developer">
+            <a href="https://github.com/suzi19" target="_blank" class="dev-name-link">Suzana Costa</a>
+            <div class="social-links">
+              <a href="https://github.com/suzi19" target="_blank" title="GitHub" class="devprofiles">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/suzana-costa-5465b4272/" target="_blank" title="LinkedIn" class="devprofiles">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="developer">
+            <a href="https://github.com/henrixpindola" target="_blank" class="dev-name-link">Henrique Espindola</a>
+            <div class="social-links">
+              <a href="https://github.com/henrixpindola" target="_blank" title="GitHub" class="devprofiles">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/henrique-espindola-500409256" target="_blank" title="LinkedIn" class="devprofiles">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
-            
-    <div class="developer">
-      <a href="https://github.com/henrixpindola" target="_blank" class="dev-name-link">
-                Henrique Espindola
-      </a>
-    <div class="social-links">
-      <a href="https://github.com/henrixpindola" target="_blank" title="GitHub" class="devprofiles">
-        <i class="fab fa-github"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/henrique-espindola-500409256" target="_blank" title="LinkedIn" class="devprofiles">
-      <i class="fab fa-linkedin"></i>
-      </a>
-    </div>
-  </div>
-  </div>          
-  </div>
-  </div>
   </footer>
- </body>
+</body>
 </html>
