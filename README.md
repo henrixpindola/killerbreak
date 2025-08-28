@@ -32,7 +32,6 @@ Ela ajuda a limpar e formatar o conteúdo de forma rápida, removendo quebras de
 ## 🎨 Interface
 
 ### Design Moderno
-- **Tema Escuro** com acentos verdes
 - **Layout Responsivo** para mobile e desktop
 - **Animações Suaves** e feedback visual
 - **Ícones Intuitivos** e tipografia monospace
@@ -66,9 +65,7 @@ assets/
 │   ├── removeBreaks.js     # Controle de quebras
 │   ├── reader.js           # Modal de informações importantes
 ├── img/
-│   ├── attention.png     # Controle de quebras
-│   ├── github.png     # Controle de quebras
-│   └── linkedin.png       # Ícone de atenção
+│   └── attention.png       # Ícone de atenção
 ```
 
 ## 🎯 Como Usar
