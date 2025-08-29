@@ -312,7 +312,7 @@ p {/*seletor de tag p*/
 }
 
 .reader-modal-content {/*seletor de classe reader-modal-content*/
-    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    background: linear-gradient(135deg, #a404d4c7 0%, #34495e 100%);
     margin: 40px auto;
     padding: 0;
     border-radius: 16px;
@@ -322,7 +322,7 @@ p {/*seletor de tag p*/
     overflow: hidden;
     position: relative;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-    border: 3px solid #a9db34;
+    border: 3px solid #000000;
     display: flex;
     flex-direction: column;
 }
@@ -368,7 +368,7 @@ p {/*seletor de tag p*/
     box-shadow: 0 8px 25px rgba(169, 219, 52, 0.15);
 }
 
-.readerh3 {/*seletor de classe reader-modal-section (apenas das tag h3 nela)*/
+.readerh3 {/*seletor de classe readerh3*/
     color: #a9db34;
     margin: 0 0 1rem 0;
     font-size: 1.4rem;
@@ -378,19 +378,20 @@ p {/*seletor de tag p*/
     gap: 0.5rem;
 }
 
-.reader-modal-section ul {/*seletor de classe reader-modal-section (apenas das tag ul nela)*/
+.reader-modal-section-list {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.reader-modal-section li {/*seletor de classe reader-modal-section (apenas das tag li nela)*/
-    color: #ecf0f1;
-    margin-bottom: 0.8rem;
-    padding-left: 1.5rem;
-    position: relative;
-    line-height: 1.6;
-    font-size: 1.05rem;
+.reader-modal-section-items {
+    color: #a9db34;
+    margin: 0 0 1rem 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .readerlistrong {/*seletor de classe readerlistrong*/
