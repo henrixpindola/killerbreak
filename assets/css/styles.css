@@ -182,8 +182,8 @@ textarea {/*seletor de tag textarea*/
 }
 
 /*DESTAQUE*/
-input[type="checkbox"] {/*é o input type="checkbox". deixe assim*/
-    accent-color: var(--code-green);
+.inputcheckbox {/*seletor de classe inputcheckbox*/
+    accent-color: #5400fc;
     width: 18px;
     height: 18px;
 }
