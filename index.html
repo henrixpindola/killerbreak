@@ -1,135 +1,242 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<meta charset="UTF-8">
-  <title>Killerbreak</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="/assets/css/styles.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
- <body>
-  <div class="container"><!--começo do container principal do site-->
-    <div class="title-container"><!--container do título e ícone de atenção-->
-      <img src="/assets/img/attention.png" alt="Atenção" class="attention-icon"><!--ícone de atenção-->
-      <h1>Killerbreak</h1><!--título principal-->
-    </div><!--fim container do título e ícone de atenção-->
-              
- <div id="readerModal" class="reader-modal"><!-- Modal -->
-  <div class="reader-modal-content"><!--conteúdo do modal-->
-    <span class="reader-modal-close">&times;</span><!--botão fechar modal-->
-    <div class="reader-modal-header"><!--cabeçalho do modal-->
-      <h2 class="reader-modal-title">Limitações e Recomendações</h2><!--título do modal-->
-    </div><!-- fim .reader-modal-header -->
-    <div class="reader-modal-body"><!--corpo do modal-->
-      <div class="reader-modal-sections"><!--seções do modal-->
-        <div class="reader-modal-section"><!--seção do modal-->
-          <h3 class="readerh3">Esta ferramenta utiliza algoritmos heurísticos para realizar a formatação automática. Por isso:</h3><!--subtítulo da seção-->
-            <ul class="reader-modal-section-list"><!--lista de funcionalidades-->
-              <li class="reader-modal-section-items"><strong class="readerlistrong">Sempre revise o resultado final, especialmente em textos técnicos, acadêmicos ou jurídicos.</li><!--item da lista-->
-              <li class="reader-modal-section-items"><strong class="readerlistrong">Algumas palavras ou expressões podem exigir ajustes manuais.</li><!--item da lista-->
-              <li class="reader-modal-section-items"><strong class="readerlistrong">Palavras compostas, nomes próprios e termos técnicos podem não ser interpretados corretamente em todos os casos.</li><!--item da lista-->
-            </ul><!--fim da lista-->
-          <h3 class="readerh3">Para mais informações sobre o uso desta ferramenta, acesse a página do projeto no GitHub.</h3>
-        </div><!-- fim .reader-modal-section -->
-        <div class="reader-modal-section"><!--seção do modal-->
-        <h3><a href="https://github.com/henrixpindola/killerbreak" target="_blank" class="repo-link">
-         GitHub/Killerbreak
-        </a></h3><!--subtítulo-->
-        </div><!-- fim .reader-modal-section -->
-      </div><!-- fim .reader-modal-sections -->
-     </div><!-- fim .reader-modal-body -->
-   </div><!-- Fim .reader-modal-content -->
- </div><!-- Fim Modal -->
-    
-    <p class="subtitle">Remova quebras de linha e corrija espaços indesejados.</p>
-    <div class="text-area"><!--classe "text-area", as caixas de texto e seus botões auxiliares-->
-      <div class="input-box"><!--classe. texto de entrada, botões Colar/X e caixa de texto-->
-        <div class="button-row-input"><!--classe. botões do texto de entrada-->
-          <button id="pasteBtn">Colar</button><!--botão "colar"-->
-          <button id="delBtn">X</button><!--botão "X" (apagar)-->
-        </div><!--fim classe. botões do texto de entrada-->
-        <textarea id="inputText" maxlength="300" placeholder="Cole ou escreva seu texto aqui..."></textarea><!--caixa de texto de entrada. o maxlength limita a 300 caracteres, mas pode ser alterado se necessário.-->
-      </div><!--fim classe. texto de entrada-->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KB Text - Processador de Texto</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>KB Text</h1>
+        <p class="subtitle">
+          Processador de Texto - Formate seu texto com facilidade
+        </p>
+        <div class="attention-icon" title="Instruções de uso">
+          <span>?</span>
+        </div>
+      </header>
 
-      <div class="output-box"><!--classe. texto de saída, botões copiar/editar/salvar caixa de texto-->
-        <div class="button-row-output"><!--classe. botões do texto de saída-->
-          <button id="copyBtn">Copiar</button><!--botão "copiar"-->
-          <button id="editBtn">Editar</button><!--botão "editar"-->
-          <button id="saveBtn">💾</button><!--"botão disquete" para salvar-->
-        </div><!--fim classe. botões do texto de saída-->
-        <textarea id="outputText" readonly></textarea><!--caixa de texto de saída. o readonly impede edição direta-->
-      </div><!--fim classe. texto de saída-->
-    </div><!-- fim classe "text-area"-->
+      <main>
+        <div class="text-areas-container">
+          <div class="text-area-group">
+            <div class="text-area-label">
+              <label for="inputText">Texto de Entrada</label>
+              <span class="char-counter"
+                ><span id="charCount">0</span>/320 caracteres</span
+              >
+            </div>
+            <textarea
+              id="inputText"
+              placeholder="Digite ou cole seu texto aqui..."
+            ></textarea>
+          </div>
 
-    <div class="boxes"><!--container superior de checkboxes removebreaks/fixspaces-->
-      <label class="boxeslabel"><input type="checkbox" class="inputcheckbox" id="removeBreaks" checked>Remover quebras de linha</label><!--checkbox remover quebras de linha, marcado por padrão-->
-      <label class="boxeslabel"><input type="checkbox" class="inputcheckbox" id="fixSpaces" checked>Corrigir espaços</label><!--checkbox corrigir espaços, marcado por padrão-->
-    </div><!--fim container superior de checkboxes removebreaks/fixspaces-->
-            
-    <div class="boxes"><!--container inferior de checkboxes todasMaiusculas/todasMinusculas/iniciaisPalavras-->
-      <label class="boxeslabel"><input type="checkbox" class="inputcheckbox" id="AllUppercase"> TODAS MAIÚSCULAS</label><!--checkbox todas maiúsculas, desmarcada por padrão-->
-      <label class="boxeslabel"><input type="checkbox" class="inputcheckbox"id="AllLowercase"> todas minúsculas</label><!--checkbox todas minúsculas, desmarcada por padrão-->
-      <label class="boxeslabel"><input type="checkbox" class="inputcheckbox"id="CapitalLetters"> Apenas Iniciais Maiúsculas</label><!--checkbox iniciais palavras, desmarcada por padrão-->
-    </div><!--fim container inferior de checkboxes todasMaiusculas/todasMinusculas/iniciaisPalavras-->
+          <div class="text-area-group">
+            <div class="text-area-label">
+              <label for="outputText">Texto Processado</label>
+              <span class="char-counter">Resultado</span>
+            </div>
+            <textarea
+              id="outputText"
+              placeholder="Texto formatado aparecerá aqui..."
+              readonly
+            ></textarea>
+          </div>
+        </div>
 
-    <div class="boxes"><!--container options "Mais opções"-->
-      <label class="optionslabel"><input type="checkbox" class="inputcheckbox" id="firstLetterUppercase">Primeira letra maiúscula</label><!--checkbox primeira letra maiúscula, desmarcada por padrão-->
-      <label class="optionslabel"><input type="checkbox" class="inputcheckbox" id="firstLetterSentence">Primeira letra de frase maiúscula</label><!--checkbox primeira letra de frase maiúscula, desmarcada por padrão-->
-    </div><!--fim container options "Mais opções"-->
-    
-  </div><!-- fim container principal do site-->
+        <div class="buttons-section">
+          <button id="pasteBtn" class="btn btn-primary">
+            <span>Colar</span>
+          </button>
 
-  <!-- Principais -->
-  <script src="/assets/js/outputText.js"></script>
-  <script src="/assets/js/inputText.js"></script>
-  <script src="/assets/js/checkboxGroup.js"></script>
-  <!-- Secundários -->
-  <script src="/assets/js/pasteBtn.js"></script>
-  <script src="/assets/js/delBtn.js"></script>
-  <script src="/assets/js/copyBtn.js"></script>
-  <script src="/assets/js/editBtn.js"></script>
-  <script src="/assets/js/saveBtn.js"></script>
-  <!-- Específicos -->
-  <script src="/assets/js/removeBreaks.js"></script>
-  <script src="/assets/js/reader.js"></script>
-  
-  <footer class="footer-simplificado"><!-- Footer fora do container -->
-    <div class="footer-content">
-      <div class="footer-left">
-        <a href="https://github.com/henrixpindola/killerbreak" target="_blank" class="repo-link">
-          <i class="fab fa-github"></i> OpenSource Project
-        </a>
-      <div><br></div>
-  <div class="developer-links">
-    <div class="developer">
-      <a href="https://github.com/suzi19" target="_blank" class="dev-name-link">
-                Suzana Costa
-      </a>
-    <div class="social-links">
-      <a href="https://github.com/suzi19" target="_blank" title="GitHub" class="devprofiles">
-        <i class="fab fa-github"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/suzana-costa-5465b4272/" target="_blank" title="LinkedIn" class="devprofiles">
-        <i class="fab fa-linkedin"></i>
-      </a>
+          <button id="copyBtn" class="btn btn-success">
+            <span>Copiar</span>
+          </button>
+
+          <button id="editBtn" class="btn btn-warning">
+            <span>Editar</span>
+          </button>
+
+          <button id="saveBtn" class="btn btn-primary">
+            <span>Salvar</span>
+          </button>
+
+          <button id="delBtn" class="btn btn-danger">
+            <span>Limpar</span>
+          </button>
+        </div>
+
+        <div class="options-section">
+          <h3 class="section-title">Opções de Formatação</h3>
+
+          <div class="checkbox-group">
+            <div class="checkbox-item">
+              <input type="checkbox" id="removeBreaks" checked />
+              <label for="removeBreaks">Remover quebras de linha</label>
+            </div>
+
+            <div class="checkbox-item">
+              <input type="checkbox" id="fixSpaces" checked />
+              <label for="fixSpaces">Corrigir espaçamento</label>
+            </div>
+          </div>
+
+          <h4 class="section-title mt-10">Capitalização</h4>
+          <div class="capitalization-group">
+            <div class="checkbox-item">
+              <input type="checkbox" id="AllUppercase" />
+              <label for="AllUppercase">TODAS MAIÚSCULAS</label>
+            </div>
+
+            <div class="checkbox-item">
+              <input type="checkbox" id="AllLowercase" checked />
+              <label for="AllLowercase">todas minúsculas</label>
+            </div>
+
+            <div class="checkbox-item">
+              <input type="checkbox" id="CapitalLetters" />
+              <label for="CapitalLetters">Primeira Letra De Cada Palavra</label>
+            </div>
+
+            <div class="checkbox-item">
+              <input type="checkbox" id="firstLetterUppercase" />
+              <label for="firstLetterUppercase">Primeira letra do texto</label>
+            </div>
+
+            <div class="checkbox-item">
+              <input type="checkbox" id="firstLetterSentence" />
+              <label for="firstLetterSentence"
+                >Modo título. Primeira letra de cada frase</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="custom-words-section">
+          <h3>Palavras Personalizadas</h3>
+          <p
+            style="
+              font-size: 0.9rem;
+              color: var(--text-light);
+              margin-bottom: 15px;
+            "
+          >
+            Adicione palavras que não devem ser alteradas durante o
+            processamento
+          </p>
+
+          <div class="custom-words-input">
+            <input
+              type="text"
+              id="customWordInput"
+              placeholder="Digite uma palavra e pressione Enter"
+            />
+            <button id="addCustomWordBtn">Adicionar</button>
+          </div>
+
+          <div id="customWordsList" class="custom-words-list">
+            <span style="color: #5f6368; font-size: 0.85rem"
+              >Nenhuma palavra personalizada adicionada</span
+            >
+          </div>
+
+          <div class="button-group">
+            <button id="clearCustomWordsBtn" class="secondary" disabled>
+              Limpar Lista
+            </button>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <p>
+          KB Text - Formatador de Texto - Desenvolvido por
+          <a
+            href="https://github.com/henrixpindola"
+            target="_blank"
+            class="dev-name-link"
+          >
+            Henrique Espindola
+          </a>
+        </p>
+      </footer>
+    </div>
+
+    <div id="readerModal" class="reader-modal">
+      <div class="reader-modal-content">
+        <button class="reader-modal-close">&times;</button>
+        <h2 class="reader-modal-title">Instruções de Uso</h2>
+        <div class="reader-modal-text">
+          <p>
+            <strong>1. Digite ou cole</strong> o texto na área de entrada à
+            esquerda.
+          </p>
+
+          <p>
+            <strong>2. Selecione as opções</strong> de formatação desejadas:
+          </p>
+          <ul>
+            <li>
+              <strong>Remover quebras de linha:</strong> Elimina todas as
+              quebras de linha do texto
+            </li>
+            <li>
+              <strong>Corrigir espaçamento:</strong> Remove espaços extras e
+              corrige espaçamento
+            </li>
+            <li>
+              <strong>Opções de capitalização:</strong> Apenas uma opção pode
+              ser selecionada por vez
+            </li>
+          </ul>
+
+          <p>
+            <strong>3. Utilize os botões</strong> para interagir com o texto
+            processado:
+          </p>
+          <ul>
+            <li><strong>Colar:</strong> Cola texto da área de transferência</li>
+            <li><strong>Copiar:</strong> Copia o texto processado</li>
+            <li>
+              <strong>Editar:</strong> Move o texto processado para a área de
+              entrada
+            </li>
+            <li>
+              <strong>Salvar:</strong> Salva o texto processado em um arquivo
+            </li>
+            <li><strong>Limpar:</strong> Limpa ambas as áreas de texto</li>
+          </ul>
+
+          <p>
+            O texto é processado automaticamente conforme você digita ou altera
+            as opções.
+          </p>
+
+          <p class="mt-10"><strong>Limitações e Recomendações</strong></p>
+          <p>
+            Esta ferramenta utiliza algoritmos heurísticos para realizar a
+            formatação automática. Por isso:
+          </p>
+          <ul>
+            <li>
+              Sempre revise o resultado final, especialmente em textos técnicos,
+              acadêmicos ou jurídicos
+            </li>
+            <li>Algumas palavras ou expressões podem exigir ajustes manuais</li>
+            <li>
+              Palavras compostas, nomes próprios e termos técnicos podem não ser
+              interpretados corretamente em todos os casos
+            </li>
+          </ul>
+          <p>
+            Para mais informações sobre o uso desta ferramenta, acesse a página
+            do projeto no GitHub.
+          </p>
+        </div>
       </div>
     </div>
-            
-    <div class="developer">
-      <a href="https://github.com/henrixpindola" target="_blank" class="dev-name-link">
-                Henrique Espindola
-      </a>
-    <div class="social-links">
-      <a href="https://github.com/henrixpindola" target="_blank" title="GitHub" class="devprofiles">
-        <i class="fab fa-github"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/henrique-espindola-500409256" target="_blank" title="LinkedIn" class="devprofiles">
-      <i class="fab fa-linkedin"></i>
-      </a>
-    </div>
-  </div>
-  </div>          
-  </div>
-  </div>
-  </footer>
- </body>
+    <script src="assets/js/script.js"></script>
+  </body>
 </html>
