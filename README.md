@@ -1,153 +1,68 @@
-# 📋 Killerbreak - Suporte ao Copiar e Colar
+📋 KB Text — Processador e Formatador de Texto
+💻 HTML5 | CSS3 | JavaScript ES6+
+✨ Visão Geral
 
-![Killerbreak](https://img.shields.io/badge/Version-1.0.0-green.svg)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
+KB Text é uma ferramenta web moderna para processar textos copiados, especialmente de PDFs e e-books.
+Seu objetivo é limpar, corrigir e padronizar o conteúdo de forma automática e rápida, tornando o texto pronto para edição ou uso em outros documentos.
 
-## ✨ Visão Geral
+🚀 Funcionalidades
+🔧 Processamento de Texto
 
-**Killerbreak** é uma ferramenta web que facilita o trabalho com textos copiados, especialmente de **PDFs e e-books**.
-Ela ajuda a limpar e formatar o conteúdo de forma rápida, removendo quebras de linha indesejadas, corrigindo espaçamentos e ajustando letras maiúsculas/minúsculas.
+Remover Quebras de Linha — elimina “enters” desnecessários
 
-## 🚀 Funcionalidades
+Corrigir Espaçamento — ajusta e remove espaços múltiplos
 
-### 🔧 Processamento de Texto
-- **Remoção de Quebras de Linha** - Elimina "enters" desnecessários
-- **Correção de Espaços** - Padroniza espaçamento e remove espaços múltiplos
-- **Maíusculas e Minúsculas**:
-  - `TODAS MAIÚSCULAS`
-  - `todas minúsculas`
-  - `Apenas Iniciais Maiúsculas`
-  - `Primeira letra maiúscula`
-  - `Primeira letra de frase maiúscula`
+Capitalização (Maiúsculas/Minúsculas)
 
-### 💾 Gerenciamento de Texto
-- **Colar** - Cola texto da área de transferência
-- **Copiar** - Copia texto formatado
-- **Editar** - Move texto formatado para edição
-- **Salvar** - Download do texto como arquivo .txt
-- **Limpar** - Apaga todo o conteúdo
+TODAS MAIÚSCULAS
 
-## 🎨 Interface
+todas minúsculas
 
-### Design Moderno
-- **Layout Responsivo** para mobile e desktop
-- **Animações Suaves** e feedback visual
-- **Ícones Intuitivos** e tipografia monospace
+Primeira Letra De Cada Palavra
 
-### Modal de Atenção
-- Apresenta informações acerca das limitações e recomendações de uso do sofware.
+Primeira letra do texto
 
-## 🛠️ Tecnologias Utilizadas
+Primeira letra de cada frase (modo título)
 
-- **HTML5** - Estrutura semântica
-- **CSS3** - Estilos modernos com variáveis CSS
-- **JavaScript ES6+** - Funcionalidades interativas
-- **Font Awesome** - Ícones
-- **Google Fonts** - Tipografia Courier New
+💾 Gerenciamento de Texto
 
-## 📦 Estrutura de Arquivos
+Colar — insere texto diretamente da área de transferência
 
-```
-assets/
-├── css/
-│   └── styles.css          # Estilos principais
-├── js/
-│   ├── outputText.js       # Gerenciamento de output
-│   ├── inputText.js        # Processamento principal
-│   ├── checkboxGroup.js    # Controle de checkboxes
-│   ├── pasteBtn.js         # Funcionalidade colar
-│   ├── delBtn.js           # Funcionalidade limpar
-│   ├── copyBtn.js          # Funcionalidade copiar
-│   ├── editBtn.js          # Funcionalidade editar
-│   ├── saveBtn.js          # Funcionalidade salvar
-│   ├── removeBreaks.js     # Controle de quebras
-│   ├── reader.js           # Modal de informações importantes
-├── img/
-│   └── attention.png       # Ícone de atenção
-```
+Copiar — copia o texto processado
 
-## 🎯 Como Usar
+Editar — move o texto processado de volta para edição
 
-1. **Cole ou escreva seu texto** na caixa da esquerda
-2. **Ajuste as opções** conforme necessidade:
-   - Marque/desmarque "Remover quebras de linha"
-   - Marque/desmarque "Corrigir espaços"  
-   - Selecione o estilo de maiúsculas/minúsculas desejado
-3. **O resultado aparecerá automaticamente** na caixa da direita
-4. **Use os botões** para copiar, editar ou salvar o texto formatado
+Salvar — exporta o texto em .txt
 
-## 🌈 Cores do Tema
+Limpar — apaga todas as áreas
 
-```css
-:root {
-    --coder-dark: #ffffff;        /* Fundo principal */
-    --coder-blue: #ff8e8e;        /* Destaques */
-    --code-green: #000000;        /* Títulos e bordas */
-    --code-purple: #ffffff;       /* Botões */
-    --book-beige: #cf682d;        /* Elementos secundários */
-    --footer-green: #a9db34;      /* Destaques footer */
-    --delete-red: #ff4655;        /* Botões de exclusão */
-}
-```
+🧠 Palavras Personalizadas
 
-## 📱 Responsividade
+Adicione palavras que não devem ser alteradas durante a formatação
 
-O design é totalmente responsivo e se adapta a:
-- **Desktop** (1200px+)
-- **Tablet** (768px - 1199px)  
-- **Mobile** (< 768px)
+Visualize, remova e limpe a lista personalizada com facilidade
 
-## ⚠️ Limitações e Recomendações
+🎨 Interface
+Design Moderno e Responsivo
 
-Esta ferramenta utiliza algoritmos heurísticos para realizar a formatação automática.
-Por isso:
-- Sempre revise o resultado final, especialmente em textos técnicos, acadêmicos ou jurídicos.
-- Algumas palavras ou expressões podem exigir ajustes manuais.
-- Palavras compostas, nomes próprios e termos técnicos podem não ser interpretados corretamente em todos os casos.
+Tema em tons de verde neon sobre fundo escuro
 
-## 🔧 Personalização
+Layout adaptável a desktop, tablet e mobile
 
-### Adicionar Novos Estilos de Texto
-1. Adicione checkbox no HTML com ID único
-2. Registre no array `capitalizationIds` no `checkboxGroup.js`
-3. Implemente a lógica de formatação no `inputText.js`
+Animações suaves e feedback visual
 
-### Modificar Cores
-Edite as variáveis CSS no início do `styles.css`:
+Modal de Instruções com informações de uso
 
-```css
-:root {
-    --coder-dark: #sua_cor;
-    --code-green: #sua_cor;
-    /* ... */
-}
-```
+Ícones e tipografia moderna (Segoe UI)
 
-## 👥 Desenvolvido Por
+🛠️ Tecnologias Utilizadas
 
-- **Suzana Costa** 
-  - [GitHub](https://github.com/suzi19)
-  - [LinkedIn](https://www.linkedin.com/in/suzana-costa-5465b4272/)
+HTML5 — estrutura semântica
 
-- **Henrique Espindola**
-  - [GitHub](https://github.com/henrixpindola) 
-  - [LinkedIn](https://www.linkedin.com/in/henrique-espindola-500409256)
+CSS3 — design moderno com variáveis e gradientes
 
-## 🐛 Reportar Bugs
+JavaScript ES6+ — manipulação dinâmica do DOM
 
-Encontrou um problema? [Abra uma issue](https://github.com/henrixpindola/killerbreak/issues) no GitHub.
+Google Fonts (Segoe UI) — tipografia limpa e legível
 
-## 💡 Contribuição
-
-Contribuições são bem-vindas! Siga os passos:
-1. Fork o projeto
-2. Crie uma branch para sua feature
-3. Commit suas mudanças
-4. Push para a branch
-5. Abra um Pull Request
-
----
-
-**⭐ Se este projeto foi útil, deixe uma estrela no [GitHub](https://github.com/henrixpindola/killerbreak)!**
+📦 Estrutura de Arquivos
