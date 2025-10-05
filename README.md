@@ -69,8 +69,6 @@ assets/
 │   └── styles.css      # Estilos globais e tema verde neon
 ├── js/
 │   └── script.js       # Lógica principal e controle de eventos
-├── img/
-│   └── attention.png   # Ícone do modal (opcional)
 index.html              # Estrutura principal da aplicação
 ```
 
