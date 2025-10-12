@@ -127,8 +127,14 @@ textarea:focus {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  justify-content: center;
+  justify-content: space-between;
   margin: 25px 0;
+}
+
+.leftbtns, .rightbtns {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
 }
 
 .btn {
